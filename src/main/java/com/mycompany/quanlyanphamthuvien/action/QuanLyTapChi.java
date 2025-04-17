@@ -29,5 +29,44 @@ public class QuanLyTapChi {
         }
         return listTapChi;
     }
+     public void themDtVaoDsTapChi(TapChi tapChiMoi){
+        qlTapChi.add(tapChiMoi);
+        ghiDanhSachTapChi(qlTapChi);
+    }
+    public boolean xoaDtVaoDsTapChi(TapChi tapChiXoa){
+        if(tapChiXoa==null){
+            return false;
+        }
+         for(int i = 0 ;i<qlTapChi.size();i++){
+            if(qlTapChi.get(i).getID()==tapChiXoa.getID()){
+                qlTapChi.remove(i);
+                ghiDanhSachTapChi(qlTapChi);
+                return true;
+            }
+        }
+        return false;
+    }
+    public void suaDtDsTapChi(TapChi tapChiSua) {
+    for (int i = 0; i < qlTapChi.size(); i++) {
+        if (qlTapChi.get(i).getID() == tapChiSua.getID()) {
+            // Các thuộc tính chung từ lớp cha AnPham
+            qlTapChi.get(i).setTenAnPham(tapChiSua.getTenAnPham());
+            qlTapChi.get(i).setSoLuong(tapChiSua.getSoLuong());
+            qlTapChi.get(i).setNamXuatBan(tapChiSua.getNamXuatBan());
+            qlTapChi.get(i).setNhaXuatBan(tapChiSua.getNhaXuatBan());
+            qlTapChi.get(i).setGiaTien(tapChiSua.getGiaTien());
+
+            // Các thuộc tính riêng của TapChi
+            qlTapChi.get(i).setSoPhatHanh(tapChiSua.getSoPhatHanh());
+            qlTapChi.get(i).setThangPhatHanh(tapChiSua.getThangPhatHanh());
+            qlTapChi.get(i).setChuyenDe(tapChiSua.getChuyenDe());
+
+            // Ghi lại danh sách sau khi sửa
+            ghiDanhSachTapChi(qlTapChi);
+            break;
+        }
+    }
+}
+
     
 }

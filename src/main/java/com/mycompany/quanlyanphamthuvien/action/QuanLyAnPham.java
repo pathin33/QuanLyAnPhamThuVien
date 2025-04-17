@@ -31,5 +31,21 @@ public class QuanLyAnPham {
     }
     return listAnPham;
 }
-    
+    public void themDtVaoDsAnPham(AnPham anPhammoi){
+        qlAnPham.add(anPhammoi);
+        ghiDanhSachAnPham(qlAnPham);
+    }
+    public boolean xoaDtVaoDsAnPham(AnPham anPhamxoa){
+        if(anPhamxoa == null){
+            return false;
+        }
+        for(int i = 0 ;i<qlAnPham.size();i++){
+            if(qlAnPham.get(i).getID()==anPhamxoa.getID()){
+                qlAnPham.remove(i);
+                ghiDanhSachAnPham(qlAnPham);
+                return true;
+            }
+        }
+        return false;
+    }
 }

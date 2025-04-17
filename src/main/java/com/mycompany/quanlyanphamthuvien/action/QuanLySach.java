@@ -28,5 +28,44 @@ public class QuanLySach {
             listSach = new ArrayList<>(sachXML.getXmlSach());
         }
         return listSach;
-    }    
+    }
+     public void themDtVaoDsSach(Sach sachMoi){
+        qlSach.add(sachMoi);
+        ghiDanhSachSach(qlSach);
+    }
+    public boolean xoaDtVaoDsSach(Sach sachXoa){
+        if(sachXoa==null){
+            return false;
+        }
+         for(int i = 0 ;i<qlSach.size();i++){
+            if(qlSach.get(i).getID()==sachXoa.getID()){
+                qlSach.remove(i);
+                ghiDanhSachSach(qlSach);
+                return true;
+            }
+        }
+        return false;
+    }
+    public void suaDtDsSach(Sach sachSua) {
+    for (int i = 0; i < qlSach.size(); i++) {
+        if (qlSach.get(i).getID() == sachSua.getID()) { 
+            Sach sachCanSua = qlSach.get(i);
+
+            // Cập nhật các thuộc tính từ lớp cha AnPham
+            sachCanSua.setTenAnPham(sachSua.getTenAnPham());
+            sachCanSua.setSoLuong(sachSua.getSoLuong());
+            sachCanSua.setNamXuatBan(sachSua.getNamXuatBan());
+            sachCanSua.setNhaXuatBan(sachSua.getNhaXuatBan());
+            sachCanSua.setGiaTien(sachSua.getGiaTien());
+
+            // Cập nhật các thuộc tính riêng của Sách
+            sachCanSua.setTacGia(sachSua.getTacGia());
+            sachCanSua.setTheLoai(sachSua.getTheLoai());
+
+            ghiDanhSachSach(qlSach);
+            break;
+        }
+    }
+}
+
 }

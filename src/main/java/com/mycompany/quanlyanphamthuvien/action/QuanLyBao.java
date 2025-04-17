@@ -30,5 +30,39 @@ public class QuanLyBao {
         }
         return listBao;
     }
+    public void themDtVaoDsBao(Bao baoMoi){
+        qlBao.add(baoMoi);
+        ghiDanhSachBao(qlBao);
+    }
+    public boolean xoaDtVaoDsBao(Bao baoXoa){
+        if(baoXoa==null){
+            return false;
+        }
+         for(int i = 0 ;i<qlBao.size();i++){
+            if(qlBao.get(i).getID()==baoXoa.getID()){
+                qlBao.remove(i);
+                ghiDanhSachBao(qlBao);
+                return true;
+            }
+        }
+        return false;
+    }
+    public void suaDtDsBao(Bao baoSua)
+    {
+        for(int i = 0 ;i<qlBao.size();i++){
+            if(qlBao.get(i).getID()==baoSua.getID()){
+                qlBao.get(i).setTenAnPham(baoSua.getTenAnPham());
+                qlBao.get(i).setSoLuong(baoSua.getSoLuong());
+                qlBao.get(i).setNamXuatBan(baoSua.getNamXuatBan());
+                qlBao.get(i).setNhaXuatBan(baoSua.getNhaXuatBan());
+                qlBao.get(i).setGiaTien(baoSua.getGiaTien());
+                qlBao.get(i).setNgayPhatHanh(baoSua.getNgayPhatHanh());
+                qlBao.get(i).setBienTapVien(baoSua.getBienTapVien());
+                ghiDanhSachBao(qlBao);
+                break;
+                
+            }
+        }
+    }
     
 }
