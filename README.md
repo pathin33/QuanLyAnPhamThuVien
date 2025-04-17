@@ -17,21 +17,21 @@ Quản lý trạng thái mượn/trả của từng ấn phẩm
 2. Tìm Kiếm & Sắp Xếp
 Tìm kiếm ấn phẩm theo:
 
-Tên
+-Tên
 
-Tác giả/Nhà xuất bản
+-Tác giả/Nhà xuất bản
 
-Năm phát hành
+-Năm phát hành
 
-Thể loại
+-Thể loại
 
 Sắp xếp ấn phẩm theo:
 
-Tên (A-Z)
+-Tên (A-Z)
 
-Năm xuất bản (mới nhất)
+-Năm xuất bản (mới nhất)
 
-Tình trạng mượn/trả
+-Tình trạng mượn/trả
 
 3. Quản Lý Mượn/Trả
 Đánh dấu ấn phẩm đã được mượn
@@ -55,25 +55,28 @@ Xử lý XML: DOM Parser/JAXB
 Design Pattern: Factory Method, Singleton
 
 Unit Test: JUnit
+
 📝 Cách Sử Dụng
 Thêm ấn phẩm mới:
 
-Chọn loại ấn phẩm (Sách/Tạp chí/Báo)
+-Chọn loại ấn phẩm (Sách/Tạp chí/Báo)
 
-Nhập thông tin chi tiết
+-Nhập thông tin chi tiết
 
-Lưu vào hệ thống
+-Lưu vào hệ thống
 
 Tìm kiếm ấn phẩm:
 
-Nhập từ khóa hoặc tiêu chí tìm kiếm
+-Nhập từ khóa hoặc tiêu chí tìm kiếm
 
-Xem kết quả và thông tin chi tiết
+-Xem kết quả và thông tin chi tiết
 
 Quản lý mượn/trả:
 
-Chọn ấn phẩm
+-Chọn ấn phẩm
 
-Đánh dấu "Đã mượn" hoặc "Đã trả"
+-Đánh dấu "Đã mượn" hoặc "Đã trả"
 
-Hệ thống tự động cập nhật XML
+-Hệ thống tự động cập nhật XML
+
+
