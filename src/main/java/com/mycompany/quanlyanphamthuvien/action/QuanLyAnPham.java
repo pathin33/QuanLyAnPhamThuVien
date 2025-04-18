@@ -48,4 +48,26 @@ public class QuanLyAnPham {
         }
         return false;
     }
+    public void timkiem(String temp){
+        boolean tim = false;
+        for(int i=0;i<qlAnPham.size();i++){
+            if(qlAnPham.get(i).getID().contains(temp)){
+                tim = true;
+            }
+            if(qlAnPham.get(i).getTenAnPham().contains(temp)){
+                tim = true;
+            }
+            if(qlAnPham.get(i).getNhaXuatBan().contains(temp)){
+                tim = true;
+            }
+            try {            
+                if (String.valueOf(qlAnPham.get(i).getGiaTien()).contains(temp) ) {
+                tim = true;   
+                }
+            } catch (Exception e) {
+                tim= false;
+                break;
+            }
+            }
+        }
 }
