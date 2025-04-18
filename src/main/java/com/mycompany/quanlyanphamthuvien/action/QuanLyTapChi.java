@@ -67,6 +67,11 @@ public class QuanLyTapChi {
         }
     }
 }
-
+    public void sapxepNamtapchi(){
+        Collections.sort(qlTapChi, (TapChi o1,TapChi o2) -> Integer.compareUnsigned(o1.getNamXuatBan(), o2.getNamXuatBan()));
+    }
+    public void sapxepGiatapchi(){
+        Collections.sort(qlTapChi, (TapChi o1,TapChi o2)-> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
+    }
     
 }
