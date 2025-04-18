@@ -2,13 +2,17 @@ package com.mycompany.quanlyanphamthuvien.entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Sach")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Sach extends AnPham {
 
+    @XmlElement(name = "TacGia")
     private String tacGia;
+    
+    @XmlElement(name = "TheLoai")
     private String theLoai;
 
     public Sach() {
