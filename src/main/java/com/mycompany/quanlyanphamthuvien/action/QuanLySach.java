@@ -67,5 +67,10 @@ public class QuanLySach {
         }
     }
 }
-
+    public void sapxepNamsach(){
+        Collections.sort(qlSach, (Sach o1, Sach o2) -> Integer.compareUnsigned(o1.getNamXuatBan(), o2.getNamXuatBan()));
+    }
+    public void sapxepGiasach(){
+        Collections.sort(qlSach, (Sach o1, Sach o2)-> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
+    }
 }
