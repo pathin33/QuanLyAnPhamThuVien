@@ -64,5 +64,10 @@ public class QuanLyBao {
             }
         }
     }
-    
+    public void sapxepNambao(){
+        Collections.sort(qlBao, (Bao o1, Bao o2) -> Integer.compareUnsigned(o1.getNamXuatBan(), o2.getNamXuatBan()));
+    }
+    public void sapxepGiabao(){
+        Collections.sort(qlBao, (Bao o1,Bao o2)-> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
+    }
 }
