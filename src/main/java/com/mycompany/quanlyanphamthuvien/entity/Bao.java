@@ -3,13 +3,15 @@ package com.mycompany.quanlyanphamthuvien.entity;
 import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Bao")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Bao extends AnPham {
-
+    @XmlElement(name = "NgayPhatHanh")
     private LocalDate ngayPhatHanh;
+    @XmlElement(name = "BienTapVien")
     private String bienTapVien;
      public Bao() {
         super();
