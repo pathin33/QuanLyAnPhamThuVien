@@ -99,4 +99,67 @@ public class QuanLySach {
         Collections.sort(qlSach, (Sach o1, Sach o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
+    public ArrayList<Sach> timKiemIDSach(String timKiem) {
+        ArrayList<Sach> temp = new ArrayList<>();
+        for (Sach sach : qlSach) {
+            if (sach.getID().equalsIgnoreCase(timKiem)) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
+    public ArrayList<Sach> timKiemTenSach(String timKiem) {
+        ArrayList<Sach> temp = new ArrayList<>();
+        for (Sach sach : qlSach) {
+            if (sach.getTenAnPham().toLowerCase().contains(timKiem.toLowerCase())) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
+    /**
+     * Tìm kiếm sách theo khoảng giá tiền
+     *
+     * @param giaMin Giá tối thiểu (nếu null thì không giới hạn)
+     * @param giaMax Giá tối đa (nếu null thì không giới hạn)
+     * @return Danh sách sách thỏa mãn điều kiện
+     */
+    public ArrayList<Sach> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
+        ArrayList<Sach> ketQua = new ArrayList<>();
+
+        for (Sach sach : qlSach) {
+            double gia = sach.getGiaTien();
+
+            boolean thoaDieuKien = true;
+
+            // Kiểm tra giá tối thiểu
+            if (giaMin != null && gia < giaMin) {
+                thoaDieuKien = false;
+            }
+
+            // Kiểm tra giá tối đa
+            if (giaMax != null && gia > giaMax) {
+                thoaDieuKien = false;
+            }
+
+            if (thoaDieuKien) {
+                ketQua.add(sach);
+            }
+        }
+
+        return ketQua;
+    }
+
+    public ArrayList<Sach> timKiemTheLoaiSach(String timKiem) {
+        ArrayList<Sach> temp = new ArrayList<>();
+        for (Sach sach : qlSach) {
+            if (sach.getTheLoai().toLowerCase().contains(timKiem.toLowerCase())) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
 }
