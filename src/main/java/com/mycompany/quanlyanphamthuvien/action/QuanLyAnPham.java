@@ -9,7 +9,13 @@ import java.util.ArrayList;
 
 public class QuanLyAnPham {
     private ArrayList<AnPham> qlAnPham;
-
+    
+    public QuanLyAnPham() {
+        this.qlAnPham = docDanhSachAnPham();
+        if (this.qlAnPham == null) {
+            this.qlAnPham = new ArrayList<>();
+        }
+    }
     public ArrayList<AnPham> getQlAnPham() {
         return qlAnPham;
     }
@@ -31,22 +37,85 @@ public class QuanLyAnPham {
     }
     return listAnPham;
 }
-    public void themDtVaoDsAnPham(AnPham anPhammoi){
-        qlAnPham.add(anPhammoi);
-        ghiDanhSachAnPham(qlAnPham);
+        public void themDtVaoDsAnPham(AnPham anPhammoi) {
+        // Đọc danh sách hiện có từ file
+        ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
+
+        // Thêm đối tượng mới vào danh sách
+        danhSachHienCo.add(anPhammoi);
+
+        // Ghi lại toàn bộ danh sách
+        ghiDanhSachAnPham(danhSachHienCo);
+
+        // Cập nhật danh sách trong memory
+        this.qlAnPham = danhSachHienCo;
     }
-    public boolean xoaDtVaoDsAnPham(AnPham anPhamxoa){
-        if(anPhamxoa == null){
-            return false;
-        }
-        for(int i = 0 ;i<qlAnPham.size();i++){
-            if(qlAnPham.get(i).getID()==anPhamxoa.getID()){
-                qlAnPham.remove(i);
-                ghiDanhSachAnPham(qlAnPham);
-                return true;
+
+    public boolean xoaDtVaoDsAnPham(AnPham anPhamxoa) {
+        ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
+        boolean result = false;
+
+        for (int i = 0; i < danhSachHienCo.size(); i++) {
+            if (danhSachHienCo.get(i).getID().equals(anPhamxoa.getID())) {
+                danhSachHienCo.remove(i);
+                result = true;
+                break;
             }
         }
-        return false;
+
+        if (result) {
+            ghiDanhSachAnPham(danhSachHienCo);
+            this.qlAnPham = danhSachHienCo;
+        }
+
+        return result;
+    }
+public void suaDtDsAnPham(AnPham anPhamsua) {
+        // Đọc danh sách hiện có từ file
+        ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
+        boolean daSua = false;
+
+        for (int i = 0; i < danhSachHienCo.size(); i++) {
+            AnPham anPhamHienTai = danhSachHienCo.get(i);
+
+            if (anPhamHienTai.getID().equals(anPhamsua.getID())) {
+                // Cập nhật thông tin chung từ lớp AnPham
+                anPhamHienTai.setTenAnPham(anPhamsua.getTenAnPham());
+                anPhamHienTai.setSoLuong(anPhamsua.getSoLuong());
+                anPhamHienTai.setNamXuatBan(anPhamsua.getNamXuatBan());
+                anPhamHienTai.setNhaXuatBan(anPhamsua.getNhaXuatBan());
+                anPhamHienTai.setGiaTien(anPhamsua.getGiaTien());
+
+                // Xử lý riêng cho từng loại ấn phẩm
+                if (anPhamsua instanceof Sach && anPhamHienTai instanceof Sach) {
+                    Sach sachSua = (Sach) anPhamsua;
+                    Sach sachHienTai = (Sach) anPhamHienTai;
+                    sachHienTai.setTacGia(sachSua.getTacGia());
+                    sachHienTai.setTheLoai(sachSua.getTheLoai());
+                } else if (anPhamsua instanceof Bao && anPhamHienTai instanceof Bao) {
+                    Bao baoSua = (Bao) anPhamsua;
+                    Bao baoHienTai = (Bao) anPhamHienTai;
+                    baoHienTai.setNgayPhatHanh(baoSua.getNgayPhatHanh());
+                    baoHienTai.setBienTapVien(baoSua.getBienTapVien());
+                } else if (anPhamsua instanceof TapChi && anPhamHienTai instanceof TapChi) {
+                    TapChi tapChiSua = (TapChi) anPhamsua;
+                    TapChi tapChiHienTai = (TapChi) anPhamHienTai;
+                    tapChiHienTai.setSoPhatHanh(tapChiSua.getSoPhatHanh());
+                    tapChiHienTai.setThangPhatHanh(tapChiSua.getThangPhatHanh());
+                    tapChiHienTai.setChuyenDe(tapChiSua.getChuyenDe());
+                }
+
+                daSua = true;
+                break;
+            }
+        }
+
+        if (daSua) {
+            // Ghi lại toàn bộ danh sách đã cập nhật
+            ghiDanhSachAnPham(danhSachHienCo);
+            // Cập nhật danh sách trong memory
+            this.qlAnPham = danhSachHienCo;
+        }
     }
     public void timkiem(String temp){
         boolean tim = false;
