@@ -99,5 +99,63 @@ public class QuanLyBao {
         Collections.sort(qlBao, (Bao o1, Bao o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
-}
+    public ArrayList<Bao> timKiemIDBao(String timKiem) {
+        ArrayList<Bao> temp = new ArrayList<>();
+        for (Bao bao : qlBao) {
+            if (bao.getID().toUpperCase().equalsIgnoreCase(timKiem)) {
+                temp.add(bao);
+            }
+        }
+        return temp;
+    }
 
+    /**
+     * Tìm kiếm báo theo khoảng giá tiền
+     *
+     * @param giaMin Giá tối thiểu (null nếu không có)
+     * @param giaMax Giá tối đa (null nếu không có)
+     * @return Danh sách báo thỏa mãn điều kiện
+     */
+    public ArrayList<Bao> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
+        ArrayList<Bao> ketQua = new ArrayList<>();
+
+        for (Bao bao : qlBao) {
+            double gia = bao.getGiaTien();
+            boolean thoaDieuKien = true;
+
+            if (giaMin != null && gia < giaMin) {
+                thoaDieuKien = false;
+            }
+            if (giaMax != null && gia > giaMax) {
+                thoaDieuKien = false;
+            }
+
+            if (thoaDieuKien) {
+                ketQua.add(bao);
+            }
+        }
+        return ketQua;
+    }
+
+    public ArrayList<Bao> tiemKiemTenBao(String timKiem) {
+        ArrayList<Bao> temp = new ArrayList<>();
+        for (Bao bao : qlBao) {
+            if (bao.getTenAnPham().toUpperCase().contains(timKiem.toLowerCase())) {
+                temp.add(bao);
+            }
+        }
+        return temp;
+    }
+
+    public ArrayList<Bao> tiemKiemgBtvBao(String timKiem) {
+        ArrayList<Bao> temp = new ArrayList<>();
+        for (Bao bao : qlBao) {
+            if (bao.getBienTapVien().toUpperCase().contains(timKiem.toLowerCase())) {
+                temp.add(bao);
+            }
+        }
+        return temp;
+
+    }
+
+}
