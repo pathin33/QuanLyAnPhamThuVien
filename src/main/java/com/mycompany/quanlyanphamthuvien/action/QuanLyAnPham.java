@@ -1,24 +1,26 @@
-
 package com.mycompany.quanlyanphamthuvien.action;
 
 import com.mycompany.quanlyanphamthuvien.entity.AnPham;
 import com.mycompany.quanlyanphamthuvien.entity.AnPhamXML;
-import com.mycompany.quanlyanphamthuvien.utils.FileUtils;
 import com.mycompany.quanlyanphamthuvien.entity.Bao;
 import com.mycompany.quanlyanphamthuvien.entity.Sach;
 import com.mycompany.quanlyanphamthuvien.entity.TapChi;
+import com.mycompany.quanlyanphamthuvien.utils.FileUtils;
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.Comparator;
 
 public class QuanLyAnPham {
+
     private ArrayList<AnPham> qlAnPham;
-    
+
     public QuanLyAnPham() {
         this.qlAnPham = docDanhSachAnPham();
         if (this.qlAnPham == null) {
             this.qlAnPham = new ArrayList<>();
         }
     }
+
     public ArrayList<AnPham> getQlAnPham() {
         return qlAnPham;
     }
@@ -26,21 +28,24 @@ public class QuanLyAnPham {
     public void setQlAnPham(ArrayList<AnPham> qlAnPham) {
         this.qlAnPham = qlAnPham;
     }
-    public void ghiDanhSachAnPham(ArrayList<AnPham> qlAnPham){
+
+    public void ghiDanhSachAnPham(ArrayList<AnPham> qlAnPham) {
         AnPhamXML anPhamXML = new AnPhamXML();
         anPhamXML.setXmlAnPham(qlAnPham);
         FileUtils.writeXMLtoFile("AnPham.xml", anPhamXML);
     }
+
     public ArrayList<AnPham> docDanhSachAnPham() {
-    ArrayList<AnPham> listAnPham = new ArrayList<>();
-    AnPhamXML anPhamXML = (AnPhamXML) FileUtils.readXMLFile("AnPham.xml", AnPhamXML.class);
-    
-    if (anPhamXML != null) {
-        listAnPham = new ArrayList<>(anPhamXML.getXmlAnPham());
+        ArrayList<AnPham> listAnPham = new ArrayList<>();
+        AnPhamXML anPhamXML = (AnPhamXML) FileUtils.readXMLFile("AnPham.xml", AnPhamXML.class);
+
+        if (anPhamXML != null) {
+            listAnPham = new ArrayList<>(anPhamXML.getXmlAnPham());
+        }
+        return listAnPham;
     }
-    return listAnPham;
-}
-        public void themDtVaoDsAnPham(AnPham anPhammoi) {
+
+    public void themDtVaoDsAnPham(AnPham anPhammoi) {
         // Đọc danh sách hiện có từ file
         ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
 
@@ -73,7 +78,8 @@ public class QuanLyAnPham {
 
         return result;
     }
-public void suaDtDsAnPham(AnPham anPhamsua) {
+
+    public void suaDtDsAnPham(AnPham anPhamsua) {
         // Đọc danh sách hiện có từ file
         ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
         boolean daSua = false;
@@ -120,26 +126,84 @@ public void suaDtDsAnPham(AnPham anPhamsua) {
             this.qlAnPham = danhSachHienCo;
         }
     }
-    public void timkiem(String temp){
-        boolean tim = false;
-        for(int i=0;i<qlAnPham.size();i++){
-            if(qlAnPham.get(i).getID().contains(temp)){
-                tim = true;
-            }
-            if(qlAnPham.get(i).getTenAnPham().contains(temp)){
-                tim = true;
-            }
-            if(qlAnPham.get(i).getNhaXuatBan().contains(temp)){
-                tim = true;
-            }
-            try {            
-                if (String.valueOf(qlAnPham.get(i).getGiaTien()).contains(temp) ) {
-                tim = true;   
-                }
-            } catch (Exception e) {
-                tim= false;
-                break;
-            }
+
+    /**
+     * Tìm kiếm ấn phẩm theo tên (tìm gần đúng, không phân biệt hoa thường)
+     *
+     * @param ten Tên hoặc một phần tên cần tìm
+     * @return Danh sách ấn phẩm có tên chứa chuỗi tìm kiếm
+     */
+    public ArrayList<AnPham> timKiemTheoTen(String ten) {
+        ArrayList<AnPham> ketQua = new ArrayList<>();
+
+        for (AnPham anPham : qlAnPham) {
+            if (anPham.getTenAnPham().toLowerCase().contains(ten.toLowerCase())) {
+                ketQua.add(anPham);
             }
         }
+        return ketQua;
+    }
+
+    /**
+     * Tìm kiếm ấn phẩm theo khoảng giá tiền
+     *
+     * @param giaMin Giá tối thiểu (null nếu không giới hạn)
+     * @param giaMax Giá tối đa (null nếu không giới hạn)
+     * @return Danh sách ấn phẩm có giá trong khoảng chỉ định
+     */
+    public ArrayList<AnPham> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
+        ArrayList<AnPham> ketQua = new ArrayList<>();
+
+        for (AnPham anPham : qlAnPham) {
+            double gia = anPham.getGiaTien();
+            boolean thoaDieuKien = true;
+
+            if (giaMin != null && gia < giaMin) {
+                thoaDieuKien = false;
+            }
+            if (giaMax != null && gia > giaMax) {
+                thoaDieuKien = false;
+            }
+
+            if (thoaDieuKien) {
+                ketQua.add(anPham);
+            }
+        }
+        return ketQua;
+    }
+
+    /**
+     * Tìm kiếm ấn phẩm theo ID (tìm chính xác)
+     *
+     * @param id ID cần tìm
+     * @return Danh sách ấn phẩm có ID trùng khớp
+     */
+    public ArrayList<AnPham> timKiemTheoID(String id) {
+        ArrayList<AnPham> ketQua = new ArrayList<>();
+
+        for (AnPham anPham : qlAnPham) {
+            if (anPham.getID().equalsIgnoreCase(id)) {
+                ketQua.add(anPham);
+            }
+        }
+        return ketQua;
+    }
+    public void sapXepNamXuatBanAp(){
+        Collections.sort(qlAnPham, new Comparator<AnPham>(){
+            @Override
+            public int compare(AnPham o1, AnPham o2) {
+                return Integer.compare(o1.getNamXuatBan(), o2.getNamXuatBan());
+            }
+            
+        });
+    }
+    public void sapXepGiaTienAp(){
+        Collections.sort(qlAnPham, new Comparator<AnPham>(){
+            @Override
+            public int compare(AnPham o1, AnPham o2) {
+                return Double.compare(o1.getGiaTien(), o2.getGiaTien());
+            }
+            
+        });
+    }
 }
