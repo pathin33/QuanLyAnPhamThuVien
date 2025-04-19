@@ -4,6 +4,9 @@ package com.mycompany.quanlyanphamthuvien.action;
 import com.mycompany.quanlyanphamthuvien.entity.AnPham;
 import com.mycompany.quanlyanphamthuvien.entity.AnPhamXML;
 import com.mycompany.quanlyanphamthuvien.utils.FileUtils;
+import com.mycompany.quanlyanphamthuvien.entity.Bao;
+import com.mycompany.quanlyanphamthuvien.entity.Sach;
+import com.mycompany.quanlyanphamthuvien.entity.TapChi;
 import java.util.ArrayList;
 
 
