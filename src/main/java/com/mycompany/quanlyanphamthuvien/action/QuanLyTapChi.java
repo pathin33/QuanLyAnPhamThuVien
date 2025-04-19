@@ -103,4 +103,62 @@ public class QuanLyTapChi {
         Collections.sort(qlTapChi, (TapChi o1, TapChi o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
+    public ArrayList<TapChi> timKiemIDTapChi(String timKiem) {
+        ArrayList<TapChi> temp = new ArrayList<>();
+        for (TapChi sach : qlTapChi) {
+            if (sach.getID().equalsIgnoreCase(timKiem)) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
+    /**
+     * Tìm kiếm tạp chí theo khoảng giá tiền
+     *
+     * @param giaMin Giá tối thiểu (null nếu không có)
+     * @param giaMax Giá tối đa (null nếu không có)
+     * @return Danh sách tạp chí thỏa mãn điều kiện
+     */
+    public ArrayList<TapChi> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
+        ArrayList<TapChi> ketQua = new ArrayList<>();
+
+        for (TapChi tapChi : qlTapChi) {
+            double gia = tapChi.getGiaTien();
+            boolean thoaDieuKien = true;
+
+            if (giaMin != null && gia < giaMin) {
+                thoaDieuKien = false;
+            }
+            if (giaMax != null && gia > giaMax) {
+                thoaDieuKien = false;
+            }
+
+            if (thoaDieuKien) {
+                ketQua.add(tapChi);
+            }
+        }
+        return ketQua;
+    }
+
+    public ArrayList<TapChi> timKiemTenTapChi(String timKiem) {
+        ArrayList<TapChi> temp = new ArrayList<>();
+        for (TapChi sach : qlTapChi) {
+            if (sach.getTenAnPham().toLowerCase().contains(timKiem.toLowerCase())) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
+    public ArrayList<TapChi> timKiemChuyenDeTapChi(String timKiem) {
+        ArrayList<TapChi> temp = new ArrayList<>();
+        for (TapChi sach : qlTapChi) {
+            if (sach.getChuyenDe().toLowerCase().contains(timKiem.toLowerCase())) {
+                temp.add(sach);
+            }
+        }
+        return temp;
+    }
+
 }
