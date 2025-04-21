@@ -8,15 +8,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "TapChi")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class TapChi extends AnPham {
+
     @XmlElement(name = "SoPhatHanh")
     private int soPhatHanh;
     @XmlElement(name = "ThangPhatHanh")
     private int thangPhatHanh;
     @XmlElement(name = "ChuyenDe")
     private String chuyenDe;
+
     public TapChi() {
         super();
     }
+
     public TapChi(int soPhatHanh, int thangPhatHanh, String chuyenDe, String ID, String tenAnPham, int soLuong, int namXuatBan, String nhaXuatBan, double giaTien) {
         super(ID, tenAnPham, soLuong, namXuatBan, nhaXuatBan, giaTien);
         this.soPhatHanh = soPhatHanh;
@@ -53,8 +56,11 @@ public class TapChi extends AnPham {
     }
 
     @Override
-    public void tinhTrang() {
-        //tinh trang cua an pham tap chi
+    public boolean tinhTrang() {
+        if (this.getSoLuong() > 1) {
+            return true;
+        }
+        return false;
     }
 
 }
