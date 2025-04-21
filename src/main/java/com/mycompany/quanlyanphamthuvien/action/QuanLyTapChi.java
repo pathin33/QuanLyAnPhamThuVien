@@ -103,6 +103,10 @@ public class QuanLyTapChi {
         Collections.sort(qlTapChi, (TapChi o1, TapChi o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
+    public void sapXepTenTapChi() {
+        Collections.sort(qlTapChi, (TapChi t1, TapChi t2) -> t1.getTenAnPham().compareToIgnoreCase(t2.getTenAnPham()));
+    }
+
     public ArrayList<TapChi> timKiemIDTapChi(String timKiem) {
         ArrayList<TapChi> temp = new ArrayList<>();
         for (TapChi sach : qlTapChi) {
@@ -159,6 +163,16 @@ public class QuanLyTapChi {
             }
         }
         return temp;
+    }
+
+    public boolean kiemTraTrungID(TapChi tapChi) {
+        String id = tapChi.getID();
+        for (TapChi tapChiHienCo : qlTapChi) {
+            if (tapChiHienCo.getID().equals(id)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
