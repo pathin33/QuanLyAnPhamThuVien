@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NguoiDungXML>
+    <DanhSachNguoiDung>
+        <NguoiDung>
+            <TenDangNhap>BaThien</TenDangNhap>
+            <MatKhau>123</MatKhau>
+        </NguoiDung>
+    </DanhSachNguoiDung>
+</NguoiDungXML>

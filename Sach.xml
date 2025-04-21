@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SachXML>
+    <DanhSachSach>
+        <Sach>
+            <ID>S001</ID>
+            <TenAnPham>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</TenAnPham>
+            <SoLuong>50</SoLuong>
+            <NamXuatBan>2010</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>75000.0</GiaTien>
+            <TacGia>Nguyễn Nhật Ánh</TacGia>
+            <TheLoai>Tiểu thuyết</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S002</ID>
+            <TenAnPham>Nhà Giả Kim</TenAnPham>
+            <SoLuong>35</SoLuong>
+            <NamXuatBan>1988</NamXuatBan>
+            <NhaXuatBan>NXB Văn Học</NhaXuatBan>
+            <GiaTien>89000.0</GiaTien>
+            <TacGia>Paulo Coelho</TacGia>
+            <TheLoai>Tiểu thuyết triết lý</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S003</ID>
+            <TenAnPham>Harry Potter và Hòn Đá Phù Thủy</TenAnPham>
+            <SoLuong>75</SoLuong>
+            <NamXuatBan>1997</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>120000.0</GiaTien>
+            <TacGia>J.K. Rowling</TacGia>
+            <TheLoai>Giả tưởng</TheLoai>
+        </Sach>
+    </DanhSachSach>
+</SachXML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TapChiXMl>
+    <DanhSachTapChi>
+        <TapChi>
+            <ID>TC001</ID>
+            <TenAnPham>Tạp chí Tin học</TenAnPham>
+            <SoLuong>100</SoLuong>
+            <NamXuatBan>2023</NamXuatBan>
+            <NhaXuatBan>NXB Khoa học</NhaXuatBan>
+            <GiaTien>45000.0</GiaTien>
+            <SoPhatHanh>15</SoPhatHanh>
+            <ThangPhatHanh>6</ThangPhatHanh>
+            <ChuyenDe>Công nghệ thông tin</ChuyenDe>
+        </TapChi>
+        <TapChi>
+            <ID>TC002</ID>
+            <TenAnPham>Tạp chí Y học hiện đại</TenAnPham>
+            <SoLuong>75</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Y Dược</NhaXuatBan>
+            <GiaTien>55000.0</GiaTien>
+            <SoPhatHanh>8</SoPhatHanh>
+            <ThangPhatHanh>3</ThangPhatHanh>
+            <ChuyenDe>Nghiên cứu y khoa</ChuyenDe>
+        </TapChi>
+        <TapChi>
+            <ID>TC003</ID>
+            <TenAnPham>Tạp chí Kinh tế số</TenAnPham>
+            <SoLuong>120</SoLuong>
+            <NamXuatBan>2023</NamXuatBan>
+            <NhaXuatBan>NXB Tài chính</NhaXuatBan>
+            <GiaTien>38000.0</GiaTien>
+            <SoPhatHanh>22</SoPhatHanh>
+            <ThangPhatHanh>9</ThangPhatHanh>
+            <ChuyenDe>Phân tích kinh tế</ChuyenDe>
+        </TapChi>
+    </DanhSachTapChi>
+</TapChiXMl>

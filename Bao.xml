@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BaoXML>
+    <DanhSachBao>
+        <Bao>
+            <ID>B001</ID>
+            <TenAnPham>Báo Công Nghệ</TenAnPham>
+            <SoLuong>100</SoLuong>
+            <NamXuatBan>2023</NamXuatBan>
+            <NhaXuatBan>NXB Công Nghệ</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <NgayPhatHanh/>
+            <BienTapVien>Nguyễn Văn A</BienTapVien>
+        </Bao>
+    </DanhSachBao>
+</BaoXML>

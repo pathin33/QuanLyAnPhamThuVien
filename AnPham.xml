@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AnPhamXML>
+    <DanhSachAnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
+            <ID>TC001</ID>
+            <TenAnPham>AI Sự Phát triển</TenAnPham>
+            <SoLuong>10</SoLuong>
+            <NamXuatBan>2025</NamXuatBan>
+            <NhaXuatBan>NXB Công Nghệ</NhaXuatBan>
+            <GiaTien>10000.0</GiaTien>
+            <SoPhatHanh>2</SoPhatHanh>
+            <ThangPhatHanh>4</ThangPhatHanh>
+            <ChuyenDe>Khoa Học</ChuyenDe>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S001</ID>
+            <TenAnPham>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</TenAnPham>
+            <SoLuong>10</SoLuong>
+            <NamXuatBan>2022</NamXuatBan>
+            <NhaXuatBan>NXB Tuổi Trẻ</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <TacGia>Nguyễn Ánh</TacGia>
+            <TheLoai>tiểu thuyết</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
+            <ID>TC003</ID>
+            <TenAnPham>Tạp chí Kinh tế số</TenAnPham>
+            <SoLuong>120</SoLuong>
+            <NamXuatBan>2023</NamXuatBan>
+            <NhaXuatBan>NXB Tài chính</NhaXuatBan>
+            <GiaTien>38000.0</GiaTien>
+            <SoPhatHanh>22</SoPhatHanh>
+            <ThangPhatHanh>9</ThangPhatHanh>
+            <ChuyenDe>Phân tích kinh tế</ChuyenDe>
+        </AnPham>
+    </DanhSachAnPham>
+</AnPhamXML>
