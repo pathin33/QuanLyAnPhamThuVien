@@ -99,6 +99,10 @@ public class QuanLySach {
         Collections.sort(qlSach, (Sach o1, Sach o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
+    public void sapXepTenSach() {
+        Collections.sort(qlSach, (s1, s2) -> s1.getTenAnPham().compareToIgnoreCase(s2.getTenAnPham()));
+    }
+
     public ArrayList<Sach> timKiemIDSach(String timKiem) {
         ArrayList<Sach> temp = new ArrayList<>();
         for (Sach sach : qlSach) {
@@ -160,6 +164,15 @@ public class QuanLySach {
             }
         }
         return temp;
+    }
+     public boolean kiemTraTrungID(Sach sach){
+       String id = sach.getID();
+       for(Sach sachHienCo : qlSach){
+           if(sachHienCo.getID().equals(id)){
+               return false;
+           }
+       }
+       return true;
     }
 
 }
