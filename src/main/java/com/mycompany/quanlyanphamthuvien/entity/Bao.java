@@ -1,6 +1,6 @@
 package com.mycompany.quanlyanphamthuvien.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Bao extends AnPham {
     @XmlElement(name = "NgayPhatHanh")
-    private LocalDate ngayPhatHanh;
+    private Date ngayPhatHanh;
     @XmlElement(name = "BienTapVien")
     private String bienTapVien;
      public Bao() {
         super();
     }
-    public Bao(LocalDate ngayPhatHanh, String bienTapVien, String ID, String tenAnPham, int soLuong, int namXuatBan, String nhaXuatBan, double giaTien) {
+    public Bao(Date ngayPhatHanh, String bienTapVien, String ID, String tenAnPham, int soLuong, int namXuatBan, String nhaXuatBan, double giaTien) {
         super(ID, tenAnPham, soLuong, namXuatBan, nhaXuatBan, giaTien);
         this.ngayPhatHanh = ngayPhatHanh;
         this.bienTapVien = bienTapVien;
@@ -26,11 +26,11 @@ public class Bao extends AnPham {
         super(ID, tenAnPham, soLuong, namXuatBan, nhaXuatBan, giaTien);
     }
 
-    public LocalDate getNgayPhatHanh() {
+    public Date getNgayPhatHanh() {
         return ngayPhatHanh;
     }
 
-    public void setNgayPhatHanh(LocalDate ngayPhatHanh) {
+    public void setNgayPhatHanh(Date ngayPhatHanh) {
         this.ngayPhatHanh = ngayPhatHanh;
     }
 
@@ -43,8 +43,11 @@ public class Bao extends AnPham {
     }
 
     @Override
-    public void tinhTrang() {
-        //tinh trang an pham bao 
+    public boolean tinhTrang() {
+        if(this.getSoLuong()>1){
+            return true;
+        }
+        return false;
     }
 
 }
