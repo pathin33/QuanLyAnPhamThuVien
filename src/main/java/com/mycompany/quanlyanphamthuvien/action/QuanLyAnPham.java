@@ -188,22 +188,34 @@ public class QuanLyAnPham {
         }
         return ketQua;
     }
-    public void sapXepNamXuatBanAp(){
-        Collections.sort(qlAnPham, new Comparator<AnPham>(){
+
+    public void sapXepNamXuatBanAp() {
+        Collections.sort(qlAnPham, new Comparator<AnPham>() {
             @Override
             public int compare(AnPham o1, AnPham o2) {
                 return Integer.compare(o1.getNamXuatBan(), o2.getNamXuatBan());
             }
-            
+
         });
     }
-    public void sapXepGiaTienAp(){
-        Collections.sort(qlAnPham, new Comparator<AnPham>(){
+
+    public void sapXepGiaTienAp() {
+        Collections.sort(qlAnPham, new Comparator<AnPham>() {
             @Override
             public int compare(AnPham o1, AnPham o2) {
                 return Double.compare(o1.getGiaTien(), o2.getGiaTien());
             }
-            
+
         });
     }
+
+    public void sapXepTenAnPham() {
+        Collections.sort(qlAnPham, new Comparator<AnPham>() {
+            @Override
+            public int compare(AnPham o1, AnPham o2) {
+                return o1.getTenAnPham().compareToIgnoreCase(o2.getTenAnPham());
+            }
+        });
+    }
+    
 }
