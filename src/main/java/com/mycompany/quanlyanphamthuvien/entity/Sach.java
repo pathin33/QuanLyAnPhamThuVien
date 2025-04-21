@@ -46,8 +46,11 @@ public class Sach extends AnPham {
     }
 
     @Override
-    public void tinhTrang() {
-        //tinh trang cua an pham sach
+    public boolean tinhTrang() {
+       if(this.getSoLuong()>1){
+           return true;
+       }
+       return false;
     }
 
 }
