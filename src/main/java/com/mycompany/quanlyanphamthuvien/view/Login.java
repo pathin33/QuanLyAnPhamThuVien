@@ -1,14 +1,20 @@
 package com.mycompany.quanlyanphamthuvien.view;
+
+import com.mycompany.quanlyanphamthuvien.action.KiemTraDangNhapAdmin;
+import com.mycompany.quanlyanphamthuvien.entity.Admin;
+
 public class Login extends javax.swing.JFrame {
 
-  
+    private KiemTraDangNhapAdmin loginAdmin;
+
     public Login() {
         initComponents();
+        loginAdmin = new KiemTraDangNhapAdmin();
+
     }
 
- 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -118,6 +124,11 @@ public class Login extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -212,34 +223,47 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        QuanLyMain QL = new QuanLyMain();
-        QL.setVisible(true);
-        QL.pack();
-        QL.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_button1ActionPerformed
+    }                                           
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        Admin admin = new Admin(jTextField2.getText().trim(), jPasswordField1.getText().trim());
+        if (loginAdmin.checkDangNhapAdmin(admin)) {
+            QuanLyMain QL = new QuanLyMain();
+            QL.setVisible(true);
+            QL.pack();
+            QL.setLocationRelativeTo(null);
+            this.dispose();
+
+        }else{
+            MessageUtils mess = new MessageUtils();
+            mess.showMessage(null, "Tên đăng nhập hoặc mật khẩu không đúng.");
+        }
+
+    }                                       
+
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         User UserFrame = new User();
         UserFrame.setVisible(true);
         UserFrame.pack();
         UserFrame.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_button2ActionPerformed
+    }                                       
 
-    /**
-     * @param args the command line arguments
-     */
-    
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Admin getAdmin() {
+        return new Admin(jTextField2.getText().trim(), jPasswordField1.getText().trim());
+    }
+
+
+    // Variables declaration - do not modify                     
     private com.mycompany.quanlyanphamthuvien.view.Button button1;
     private com.mycompany.quanlyanphamthuvien.view.Button button2;
     private javax.swing.JLabel jLabel1;
@@ -255,5 +279,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     private com.mycompany.quanlyanphamthuvien.view.PanelRound panelRound1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
