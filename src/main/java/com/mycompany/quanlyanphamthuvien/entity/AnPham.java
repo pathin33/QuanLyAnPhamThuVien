@@ -89,6 +89,6 @@ public abstract class AnPham {
         this.giaTien = giaTien;
     }
 
-    public abstract void tinhTrang();
+    public abstract boolean tinhTrang();
 }
 
