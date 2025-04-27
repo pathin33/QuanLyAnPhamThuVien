@@ -426,7 +426,266 @@ public class QLsach extends javax.swing.JFrame {
             }
         });
     }
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
 
+    private boolean valuedateID(){
+        try {
+            String text = FieldID1.getText().trim();
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("Số ID không hợp lệ");
+                return false;
+            }
+        } catch (Exception e) {
+            FieldID.requestFocus();
+            showMessage("Số ID không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedateten(){
+        try {
+            String text = jTextField1.getText().trim();
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("tên không hợp lệ");
+                return false;
+            }
+        } catch (Exception e) {
+            FieldID.requestFocus();
+            showMessage("tên không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedateNumber(){
+        try {
+            String text = FieldID.getText().trim();
+            int sl = Integer.parseInt(FieldID.getText().trim());
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("số lượng không hợp lệ");
+                return false;
+            }
+            if(sl<0){
+                showMessage("số phải lớn hơn 0");
+            }
+        } catch (NumberFormatException e) {
+            FieldID.requestFocus();
+            showMessage("số lượng không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedateyear(){
+        try {
+            String text = jTextField5.getText().trim();
+            int sl = Integer.parseInt(jTextField5.getText().trim());
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("số lượng không hợp lệ");
+                return false;
+            }
+            if(sl<0){
+                showMessage("số phải lớn hơn 0");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            jTextField5.requestFocus();
+            showMessage("số lượng không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedateLoai(){
+        try {
+            String text = jTextField2.getText().trim();
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("tên không hợp lệ");
+                return false;
+            }
+        } catch (Exception e) {
+            jTextField2.requestFocus();
+            showMessage("tên không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedatePulisher(){
+        try {
+            String text = jTextField4.getText().trim();
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("tên không hợp lệ");
+                return false;
+            }
+        } catch (Exception e) {
+            jTextField4.requestFocus();
+            showMessage("tên không được trống");
+            return false;
+        }
+        return true;
+    }
+    private boolean valuedateGia(){
+        try {
+            String text = jTextField3.getText().trim();
+            double sl = Double.parseDouble(jTextField3.getText());
+            if (text.isEmpty() || !text.matches("\\d+")) {
+                showMessage("số lượng không hợp lệ");
+                return false;
+            }
+            if(sl<0){
+                showMessage("số phải lớn hơn 0");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            jTextField3.requestFocus();
+            showMessage("số lượng không được trống");
+            return false;
+        }
+        return true;
+    }
+    public static String capitalizeWords(String str) {
+        str = str.toLowerCase();
+        String[] words = str.split("\\s+");
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            if (word.length() > 0) {
+                if (word.equals("tt") || word.equals("tp") || word.equals("tx")) {
+                    sb.append(word.toUpperCase());
+                } else {
+                    sb.append(Character.toUpperCase(word.charAt(0)));
+                    sb.append(word.substring(1));
+                }
+                sb.append(" ");
+            }
+        }
+        return sb.toString().trim();
+    }
+    public Sach getSachInfo() {
+        // validate residents
+        if (!valuedateID() || !valuedateten() || !valuedateLoai() || !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
+            return null;
+        }
+        try {
+            Sach sach = new Sach();
+            if (FieldID1.getText() != null && !"".equals(FieldID1.getText())) {
+                sach.setID(FieldID1.getText());
+            }
+            sach.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
+            sach.setNhaXuatBan(capitalizeWords(jTextField4.getText().trim()));
+            sach.setSoLuong(Integer.parseInt(FieldID.getText()));
+            sach.setTheLoai(capitalizeWords(jTextField2.getText().trim()));
+            sach.setGiaTien(Double.parseDouble(jTextField3.getText()));
+            sach.setNamXuatBan(Integer.parseInt(jTextField5.getText()));
+            return sach;
+        } catch (NumberFormatException e) {
+            showMessage(e.getMessage());
+        }
+        return null;
+    }
+    public void showListBooks(List<Sach> list) {
+        int size = list.size();
+        Object [][] sach = new Object[size][8];
+        for (int i = 0; i < size; i++) {
+            sach[i][0] = list.get(i).getID();
+            sach[i][1] = list.get(i).getTenAnPham();
+            sach[i][2] = list.get(i).getTheLoai();
+            sach[i][3] = list.get(i).getNamXuatBan();
+            sach[i][4] = list.get(i).getNhaXuatBan();
+            sach[i][5] = list.get(i).getGiaTien();
+            sach[i][6] = list.get(i).getSoLuong();
+            sach[i][7] = list.get(i).getTacGia();
+        }
+        jTable1.getColumnModel().getColumn(0).setWidth(3);
+        jTable1.setModel(new DefaultTableModel(sach, columnNames));
+    }
+    public void showBook(Sach sach) 
+    {
+        FieldID1.setText("" + sach.getID());
+        jTextField1.setText(sach.getTenAnPham());
+        jTextField2.setText(sach.getTheLoai());
+        jTextField4.setText(sach.getNhaXuatBan());
+        jTextField3.setText(""+sach.getNamXuatBan());
+        FieldID.setText(""+sach.getSoLuong());
+        jButton1.setEnabled(false);
+        jButton7.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+    }
+    public void fillBookFromSelectedRow(List<Sach> list) {
+    int row = jTable1.getSelectedRow();
+    if (row >= 0) {
+        String bookID = jTable1.getModel().getValueAt(row, 0).toString(); 
+        Sach selectedBook = findBookByID(list, bookID); 
+
+        if (selectedBook != null) {
+            FieldID1.setText(selectedBook.getID());              
+            jTextField1.setText(selectedBook.getTenAnPham());     
+            jTextField2.setText(selectedBook.getTheLoai());      
+            jTextField4.setText(selectedBook.getNhaXuatBan());    
+            FieldID.setText(String.valueOf(selectedBook.getSoLuong()));  
+            jTextField3.setText(String.valueOf(selectedBook.getNamXuatBan()));
+            jTextField5.setText(String.valueOf(selectedBook.getGiaTien()));    
+            jButton1.setEnabled(false); 
+            jButton7.setEnabled(true);  
+            jButton3.setEnabled(true);  
+            jButton4.setEnabled(true);  
+            jButton5.setEnabled(true);  
+        }
+    }
+    }
+    private Sach findBookByID(List<Sach> list, String id) {
+    for (Sach sach : list) {
+        if (sach.getID().equals(id)) {
+            return sach;
+        }
+    }
+    return null;
+    }
+    public void showCountBooks(List<Sach> list) {
+    int count = list.size();
+    }
+    public void addUndoListener(ActionListener listener){
+        jButton6.addActionListener(listener);
+    }
+    
+    public void addAddListener(ActionListener listener) {
+        jButton1.addActionListener(listener);
+    }
+    
+    public void addListSelectionListener(ListSelectionListener listener) {
+        jTable1.getSelectionModel().addListSelectionListener(listener);
+    }
+    
+    public void addEditListener(ActionListener listener) {
+        jButton7.addActionListener(listener);
+    }
+    
+    public void addClearListener(ActionListener listener) {
+        jButton4.addActionListener(listener);
+    }
+    
+    public void addDeleteListener(ActionListener listener) {
+        jButton3.addActionListener(listener);
+    }
+    
+    public void addSortTitleListener(ActionListener listener) {
+        jButton8.addActionListener(listener);
+    }
+    public void addSortQuantityListener(ActionListener listener) {
+        jButton9.addActionListener(listener);
+    }
+    public void addSortPriceListener(ActionListener listener) {
+        jButton12.addActionListener(listener);
+    }
+    public void addSortYearListener(ActionListener listener) {
+        jButton10.addActionListener(listener);
+    }
+    public void addSearchListener(ActionListener listener) {
+        jButton5.addActionListener(listener);
+    }
+    public void addCancelSearchListener(ActionListener listener){
+        jButton2.addActionListener(listener);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FieldID;
     private javax.swing.JTextField FieldID1;
