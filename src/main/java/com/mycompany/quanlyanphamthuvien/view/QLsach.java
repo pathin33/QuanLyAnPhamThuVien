@@ -13,8 +13,68 @@ public class QLsach extends javax.swing.JFrame {
     /**
      * Creates new form QLsach
      */
+    private String [] columnNames = new String [] {
+        "ID","Book Title","Book genre","Publisher","Publication year","Price","Quantity"};
+    FlowLayout flowLayout = new FlowLayout();
     public QLsach() {
         initComponents();
+        jButton1.setEnabled(true);
+        jButton7.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(true);
+        jTable1.setDefaultRenderer(Object.class, new QLsach.MyRenderer());
+    }
+    public class MyRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+            TableColumnModel columnModel=table.getColumnModel();
+            columnModel.getColumn(0).setPreferredWidth(10);
+            columnModel.getColumn(1).setPreferredWidth(60);
+            columnModel.getColumn(2).setPreferredWidth(250);
+            columnModel.getColumn(3).setPreferredWidth(50);
+            columnModel.getColumn(4).setPreferredWidth(130);
+            columnModel.getColumn(5).setPreferredWidth(60);
+            columnModel.getColumn(5).setPreferredWidth(50);
+            JTableHeader header = table.getTableHeader();
+            header.setBackground(new Color(0, 0, 139));
+            header.setForeground(Color.WHITE);
+            header.setFont(new java.awt.Font("Times New Roman", 0, 18));
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+            if (!isSelected) {
+                if (row % 2 == 0) {
+                    c.setBackground(new Color(191, 239, 255));
+                } else {
+                    c.setBackground(new Color(135, 206, 250));
+                }
+            } else {
+                c.setBackground(new Color(193, 255, 193));
+            }
+
+            return c;
+        }
+    }
+    public class MyRenderer2 extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+            TableColumnModel columnModel=table.getColumnModel();
+            JTableHeader header = table.getTableHeader();
+            header.setBackground(new Color(0, 0, 139));
+            header.setForeground(Color.WHITE);
+            header.setFont(new java.awt.Font("Times New Roman", 0, 18));
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+            if (!isSelected) {
+                if (row % 2 == 0) {
+                    c.setBackground(new Color(191, 239, 255));
+                } else {
+                    c.setBackground(new Color(135, 206, 250));
+                }
+            } else {
+                c.setBackground(new Color(193, 255, 193));
+            }
+
+            return c;
+        }
     }
 
     /**
