@@ -24,6 +24,22 @@ public class QLsach extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         jButton5.setEnabled(true);
         jTable1.setDefaultRenderer(Object.class, new QLsach.MyRenderer());
+        setTheLoaiSach();
+    }
+    private void setTheLoaiSach() {
+        String[] theLoai = {"Khoa học",
+            "Tiểu thuyết",
+            "Giáo trình",
+            "Kinh tế",
+            "Truyện tranh",
+            "Lập trình",
+            "Tâm lý học"};
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(theLoai);
+        jComboBox1.setModel(model);
+        jComboBox1.setSelectedIndex(0);
+        jComboBox1.setSelectedIndex(1);
+        jComboBox1.setSelectedIndex(2);
+        jComboBox1.setSelectedIndex(3);
     }
     public class MyRenderer extends DefaultTableCellRenderer {
         @Override
