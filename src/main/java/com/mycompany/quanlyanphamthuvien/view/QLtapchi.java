@@ -1,8 +1,15 @@
 package com.mycompany.quanlyanphamthuvien.view;
 
+import com.mycompany.quanlyanphamthuvien.action.QuanLyTapChi;
 import com.mycompany.quanlyanphamthuvien.controller.TapChiController;
 import com.mycompany.quanlyanphamthuvien.entity.TapChi;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+
+import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,19 +22,21 @@ public class QLtapchi extends javax.swing.JFrame {
     /**
      * Creates new form QLtapchi
      */
+    private ArrayList<TapChi> arrTapChi;
+    private QuanLyTapChi qlTapChi;
+
     public QLtapchi() {
         initComponents();
-
-        FieldID.setText("0");
-        FieldID1.setText("           ");
-        jTextField2.setText("         ");
-
+        FieldID.setEnabled(true);
+        FieldID.setEditable(true);
         FieldID.setVisible(true);
-        FieldID1.setVisible(true);
-        jTextField2.setVisible(true);
         initTable();
+
         TapChiController tvc = new TapChiController(this);
         tvc.bangTapChi();
+        setLuaChonTheLoai();
+        qlTapChi = new QuanLyTapChi();
+        arrTapChi = qlTapChi.docDanhSachTapChi();
     }
 
     @SuppressWarnings("unchecked")
@@ -37,7 +46,6 @@ public class QLtapchi extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -66,7 +74,7 @@ public class QLtapchi extends javax.swing.JFrame {
         jYearChooser1 = new com.toedter.calendar.JYearChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        FieldID2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,12 +97,6 @@ public class QLtapchi extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 102));
-        jButton2.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/cancelled.png"))); // NOI18N
-        jButton2.setText("Cancel search");
-
         jButton3.setBackground(new java.awt.Color(0, 0, 102));
         jButton3.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,6 +113,11 @@ public class QLtapchi extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/refresh.png"))); // NOI18N
         jButton4.setText("Refresh");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(0, 0, 102));
         jButton5.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
@@ -161,7 +168,6 @@ public class QLtapchi extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))))
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,9 +184,7 @@ public class QLtapchi extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(123, 123, 123)
                 .addComponent(jButton6)
                 .addContainerGap(123, Short.MAX_VALUE))
         );
@@ -191,12 +195,13 @@ public class QLtapchi extends javax.swing.JFrame {
         FieldID.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         FieldID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FieldID.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(204, 204, 204)));
+        FieldID.setEnabled(false);
         FieldID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FieldIDActionPerformed(evt);
             }
         });
-        getContentPane().add(FieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 80, -1));
+        getContentPane().add(FieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 80, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
 
@@ -214,7 +219,7 @@ public class QLtapchi extends javax.swing.JFrame {
                 FieldID1ActionPerformed(evt);
             }
         });
-        getContentPane().add(FieldID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        getContentPane().add(FieldID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 80, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
 
@@ -335,7 +340,19 @@ public class QLtapchi extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 100, 42));
         jLabel11.setText("The issue number(TIN):");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, 30));
+
+        FieldID.setEditable(false);
+        FieldID2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        FieldID2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        FieldID2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(204, 204, 204)));
+        FieldID2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldID2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FieldID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 80, -1));
+        FieldID.setOpaque(false);
+        FieldID.setVisible(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/fontsach.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -346,6 +363,11 @@ public class QLtapchi extends javax.swing.JFrame {
 
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
+    }
+
+    public void buttonAddTapChi(ActionListener listener) {
+        jButton1.addActionListener(listener);
+
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
 
@@ -402,6 +424,22 @@ public class QLtapchi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                        
 
+    private void FieldID2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        FieldID.setText("");
+        FieldID1.setText("");
+        FieldID2.setText("");
+        jTextField1.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        
+
+
+    }                                        
+
     /**
      * @param args the command line arguments
      */
@@ -437,6 +475,23 @@ public class QLtapchi extends javax.swing.JFrame {
         });
     }
 
+    private void setLuaChonTheLoai() {
+        String[] items = {
+            "Công nghệ",
+            "Kinh tế",
+            "Nghệ thuật",
+            "Y học",
+            "Văn học"
+        };
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(items);
+        dropGenre.setModel(model);
+        dropGenre.setSelectedIndex(0);
+        dropGenre.setSelectedIndex(1);
+        dropGenre.setSelectedIndex(2);
+        dropGenre.setSelectedIndex(3);
+        dropGenre.setSelectedIndex(4);
+    }
+
     private void initTable() {
         DefaultTableModel model = new DefaultTableModel();
         //cái defaultTbleModel này là thư viện để làm việc với bảng trong javaSwing với chức năng thêm xoá sửa
@@ -459,6 +514,12 @@ public class QLtapchi extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator('.');
+        symbols.setDecimalSeparator(',');
+
+        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
+
         for (TapChi tc : bangTapChi) {
             Object[] row = new Object[]{
                 tc.getID(),
@@ -466,7 +527,7 @@ public class QLtapchi extends javax.swing.JFrame {
                 tc.getSoLuong(),
                 tc.getNamXuatBan(),
                 tc.getNhaXuatBan(),
-                tc.getGiaTien(),
+                formatter.format(tc.getGiaTien()),
                 tc.getSoPhatHanh(),
                 tc.getThangPhatHanh(),
                 tc.getChuyenDe(),
@@ -474,19 +535,25 @@ public class QLtapchi extends javax.swing.JFrame {
             };
             model.addRow(row);
         }
-
     }
 
     private boolean checkID() {
         try {
             String textID = FieldID1.getText().trim();
             if (textID.isEmpty() || !textID.matches("(?i)TC\\d+")) {
-                showMessage("Invalid ID must start with \"TC\" followed by digits");
+                showMessage("Invalid ID must start with \"TC\" followed by digits!");
                 return false;
             }
+            for (TapChi tapChi : arrTapChi) {
+                if (tapChi.getID().equalsIgnoreCase(textID)) {
+                    showMessage("ID already exists. Please enter a unique ID!");
+                    return false;
+                }
+            }
+
         } catch (Exception e) {
             FieldID1.requestFocus();
-            showMessage("ID cannot be blank");
+            showMessage("ID cannot be blank!");
             return false;
         }
         return true;
@@ -496,44 +563,46 @@ public class QLtapchi extends javax.swing.JFrame {
         String name = jTextField1.getText();
         if (name == null || "".equals(name.trim())) {
             jTextField1.requestFocus();
-            showMessage("Magazine title cannot be empty");
+            showMessage("Magazine title cannot be empty!");
             return false;
         }
         return true;
     }
 
     private boolean checkSoPhatHanh() {
-        String soPhatHanh = jTextField2.getText();
+        String soPhatHanh = FieldID.getText();
 
         if ("".equals(soPhatHanh.trim())) {
-            showMessage("Số phát hành không được để trống");
+            showMessage("Issue number cannot be blank!");
         }
         try {
             int so = Integer.parseInt(soPhatHanh.trim());
             if (so <= 0) {
-                showMessage("Số phát hành phải lớn hơn 0");
+                showMessage("Issue number must be greater than 0!");
                 return false;
             }
         } catch (NumberFormatException e) {
-            showMessage("Số phát hành phải là số ");
+            showMessage("Issue number must be a number!");
             return false;
         }
         return true;
     }
 
     private boolean checkSoLuong() {
-        String soLuong = FieldID.getText();
+        String soLuong = FieldID2.getText();
         if ("".equals(soLuong.trim())) {
-            showMessage("Số lượng không được để trống");
+            showMessage("Quantity cannot be blank!");
+            FieldID2.requestFocus();
+            return false;
         }
         try {
             int so = Integer.parseInt(soLuong.trim());
             if (so <= 0) {
-                showMessage("Số lượng phải lớn hơn 0");
+                showMessage("Quantity must be greater than 0!");
                 return false;
             }
         } catch (NumberFormatException e) {
-            showMessage("Số lượng phải là số ");
+            showMessage("Quantity must be a number!");
             return false;
         }
         return true;
@@ -541,22 +610,17 @@ public class QLtapchi extends javax.swing.JFrame {
     }
 
     private boolean checkGia() {
-        String giaText = jTextField4.getText().trim();
+        String giaText = jTextField3.getText().trim();
+
         if (giaText.isEmpty()) {
-            showMessage("Giá không được để trống");
-            jTextField4.requestFocus();
+            showMessage("Price cannot be blank!");
+            jTextField3.requestFocus();
             return false;
         }
-        try {
-            double gia = Double.parseDouble(giaText);
-            if (gia <= 0) {
-                showMessage("Giá phải lớn hơn 0");
-                jTextField4.requestFocus();
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            showMessage("Giá phải là số thực hợp lệ");
-            jTextField4.requestFocus();
+        double gia = Double.parseDouble(giaText);
+        if (gia <= 0) {
+            showMessage("The price must be greater than 0!");
+            jTextField3.requestFocus();
             return false;
         }
         return true;
@@ -566,20 +630,81 @@ public class QLtapchi extends javax.swing.JFrame {
         String name = jTextField4.getText();
         if (name == null || "".equals(name.trim())) {
             jTextField4.requestFocus();
-            showMessage("Nhà xuất bản không được để trống");
+            showMessage("Publisher cannot be empty!");
             return false;
         }
         return true;
     }
 
+    private boolean checkNamXuatBan() {
+        int nam = jYearChooser1.getYear();
+        if (nam > 2025) {
+            showMessage("Invalid publication year!");
+            return false;
+
+        }
+        return true;
+    }
+
+    public static String capitalizeWords(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+        String[] words = input.trim().toLowerCase().split("\\s+");
+        StringBuilder capitalized = new StringBuilder();
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                capitalized.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1))
+                        .append(" ");
+            }
+        }
+        return capitalized.toString().trim();
+    }
+
+    public TapChi checkDuLieuHopLe() {
+        if (!checkID() || !checkNhaXuatBan() || !checkGia() || !checkNamXuatBan() || !checkSoLuong()
+                || !checkSoPhatHanh() || !checkTenTapChi()) {
+            return null;
+        }
+        try {
+
+            TapChi tapchi = new TapChi();
+
+            tapchi.setID(FieldID1.getText().trim());
+
+            tapchi.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
+
+            tapchi.setSoLuong(Integer.parseInt(FieldID2.getText().trim()));
+
+            tapchi.setNamXuatBan(jYearChooser1.getYear());
+
+            tapchi.setNhaXuatBan(jTextField4.getText().trim());
+
+            tapchi.setGiaTien(Double.parseDouble(jTextField3.getText().trim()));
+
+            tapchi.setSoPhatHanh(Integer.parseInt(FieldID.getText().trim()));
+
+            tapchi.setThangPhatHanh(jMonthChooser1.getMonth());
+
+            tapchi.setChuyenDe((String) dropGenre.getSelectedItem());
+            return tapchi;
+
+        } catch (Exception e) {
+
+            showMessage("There was an error in data processing!");
+            return null;
+        }
+    }
+
     // Variables declaration - do not modify                     
     private javax.swing.JTextField FieldID;
     private javax.swing.JTextField FieldID1;
+    private javax.swing.JTextField FieldID2;
     private javax.swing.JComboBox<String> dropGenre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -603,7 +728,6 @@ public class QLtapchi extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private com.toedter.calendar.JYearChooser jYearChooser1;
