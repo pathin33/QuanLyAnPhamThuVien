@@ -1,123 +1,56 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.quanlyanphamthuvien.view;
 
-/**
- *
- * @author Admin
- */
-public class QLsach extends javax.swing.JFrame {
+import com.mycompany.quanlyanphamthuvien.action.QuanLyTapChi;
+import com.mycompany.quanlyanphamthuvien.controller.TapChiController;
+import com.mycompany.quanlyanphamthuvien.entity.TapChi;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.util.ArrayList;
 
-    /**
-     * Creates new form QLsach
-     */
-    private String [] columnNames = new String [] {
-        "ID","Book Title","Book genre","Publisher","Publication year","Price","Quantity"};
-    FlowLayout flowLayout = new FlowLayout();
-    public QLsach() {
+import javax.swing.DefaultComboBoxModel;
+
+import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+
+public class QLtapchi extends javax.swing.JFrame {
+
+    private ArrayList<TapChi> arrTapChi;
+    private QuanLyTapChi qlTapChi;
+
+    public QLtapchi() {
         initComponents();
-        jButton1.setEnabled(true);
-        jButton7.setEnabled(false);
-        jButton3.setEnabled(false);
-        jButton4.setEnabled(false);
-        jButton5.setEnabled(true);
-        jTable1.setDefaultRenderer(Object.class, new QLsach.MyRenderer());
-        setTheLoaiSach();
-    }
-    private void setTheLoaiSach() {
-        String[] theLoai = {"Khoa học",
-            "Tiểu thuyết",
-            "Giáo trình",
-            "Kinh tế",
-            "Truyện tranh",
-            "Lập trình",
-            "Tâm lý học"};
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(theLoai);
-        jComboBox1.setModel(model);
-        jComboBox1.setSelectedIndex(0);
-        jComboBox1.setSelectedIndex(1);
-        jComboBox1.setSelectedIndex(2);
-        jComboBox1.setSelectedIndex(3);
-    }
-    public class MyRenderer extends DefaultTableCellRenderer {
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
-            TableColumnModel columnModel=table.getColumnModel();
-            columnModel.getColumn(0).setPreferredWidth(10);
-            columnModel.getColumn(1).setPreferredWidth(60);
-            columnModel.getColumn(2).setPreferredWidth(250);
-            columnModel.getColumn(3).setPreferredWidth(50);
-            columnModel.getColumn(4).setPreferredWidth(130);
-            columnModel.getColumn(5).setPreferredWidth(60);
-            columnModel.getColumn(5).setPreferredWidth(50);
-            JTableHeader header = table.getTableHeader();
-            header.setBackground(new Color(0, 0, 139));
-            header.setForeground(Color.WHITE);
-            header.setFont(new java.awt.Font("Times New Roman", 0, 18));
-            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
-            if (!isSelected) {
-                if (row % 2 == 0) {
-                    c.setBackground(new Color(191, 239, 255));
-                } else {
-                    c.setBackground(new Color(135, 206, 250));
-                }
-            } else {
-                c.setBackground(new Color(193, 255, 193));
-            }
+        setResizable(false);
+        FieldID.setEnabled(true);
+        FieldID.setEditable(true);
+        FieldID.setVisible(true);
+        initTable();
 
-            return c;
-        }
-    }
-    public class MyRenderer2 extends DefaultTableCellRenderer {
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
-            TableColumnModel columnModel=table.getColumnModel();
-            JTableHeader header = table.getTableHeader();
-            header.setBackground(new Color(0, 0, 139));
-            header.setForeground(Color.WHITE);
-            header.setFont(new java.awt.Font("Times New Roman", 0, 18));
-            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
-            if (!isSelected) {
-                if (row % 2 == 0) {
-                    c.setBackground(new Color(191, 239, 255));
-                } else {
-                    c.setBackground(new Color(135, 206, 250));
-                }
-            } else {
-                c.setBackground(new Color(193, 255, 193));
-            }
-
-            return c;
-        }
+        TapChiController tvc = new TapChiController(this);
+        tvc.bangTapChi();
+        setLuaChonTheLoai();
+        qlTapChi = new QuanLyTapChi();
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         FieldID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         FieldID1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -126,19 +59,20 @@ public class QLsach extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         dropGenre = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
         jYearChooser1 = new com.toedter.calendar.JYearChooser();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        FieldID2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Book Management");
-        setPreferredSize(new java.awt.Dimension(1150, 700));
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
@@ -152,12 +86,11 @@ public class QLsach extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/book.png"))); // NOI18N
         jButton1.setText("Add");
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 102));
-        jButton2.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/cancelled.png"))); // NOI18N
-        jButton2.setText("Cancel search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(0, 0, 102));
         jButton3.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
@@ -175,6 +108,11 @@ public class QLsach extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/refresh.png"))); // NOI18N
         jButton4.setText("Refresh");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(0, 0, 102));
         jButton5.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
@@ -211,68 +149,61 @@ public class QLsach extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
+                        .addGap(58, 58, 58))))
+            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(48, 48, 48)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGap(123, 123, 123)
                 .addComponent(jButton6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
-
-        jLabel3.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel3.setText("ID:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 60, 30));
 
         FieldID.setEditable(false);
         FieldID.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         FieldID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FieldID.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(204, 204, 204)));
+        FieldID.setEnabled(false);
         FieldID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FieldIDActionPerformed(evt);
             }
         });
-        getContentPane().add(FieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 80, -1));
+        getContentPane().add(FieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 80, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
 
         jLabel4.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel4.setText("The number of books: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 190, 30));
+        jLabel4.setText("The number of magazines: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 220, 30));
 
         FieldID.setEditable(false);
         FieldID1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -283,36 +214,36 @@ public class QLsach extends javax.swing.JFrame {
                 FieldID1ActionPerformed(evt);
             }
         });
-        getContentPane().add(FieldID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        getContentPane().add(FieldID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 80, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
 
         jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel5.setText("Book title:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 100, 30));
+        jLabel5.setText("Magazine title:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 130, 30));
 
         jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel6.setText("Book genre:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 120, 30));
-
-        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel7.setText("Publisher:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 90, 30));
+        jLabel6.setText("Magazine genre:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 140, 30));
 
         jLabel8.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel8.setText("Publication year:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, -1, 30));
+        jLabel8.setText("Publication month:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 140, -1, 30));
 
         jButton8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton8.setText("Sort by title");
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 140, 50));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 140, 50));
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton9.setText("Sort by quantity");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 150, 50));
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -322,21 +253,21 @@ public class QLsach extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 330, 150, 50));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, 150, 50));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Book title", "Book genre", "Author", "Publisher", "Publication year", "Price", "Quantity", "Status"
+                "ID", "Magazine title", "Number of magazines", "Publication year", "Publisher", "Magazine price", "Issue number", "Publication month", "Magazine genre", " status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -344,13 +275,8 @@ public class QLsach extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(40);
-            jTable1.getColumnModel().getColumn(7).setMaxWidth(70);
-            jTable1.getColumnModel().getColumn(8).setMaxWidth(70);
-        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 890, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 890, 320));
 
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -358,18 +284,10 @@ public class QLsach extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 190, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 190, 30));
 
         jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 190, 100, 30));
-
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 190, 30));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 240, 120, 30));
 
         jButton12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton12.setText("Sort by price");
@@ -378,12 +296,12 @@ public class QLsach extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 150, 50));
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 150, 50));
 
         jLabel10.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel10.setText("Book price:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 100, 30));
+        jLabel10.setText("Magazine price:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 240, 130, 30));
 
         dropGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lua chon 1", "Item 2", "Item 3", "Item 4" }));
         dropGenre.addActionListener(new java.awt.event.ActionListener() {
@@ -391,385 +309,475 @@ public class QLsach extends javax.swing.JFrame {
                 dropGenreActionPerformed(evt);
             }
         });
-        getContentPane().add(dropGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 100, 30));
+        getContentPane().add(dropGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 190, 30));
+
+        jLabel3.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 100, 42));
+        jLabel3.setText("ID:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 60, 30));
+
+        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 100, 42));
+        jLabel7.setText("Publisher:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 90, 30));
+
+        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 190, 30));
+        getContentPane().add(jMonthChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 130, 30));
+        getContentPane().add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 190, -1, 30));
 
         jLabel9.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 100, 42));
-        jLabel9.setText("Author:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 70, 30));
+        jLabel9.setText("Publication year:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, 150, 30));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel11.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 100, 42));
+        jLabel11.setText("The issue number(TIN):");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, 30));
+
+        FieldID.setEditable(false);
+        FieldID2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        FieldID2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        FieldID2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(204, 204, 204)));
+        FieldID2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                FieldID2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 190, 30));
-        getContentPane().add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 140, 60, 30));
+        getContentPane().add(FieldID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 80, -1));
+        FieldID.setOpaque(false);
+        FieldID.setVisible(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/fontsach.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1140, 740));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    public void buttonAddTapChi(ActionListener listener) {
+        jButton1.addActionListener(listener);
 
-    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FieldIDActionPerformed
+    }
 
-    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldID1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FieldID1ActionPerformed
+    public void bangDsTapChi(ListSelectionListener listener) {
+        jTable1.getSelectionModel().addListSelectionListener(listener);
+    }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    public void xoaDt(ActionListener listener) {
+        jButton3.addActionListener(listener);
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    }
+
+    public void suaDt(ActionListener listener) {
+        jButton7.addActionListener(listener);
+    }
+
+    public void sapXepTheoTen(ActionListener listener) {
+        jButton8.addActionListener(listener);
+    }
+
+    public void sapXepTheoGiaTien(ActionListener listener) {
+        jButton12.addActionListener(listener);
+    }
+
+    public void sapXepTheoSoLuong(ActionListener listener) {
+        jButton9.addActionListener(listener);
+    }
+
+    public void sapXepTheoNam(ActionListener listener) {
+        jButton10.addActionListener(listener);
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    }                                        
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        timkiemsach tk = new timkiemsach();
+        tk.setVisible(true);
+        tk.pack();
+        tk.setLocationRelativeTo(null);
+    }                                        
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         QuanLyMain QL = new QuanLyMain();
         QL.setVisible(true);
         QL.pack();
         QL.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }                                        
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    }                                        
+
+    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here: 
+    }                                       
+
+    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }                                        
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }                                         
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }                                           
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        timkiemsach tk = new timkiemsach();
-        tk.setVisible(true);
-        tk.pack();
-        tk.setLocationRelativeTo(null);     
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void dropGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropGenreActionPerformed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-    }//GEN-LAST:event_dropGenreActionPerformed
+    }                                         
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void dropGenreActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }                                         
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                           
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void FieldID2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        FieldID1.setEnabled(true);
+        FieldID.setText("");
+        FieldID1.setText("");
+        FieldID2.setText("");
+        jTextField1.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jButton1.setEnabled(true);
+
+
+    }                                        
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void setLuaChonTheLoai() {
+        String[] items = {
+            "Công nghệ",
+            "Kinh tế",
+            "Nghệ thuật",
+            "Y học",
+            "Văn học"
+        };
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(items);
+        dropGenre.setModel(model);
+        dropGenre.setSelectedIndex(0);
+        dropGenre.setSelectedIndex(1);
+        dropGenre.setSelectedIndex(2);
+        dropGenre.setSelectedIndex(3);
+        dropGenre.setSelectedIndex(4);
+    }
+
+    private void initTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        //cái defaultTbleModel này là thư viện để làm việc với bảng trong javaSwing với chức năng thêm xoá sửa
+        model.addColumn("ID");
+        model.addColumn("Magazine Title");
+        model.addColumn("Quantity");
+        model.addColumn("Publication Year");
+        model.addColumn("Publisher");
+        model.addColumn("Price");
+        model.addColumn("Issue Number");
+        model.addColumn("Publication Month");
+        model.addColumn("Topic");
+        model.addColumn("Status");
+
+        jTable1.setModel(model);
+        jTable1.setDefaultEditor(QLtapchi.class, null);
+    }
+
+    public void khoiTaoBangTapChi(ArrayList<TapChi> bangTapChi) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator('.');
+        symbols.setDecimalSeparator(',');
+
+        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
+
+        for (TapChi tc : bangTapChi) {
+            Object[] row = new Object[]{
+                tc.getID(),
+                tc.getTenAnPham(),
+                tc.getSoLuong(),
+                tc.getNamXuatBan(),
+                tc.getNhaXuatBan(),
+                formatter.format(tc.getGiaTien()),
+                tc.getSoPhatHanh(),
+                tc.getThangPhatHanh(),
+                tc.getChuyenDe(),
+                tc.tinhTrang()
+            };
+            model.addRow(row);
+        }
+    }
+
+    private boolean checkID() {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            String textID = FieldID1.getText().trim();
+            if (textID.isEmpty() || !textID.matches("(?i)TC\\d+")) {
+                showMessage("Invalid ID must start with \"TC\" followed by digits!");
+                return false;
+            }
+            arrTapChi = qlTapChi.docDanhSachTapChi();
+            for (TapChi tapChi : arrTapChi) {
+                if (tapChi.getID().equalsIgnoreCase(textID)) {
+                    showMessage("ID already exists. Please enter a unique ID!");
+                    return false;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QLsach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QLsach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QLsach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QLsach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new QLsach().setVisible(true);
-            }
-        });
-    }
-    public void showMessage(String message) {
-        JOptionPane.showMessageDialog(this, message);
+        } catch (Exception e) {
+            FieldID1.requestFocus();
+            showMessage("ID cannot be blank!");
+            return false;
+        }
+        return true;
     }
 
-    private boolean valuedateID(){
-        try {
-            String text = FieldID1.getText().trim();
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("Số ID không hợp lệ");
-                return false;
-            }
-        } catch (Exception e) {
-            FieldID.requestFocus();
-            showMessage("Số ID không được trống");
+    private boolean checkTenTapChi() {
+        String name = jTextField1.getText();
+        if (name == null || "".equals(name.trim())) {
+            jTextField1.requestFocus();
+            showMessage("Magazine title cannot be empty!");
             return false;
         }
         return true;
     }
-    private boolean valuedateten(){
-        try {
-            String text = jTextField1.getText().trim();
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("tên không hợp lệ");
-                return false;
-            }
-        } catch (Exception e) {
-            FieldID.requestFocus();
-            showMessage("tên không được trống");
-            return false;
+
+    private boolean checkSoPhatHanh() {
+        String soPhatHanh = FieldID.getText();
+
+        if ("".equals(soPhatHanh.trim())) {
+            showMessage("Issue number cannot be blank!");
         }
-        return true;
-    }
-    private boolean valuedateNumber(){
         try {
-            String text = FieldID.getText().trim();
-            int sl = Integer.parseInt(FieldID.getText().trim());
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("số lượng không hợp lệ");
-                return false;
-            }
-            if(sl<0){
-                showMessage("số phải lớn hơn 0");
-            }
-        } catch (NumberFormatException e) {
-            FieldID.requestFocus();
-            showMessage("số lượng không được trống");
-            return false;
-        }
-        return true;
-    }
-    private boolean valuedateyear(){
-        try {
-            String text = jTextField5.getText().trim();
-            int sl = Integer.parseInt(jTextField5.getText().trim());
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("số lượng không hợp lệ");
-                return false;
-            }
-            if(sl<0){
-                showMessage("số phải lớn hơn 0");
+            int so = Integer.parseInt(soPhatHanh.trim());
+            if (so <= 0) {
+                showMessage("Issue number must be greater than 0!");
                 return false;
             }
         } catch (NumberFormatException e) {
-            jTextField5.requestFocus();
-            showMessage("số lượng không được trống");
+            showMessage("Issue number must be a number!");
             return false;
         }
         return true;
     }
-    private boolean valuedateLoai(){
-        try {
-            String text = jTextField2.getText().trim();
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("tên không hợp lệ");
-                return false;
-            }
-        } catch (Exception e) {
-            jTextField2.requestFocus();
-            showMessage("tên không được trống");
+
+    private boolean checkSoLuong() {
+        String soLuong = FieldID2.getText();
+        if ("".equals(soLuong.trim())) {
+            showMessage("Quantity cannot be blank!");
+            FieldID2.requestFocus();
             return false;
         }
-        return true;
-    }
-    private boolean valuedatePulisher(){
         try {
-            String text = jTextField4.getText().trim();
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("tên không hợp lệ");
-                return false;
-            }
-        } catch (Exception e) {
-            jTextField4.requestFocus();
-            showMessage("tên không được trống");
-            return false;
-        }
-        return true;
-    }
-    private boolean valuedateGia(){
-        try {
-            String text = jTextField3.getText().trim();
-            double sl = Double.parseDouble(jTextField3.getText());
-            if (text.isEmpty() || !text.matches("\\d+")) {
-                showMessage("số lượng không hợp lệ");
-                return false;
-            }
-            if(sl<0){
-                showMessage("số phải lớn hơn 0");
+            int so = Integer.parseInt(soLuong.trim());
+            if (so <= 0) {
+                showMessage("Quantity must be greater than 0!");
                 return false;
             }
         } catch (NumberFormatException e) {
+            showMessage("Quantity must be a number!");
+            return false;
+        }
+        return true;
+
+    }
+
+    private boolean checkGia() {
+        String giaText = jTextField3.getText().trim();
+
+        if (giaText.isEmpty()) {
+            showMessage("Price cannot be blank!");
             jTextField3.requestFocus();
-            showMessage("số lượng không được trống");
+            return false;
+        }
+        double gia = Double.parseDouble(giaText);
+        if (gia <= 0) {
+            showMessage("The price must be greater than 0!");
+            jTextField3.requestFocus();
             return false;
         }
         return true;
     }
-    public static String capitalizeWords(String str) {
-        str = str.toLowerCase();
-        String[] words = str.split("\\s+");
-        StringBuilder sb = new StringBuilder();
+
+    private boolean checkNhaXuatBan() {
+        String name = jTextField4.getText();
+        if (name == null || "".equals(name.trim())) {
+            jTextField4.requestFocus();
+            showMessage("Publisher cannot be empty!");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkNamXuatBan() {
+        int nam = jYearChooser1.getYear();
+        if (nam > 2025) {
+            showMessage("Invalid publication year!");
+            return false;
+
+        }
+        return true;
+    }
+
+    public static String capitalizeWords(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+        String[] words = input.trim().toLowerCase().split("\\s+");
+        StringBuilder capitalized = new StringBuilder();
         for (String word : words) {
-            if (word.length() > 0) {
-                if (word.equals("tt") || word.equals("tp") || word.equals("tx")) {
-                    sb.append(word.toUpperCase());
-                } else {
-                    sb.append(Character.toUpperCase(word.charAt(0)));
-                    sb.append(word.substring(1));
-                }
-                sb.append(" ");
+            if (!word.isEmpty()) {
+                capitalized.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1))
+                        .append(" ");
             }
         }
-        return sb.toString().trim();
+        return capitalized.toString().trim();
     }
-    public Sach getSachInfo() {
-        // validate residents
-        if (!valuedateID() || !valuedateten() || !valuedateLoai() || !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
+
+    public TapChi checkDuLieuHopLe() {
+        if (!checkID() || !checkNhaXuatBan() || !checkGia() || !checkNamXuatBan() || !checkSoLuong()
+                || !checkSoPhatHanh() || !checkTenTapChi()) {
             return null;
         }
         try {
-            Sach sach = new Sach();
-            if (FieldID1.getText() != null && !"".equals(FieldID1.getText())) {
-                sach.setID(FieldID1.getText());
-            }
-            sach.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
-            sach.setNhaXuatBan(capitalizeWords(jTextField4.getText().trim()));
-            sach.setSoLuong(Integer.parseInt(FieldID.getText()));
-            sach.setTheLoai(capitalizeWords(jTextField2.getText().trim()));
-            sach.setGiaTien(Double.parseDouble(jTextField3.getText()));
-            sach.setNamXuatBan(Integer.parseInt(jTextField5.getText()));
-            return sach;
-        } catch (NumberFormatException e) {
-            showMessage(e.getMessage());
-        }
-        return null;
-    }
-    public void showListBooks(List<Sach> list) {
-        int size = list.size();
-        Object [][] sach = new Object[size][8];
-        for (int i = 0; i < size; i++) {
-            sach[i][0] = list.get(i).getID();
-            sach[i][1] = list.get(i).getTenAnPham();
-            sach[i][2] = list.get(i).getTheLoai();
-            sach[i][3] = list.get(i).getNamXuatBan();
-            sach[i][4] = list.get(i).getNhaXuatBan();
-            sach[i][5] = list.get(i).getGiaTien();
-            sach[i][6] = list.get(i).getSoLuong();
-            sach[i][7] = list.get(i).getTacGia();
-        }
-        jTable1.getColumnModel().getColumn(0).setWidth(3);
-        jTable1.setModel(new DefaultTableModel(sach, columnNames));
-    }
-    public void showBook(Sach sach) 
-    {
-        FieldID1.setText("" + sach.getID());
-        jTextField1.setText(sach.getTenAnPham());
-        jTextField2.setText(sach.getTheLoai());
-        jTextField4.setText(sach.getNhaXuatBan());
-        jTextField3.setText(""+sach.getNamXuatBan());
-        FieldID.setText(""+sach.getSoLuong());
-        jButton1.setEnabled(false);
-        jButton7.setEnabled(true);
-        jButton3.setEnabled(true);
-        jButton4.setEnabled(true);
-        jButton5.setEnabled(true);
-    }
-    public void fillBookFromSelectedRow(List<Sach> list) {
-    int row = jTable1.getSelectedRow();
-    if (row >= 0) {
-        String bookID = jTable1.getModel().getValueAt(row, 0).toString(); 
-        Sach selectedBook = findBookByID(list, bookID); 
 
-        if (selectedBook != null) {
-            FieldID1.setText(selectedBook.getID());              
-            jTextField1.setText(selectedBook.getTenAnPham());     
-            jTextField2.setText(selectedBook.getTheLoai());      
-            jTextField4.setText(selectedBook.getNhaXuatBan());    
-            FieldID.setText(String.valueOf(selectedBook.getSoLuong()));  
-            jTextField3.setText(String.valueOf(selectedBook.getNamXuatBan()));
-            jTextField5.setText(String.valueOf(selectedBook.getGiaTien()));    
-            jButton1.setEnabled(false); 
-            jButton7.setEnabled(true);  
-            jButton3.setEnabled(true);  
-            jButton4.setEnabled(true);  
-            jButton5.setEnabled(true);  
+            TapChi tapchi = new TapChi();
+
+            tapchi.setID(FieldID1.getText().trim());
+
+            tapchi.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
+
+            tapchi.setSoLuong(Integer.parseInt(FieldID2.getText().trim()));
+
+            tapchi.setNamXuatBan(jYearChooser1.getYear());
+
+            tapchi.setNhaXuatBan(jTextField4.getText().trim());
+
+            tapchi.setGiaTien(Double.parseDouble(jTextField3.getText().trim()));
+
+            tapchi.setSoPhatHanh(Integer.parseInt(FieldID.getText().trim()));
+
+            tapchi.setThangPhatHanh(jMonthChooser1.getMonth());
+
+            tapchi.setChuyenDe((String) dropGenre.getSelectedItem());
+            return tapchi;
+
+        } catch (Exception e) {
+
+            showMessage("There was an error in data processing!");
+            return null;
         }
     }
-    }
-    private Sach findBookByID(List<Sach> list, String id) {
-    for (Sach sach : list) {
-        if (sach.getID().equals(id)) {
-            return sach;
+
+    public TapChi checkDuLieuTruID() {
+        if (!checkNhaXuatBan() || !checkGia() || !checkNamXuatBan() || !checkSoLuong()
+                || !checkSoPhatHanh() || !checkTenTapChi()) {
+            return null;
+        }
+        try {
+
+            TapChi tapchi = new TapChi();
+
+            tapchi.setID(FieldID1.getText().trim());
+
+            tapchi.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
+
+            tapchi.setSoLuong(Integer.parseInt(FieldID2.getText().trim()));
+
+            tapchi.setNamXuatBan(jYearChooser1.getYear());
+
+            tapchi.setNhaXuatBan(jTextField4.getText().trim());
+
+            tapchi.setGiaTien(Double.parseDouble(jTextField3.getText().trim()));
+
+            tapchi.setSoPhatHanh(Integer.parseInt(FieldID.getText().trim()));
+
+            tapchi.setThangPhatHanh(jMonthChooser1.getMonth());
+
+            tapchi.setChuyenDe((String) dropGenre.getSelectedItem());
+            return tapchi;
+
+        } catch (Exception e) {
+
+            showMessage("There was an error in data processing!");
+            return null;
         }
     }
-    return null;
+
+    public void layChiSo() throws ParseException {
+        int row = jTable1.getSelectedRow();
+        if (row >= 0) {
+            FieldID1.setText(jTable1.getModel().getValueAt(row, 0).toString());
+            FieldID1.setEnabled(false);
+            jTextField1.setText(jTable1.getModel().getValueAt(row, 1).toString());
+            FieldID2.setText(jTable1.getModel().getValueAt(row, 2).toString());
+            jYearChooser1.setYear((Integer) jTable1.getModel().getValueAt(row, 3));
+            jTextField4.setText(jTable1.getModel().getValueAt(row, 4).toString());
+            jTextField3.setText(jTable1.getModel().getValueAt(row, 5).toString());
+            FieldID.setText(jTable1.getModel().getValueAt(row, 6).toString());
+            jMonthChooser1.setMonth((Integer) jTable1.getModel().getValueAt(row, 7));
+            dropGenre.setSelectedItem(jTable1.getModel().getValueAt(row, 8).toString());
+            jButton1.setEnabled(false);
+
+        }
+
     }
-    public void showCountBooks(List<Sach> list) {
-    int count = list.size();
+
+    public void xoaDt() {
+        int hangXoa = jTable1.getSelectedRow();
+        if (hangXoa == -1) {
+            showMessage("Vui lòng chọn một hàng để xóa!");
+            return;
+        }
+
+        String id = (String) jTable1.getValueAt(hangXoa, 0);
+
+        if (qlTapChi.xoaTapChi(id)) {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.removeRow(hangXoa);
+            showMessage("Xóa tạp chí thành công!");
+        } else {
+            showMessage("Không tìm thấy tạp chí để xóa!");
+        }
     }
-    public void addUndoListener(ActionListener listener){
-        jButton6.addActionListener(listener);
-    }
-    
-    public void addAddListener(ActionListener listener) {
-        jButton1.addActionListener(listener);
-    }
-    
-    public void addListSelectionListener(ListSelectionListener listener) {
-        jTable1.getSelectionModel().addListSelectionListener(listener);
-    }
-    
-    public void addEditListener(ActionListener listener) {
-        jButton7.addActionListener(listener);
-    }
-    
-    public void addClearListener(ActionListener listener) {
-        jButton4.addActionListener(listener);
-    }
-    
-    public void addDeleteListener(ActionListener listener) {
-        jButton3.addActionListener(listener);
-    }
-    
-    public void addSortTitleListener(ActionListener listener) {
-        jButton8.addActionListener(listener);
-    }
-    public void addSortQuantityListener(ActionListener listener) {
-        jButton9.addActionListener(listener);
-    }
-    public void addSortPriceListener(ActionListener listener) {
-        jButton12.addActionListener(listener);
-    }
-    public void addSortYearListener(ActionListener listener) {
-        jButton10.addActionListener(listener);
-    }
-    public void addSearchListener(ActionListener listener) {
-        jButton5.addActionListener(listener);
-    }
-    public void addCancelSearchListener(ActionListener listener){
-        jButton2.addActionListener(listener);
-    }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    // Variables declaration - do not modify                     
     private javax.swing.JTextField FieldID;
     private javax.swing.JTextField FieldID1;
+    private javax.swing.JTextField FieldID2;
     private javax.swing.JComboBox<String> dropGenre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -779,6 +787,7 @@ public class QLsach extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -787,13 +796,13 @@ public class QLsach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private com.toedter.calendar.JYearChooser jYearChooser1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
