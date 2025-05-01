@@ -6,27 +6,23 @@ import com.mycompany.quanlyanphamthuvien.entity.TapChi;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Admin
- */
 public class QLtapchi extends javax.swing.JFrame {
 
-    /**
-     * Creates new form QLtapchi
-     */
     private ArrayList<TapChi> arrTapChi;
     private QuanLyTapChi qlTapChi;
 
     public QLtapchi() {
         initComponents();
+        setResizable(false);
         FieldID.setEnabled(true);
         FieldID.setEditable(true);
         FieldID.setVisible(true);
@@ -36,7 +32,6 @@ public class QLtapchi extends javax.swing.JFrame {
         tvc.bangTapChi();
         setLuaChonTheLoai();
         qlTapChi = new QuanLyTapChi();
-        arrTapChi = qlTapChi.docDanhSachTapChi();
     }
 
     @SuppressWarnings("unchecked")
@@ -244,10 +239,15 @@ public class QLtapchi extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton9.setText("Sort by quantity");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 150, 50));
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton10.setText("Sort by month");
+        jButton10.setText("Sort by year");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -369,6 +369,36 @@ public class QLtapchi extends javax.swing.JFrame {
         jButton1.addActionListener(listener);
 
     }
+
+    public void bangDsTapChi(ListSelectionListener listener) {
+        jTable1.getSelectionModel().addListSelectionListener(listener);
+    }
+
+    public void xoaDt(ActionListener listener) {
+        jButton3.addActionListener(listener);
+
+    }
+
+    public void suaDt(ActionListener listener) {
+        jButton7.addActionListener(listener);
+    }
+
+    public void sapXepTheoTen(ActionListener listener) {
+        jButton8.addActionListener(listener);
+    }
+
+    public void sapXepTheoGiaTien(ActionListener listener) {
+        jButton12.addActionListener(listener);
+    }
+
+    public void sapXepTheoSoLuong(ActionListener listener) {
+        jButton9.addActionListener(listener);
+    }
+
+    public void sapXepTheoNam(ActionListener listener) {
+        jButton10.addActionListener(listener);
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
 
     }                                        
@@ -429,51 +459,21 @@ public class QLtapchi extends javax.swing.JFrame {
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        FieldID1.setEnabled(true);
         FieldID.setText("");
         FieldID1.setText("");
         FieldID2.setText("");
         jTextField1.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
-        
+        jButton1.setEnabled(true);
 
 
     }                                        
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QLtapchi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QLtapchi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QLtapchi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QLtapchi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new QLtapchi().setVisible(true);
-            }
-        });
-    }
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
 
     private void setLuaChonTheLoai() {
         String[] items = {
@@ -544,6 +544,7 @@ public class QLtapchi extends javax.swing.JFrame {
                 showMessage("Invalid ID must start with \"TC\" followed by digits!");
                 return false;
             }
+            arrTapChi = qlTapChi.docDanhSachTapChi();
             for (TapChi tapChi : arrTapChi) {
                 if (tapChi.getID().equalsIgnoreCase(textID)) {
                     showMessage("ID already exists. Please enter a unique ID!");
@@ -694,6 +695,78 @@ public class QLtapchi extends javax.swing.JFrame {
 
             showMessage("There was an error in data processing!");
             return null;
+        }
+    }
+
+    public TapChi checkDuLieuTruID() {
+        if (!checkNhaXuatBan() || !checkGia() || !checkNamXuatBan() || !checkSoLuong()
+                || !checkSoPhatHanh() || !checkTenTapChi()) {
+            return null;
+        }
+        try {
+
+            TapChi tapchi = new TapChi();
+
+            tapchi.setID(FieldID1.getText().trim());
+
+            tapchi.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
+
+            tapchi.setSoLuong(Integer.parseInt(FieldID2.getText().trim()));
+
+            tapchi.setNamXuatBan(jYearChooser1.getYear());
+
+            tapchi.setNhaXuatBan(jTextField4.getText().trim());
+
+            tapchi.setGiaTien(Double.parseDouble(jTextField3.getText().trim()));
+
+            tapchi.setSoPhatHanh(Integer.parseInt(FieldID.getText().trim()));
+
+            tapchi.setThangPhatHanh(jMonthChooser1.getMonth());
+
+            tapchi.setChuyenDe((String) dropGenre.getSelectedItem());
+            return tapchi;
+
+        } catch (Exception e) {
+
+            showMessage("There was an error in data processing!");
+            return null;
+        }
+    }
+
+    public void layChiSo() throws ParseException {
+        int row = jTable1.getSelectedRow();
+        if (row >= 0) {
+            FieldID1.setText(jTable1.getModel().getValueAt(row, 0).toString());
+            FieldID1.setEnabled(false);
+            jTextField1.setText(jTable1.getModel().getValueAt(row, 1).toString());
+            FieldID2.setText(jTable1.getModel().getValueAt(row, 2).toString());
+            jYearChooser1.setYear((Integer) jTable1.getModel().getValueAt(row, 3));
+            jTextField4.setText(jTable1.getModel().getValueAt(row, 4).toString());
+            jTextField3.setText(jTable1.getModel().getValueAt(row, 5).toString());
+            FieldID.setText(jTable1.getModel().getValueAt(row, 6).toString());
+            jMonthChooser1.setMonth((Integer) jTable1.getModel().getValueAt(row, 7));
+            dropGenre.setSelectedItem(jTable1.getModel().getValueAt(row, 8).toString());
+            jButton1.setEnabled(false);
+
+        }
+
+    }
+
+    public void xoaDt() {
+        int hangXoa = jTable1.getSelectedRow();
+        if (hangXoa == -1) {
+            showMessage("Vui lòng chọn một hàng để xóa!");
+            return;
+        }
+
+        String id = (String) jTable1.getValueAt(hangXoa, 0);
+
+        if (qlTapChi.xoaTapChi(id)) {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.removeRow(hangXoa);
+            showMessage("Xóa tạp chí thành công!");
+        } else {
+            showMessage("Không tìm thấy tạp chí để xóa!");
         }
     }
 
