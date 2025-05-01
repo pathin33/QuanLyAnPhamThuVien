@@ -5,30 +5,39 @@ import com.mycompany.quanlyanphamthuvien.entity.TapChiXML;
 import com.mycompany.quanlyanphamthuvien.utils.FileUtils;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 
 public class QuanLyTapChi {
 
+    private static QuanLyTapChi instance;
     private QuanLyAnPham qlAnPham;
-
     private ArrayList<TapChi> qlTapChi;
 
-    public ArrayList<TapChi> getQlTapChi() {
-        return qlTapChi;
-    }
-
-    public QuanLyTapChi(QuanLyAnPham qlAnPham) {
-        this.qlAnPham = qlAnPham;
+    public QuanLyTapChi() {
+        this.qlAnPham = new QuanLyAnPham();
         this.qlTapChi = docDanhSachTapChi();
         if (qlTapChi == null) {
             qlTapChi = new ArrayList<>();
         }
     }
 
-    public QuanLyTapChi() {
+    public static QuanLyTapChi getInstance() {
+        if (instance == null) {
+            instance = new QuanLyTapChi();
+        }
+        return instance;
+    }
+
+    public ArrayList<TapChi> getQlTapChi() {
+        return qlTapChi;
     }
 
     public QuanLyAnPham getQlAnPham() {
         return qlAnPham;
+    }
+
+    public void setQlAnPham(QuanLyAnPham qlAnPham) {
+        this.qlAnPham = qlAnPham;
     }
 
     public void setQlTapChi(ArrayList<TapChi> qlTapChi) {
@@ -56,39 +65,38 @@ public class QuanLyTapChi {
         ghiDanhSachTapChi(qlTapChi);
     }
 
-    public boolean xoaDtVaoDsTapChi(TapChi tapChiXoa) {
-        if (tapChiXoa == null) {
-            return false;
-        }
-        for (int i = 0; i < qlTapChi.size(); i++) {
-            if (qlTapChi.get(i).getID() == tapChiXoa.getID()) {
-                qlTapChi.remove(i);
-                qlAnPham.xoaDtVaoDsAnPham(tapChiXoa);
-                ghiDanhSachTapChi(qlTapChi);
-                return true;
+    public boolean xoaTapChi(String id) {
+        qlTapChi = docDanhSachTapChi(); // Reload to ensure the list is up-to-date
+        Optional<TapChi> tapChiCanXoa = qlTapChi.stream()
+                .filter(tc -> tc.getID().equals(id))
+                .findFirst();
+
+        if (tapChiCanXoa.isPresent()) {
+            qlTapChi.remove(tapChiCanXoa.get());
+            ghiDanhSachTapChi(qlTapChi);
+
+            if (qlAnPham != null) {
+                qlAnPham.xoaDtVaoDsAnPham(tapChiCanXoa.get());
             }
+
+            return true;
         }
         return false;
     }
 
+    // Rest of the methods remain the same
     public void suaDtDsTapChi(TapChi tapChiSua) {
         for (int i = 0; i < qlTapChi.size(); i++) {
-            if (qlTapChi.get(i).getID() == tapChiSua.getID()) {
-                // Các thuộc tính chung từ lớp cha AnPham
+            if (qlTapChi.get(i).getID().equals(tapChiSua.getID())) {
                 qlTapChi.get(i).setTenAnPham(tapChiSua.getTenAnPham());
                 qlTapChi.get(i).setSoLuong(tapChiSua.getSoLuong());
                 qlTapChi.get(i).setNamXuatBan(tapChiSua.getNamXuatBan());
                 qlTapChi.get(i).setNhaXuatBan(tapChiSua.getNhaXuatBan());
                 qlTapChi.get(i).setGiaTien(tapChiSua.getGiaTien());
-
-                // Các thuộc tính riêng của TapChi
                 qlTapChi.get(i).setSoPhatHanh(tapChiSua.getSoPhatHanh());
                 qlTapChi.get(i).setThangPhatHanh(tapChiSua.getThangPhatHanh());
                 qlTapChi.get(i).setChuyenDe(tapChiSua.getChuyenDe());
-
-                // Ghi lại danh sách sau khi sửa
                 qlAnPham.suaDtDsAnPham(tapChiSua);
-
                 ghiDanhSachTapChi(qlTapChi);
                 break;
             }
@@ -96,14 +104,22 @@ public class QuanLyTapChi {
     }
 
     public void sapxepNamtapchi() {
+        qlTapChi = docDanhSachTapChi();
         Collections.sort(qlTapChi, (TapChi o1, TapChi o2) -> Integer.compareUnsigned(o1.getNamXuatBan(), o2.getNamXuatBan()));
     }
 
+    public void sapXepSoLuongTapChi() {
+        qlTapChi = docDanhSachTapChi(); 
+        Collections.sort(qlTapChi, (TapChi o1, TapChi o2) -> Integer.compare(o1.getSoLuong(), o2.getSoLuong()));
+    }
+
     public void sapxepGiatapchi() {
+        qlTapChi = docDanhSachTapChi();
         Collections.sort(qlTapChi, (TapChi o1, TapChi o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
     public void sapXepTenTapChi() {
+        qlTapChi = docDanhSachTapChi();
         Collections.sort(qlTapChi, (TapChi t1, TapChi t2) -> t1.getTenAnPham().compareToIgnoreCase(t2.getTenAnPham()));
     }
 
@@ -117,27 +133,17 @@ public class QuanLyTapChi {
         return temp;
     }
 
-    /**
-     * Tìm kiếm tạp chí theo khoảng giá tiền
-     *
-     * @param giaMin Giá tối thiểu (null nếu không có)
-     * @param giaMax Giá tối đa (null nếu không có)
-     * @return Danh sách tạp chí thỏa mãn điều kiện
-     */
     public ArrayList<TapChi> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
         ArrayList<TapChi> ketQua = new ArrayList<>();
-
         for (TapChi tapChi : qlTapChi) {
             double gia = tapChi.getGiaTien();
             boolean thoaDieuKien = true;
-
             if (giaMin != null && gia < giaMin) {
                 thoaDieuKien = false;
             }
             if (giaMax != null && gia > giaMax) {
                 thoaDieuKien = false;
             }
-
             if (thoaDieuKien) {
                 ketQua.add(tapChi);
             }
@@ -174,5 +180,4 @@ public class QuanLyTapChi {
         }
         return true;
     }
-
 }
