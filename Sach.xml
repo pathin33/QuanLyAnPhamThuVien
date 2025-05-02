@@ -11,25 +11,5 @@
             <TacGia>Nguyễn Nhật Ánh</TacGia>
             <TheLoai>Tiểu thuyết</TheLoai>
         </Sach>
-        <Sach>
-            <ID>S002</ID>
-            <TenAnPham>Nhà Giả Kim</TenAnPham>
-            <SoLuong>35</SoLuong>
-            <NamXuatBan>1988</NamXuatBan>
-            <NhaXuatBan>NXB Văn Học</NhaXuatBan>
-            <GiaTien>89000.0</GiaTien>
-            <TacGia>Paulo Coelho</TacGia>
-            <TheLoai>Tiểu thuyết triết lý</TheLoai>
-        </Sach>
-        <Sach>
-            <ID>S003</ID>
-            <TenAnPham>Harry Potter và Hòn Đá Phù Thủy</TenAnPham>
-            <SoLuong>75</SoLuong>
-            <NamXuatBan>1997</NamXuatBan>
-            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
-            <GiaTien>120000.0</GiaTien>
-            <TacGia>J.K. Rowling</TacGia>
-            <TheLoai>Giả tưởng</TheLoai>
-        </Sach>
     </DanhSachSach>
 </SachXML>
