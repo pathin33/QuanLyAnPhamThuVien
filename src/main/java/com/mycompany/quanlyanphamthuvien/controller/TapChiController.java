@@ -3,7 +3,6 @@ package com.mycompany.quanlyanphamthuvien.controller;
 import com.mycompany.quanlyanphamthuvien.action.QuanLyTapChi;
 import com.mycompany.quanlyanphamthuvien.entity.TapChi;
 import com.mycompany.quanlyanphamthuvien.view.QLtapchi;
-import com.mycompany.quanlyanphamthuvien.view.timkiemsach;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -17,13 +16,11 @@ public class TapChiController {
 
     private QLtapchi qlTapChiView;
     private QuanLyTapChi qlTapChi;
-    private timkiemsach tkTapcChi;
 
     public TapChiController(QLtapchi qlTapChiView) {
         this.qlTapChi = new QuanLyTapChi();
         this.qlTapChiView = qlTapChiView;
-        this.tkTapcChi = new timkiemsach();
-        tkTapcChi.buttonTimKiem(new timKiemTapChi());
+
         qlTapChiView.buttonAddTapChi(new addControllerTapChi());
         qlTapChiView.bangDsTapChi(new chonHangLayChiSo());
         qlTapChiView.xoaDt(new xoaDtTapChi());
@@ -104,11 +101,9 @@ public class TapChiController {
 
             ArrayList<TapChi> danhSachMoi = qlTapChi.docDanhSachTapChi();
 
-
             qlTapChi.getQlTapChi().clear();
             qlTapChi.getQlTapChi().addAll(danhSachMoi);
 
-            // Sắp xếp
             qlTapChi.sapXepTenTapChi();
 
             qlTapChiView.khoiTaoBangTapChi(qlTapChi.getQlTapChi());
@@ -121,12 +116,10 @@ public class TapChiController {
         public void actionPerformed(ActionEvent e) {
             ArrayList<TapChi> danhSachMoi = qlTapChi.docDanhSachTapChi();
 
- 
             qlTapChi.getQlTapChi().clear();
             qlTapChi.getQlTapChi().addAll(danhSachMoi);
 
             qlTapChi.sapXepSoLuongTapChi();
-
 
             qlTapChiView.khoiTaoBangTapChi(qlTapChi.getQlTapChi());
         }
@@ -138,10 +131,8 @@ public class TapChiController {
         public void actionPerformed(ActionEvent e) {
             ArrayList<TapChi> danhSachMoi = qlTapChi.docDanhSachTapChi();
 
-
             qlTapChi.getQlTapChi().clear();
             qlTapChi.getQlTapChi().addAll(danhSachMoi);
-
 
             qlTapChi.sapxepGiatapchi();
 
@@ -163,15 +154,6 @@ public class TapChiController {
 
             qlTapChiView.khoiTaoBangTapChi(qlTapChi.getQlTapChi());
         }
-    }
-
-    class timKiemTapChi implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            
-        }
-
     }
 
 }
