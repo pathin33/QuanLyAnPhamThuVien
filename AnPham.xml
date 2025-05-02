@@ -1,57 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AnPhamXML>
-<DanhSachAnPham>
-<AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
-<ID>S001</ID>
-<TenAnPham>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</TenAnPham>
-<SoLuong>50</SoLuong>
-<NamXuatBan>2010</NamXuatBan>
-<NhaXuatBan>NXB Trẻ</NhaXuatBan>
-<GiaTien>75000.0</GiaTien>
-<TacGia>Nguyễn Nhật Ánh</TacGia>
-<TheLoai>Tiểu thuyết</TheLoai>
-</AnPham>
-<AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
-<ID>TC001</ID>
-<TenAnPham>Văn Học Hiện Đại</TenAnPham>
-<SoLuong>1</SoLuong>
-<NamXuatBan>2023</NamXuatBan>
-<NhaXuatBan>NXB Tuổi Trẻ</NhaXuatBan>
-<GiaTien>20000.0</GiaTien>
-<SoPhatHanh>2</SoPhatHanh>
-<ThangPhatHanh>4</ThangPhatHanh>
-<ChuyenDe>Văn học</ChuyenDe>
-</AnPham>
-<AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
-<ID>TC003</ID>
-<TenAnPham>Thống Nhất Hai Miền Nam Bắc</TenAnPham>
-<SoLuong>3</SoLuong>
-<NamXuatBan>2025</NamXuatBan>
-<NhaXuatBan>NXB Hà Nội</NhaXuatBan>
-<GiaTien>20.0</GiaTien>
-<SoPhatHanh>3</SoPhatHanh>
-<ThangPhatHanh>6</ThangPhatHanh>
-<ChuyenDe>Văn học</ChuyenDe>
-</AnPham>
-<AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
-<ID>B002</ID>
-<TenAnPham>Kỷ Nguyên Vươn Mình</TenAnPham>
-<SoLuong>1</SoLuong>
-<NamXuatBan>2025</NamXuatBan>
-<NhaXuatBan>NXB Hà Nội</NhaXuatBan>
-<GiaTien>15000.0</GiaTien>
-<NgayPhatHanh>2025-05-01T18:41:22.014+07:00</NgayPhatHanh>
-<BienTapVien>Trần Văn Hưng</BienTapVien>
-</AnPham>
-<AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
-<ID>TC004</ID>
-<TenAnPham>Văn Học Thời Chiến</TenAnPham>
-<SoLuong>3</SoLuong>
-<NamXuatBan>2024</NamXuatBan>
-<NhaXuatBan>NXB Nhân Dân</NhaXuatBan>
-<GiaTien>15000.0</GiaTien>
-<SoPhatHanh>2</SoPhatHanh>
-<ThangPhatHanh>6</ThangPhatHanh>
-<ChuyenDe>Văn học</ChuyenDe>
-</AnPham>
-</DanhSachAnPham>
+    <DanhSachAnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S001</ID>
+            <TenAnPham>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</TenAnPham>
+            <SoLuong>50</SoLuong>
+            <NamXuatBan>2010</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>75000.0</GiaTien>
+            <TacGia>Nguyễn Nhật Ánh</TacGia>
+            <TheLoai>Tiểu thuyết</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
+            <ID>TC001</ID>
+            <TenAnPham>Văn Học Hiện Đại</TenAnPham>
+            <SoLuong>1</SoLuong>
+            <NamXuatBan>2023</NamXuatBan>
+            <NhaXuatBan>NXB Tuổi Trẻ</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <SoPhatHanh>2</SoPhatHanh>
+            <ThangPhatHanh>4</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
+            <ID>TC003</ID>
+            <TenAnPham>Thống Nhất Hai Miền Nam Bắc</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2025</NamXuatBan>
+            <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
+            <GiaTien>20.0</GiaTien>
+            <SoPhatHanh>3</SoPhatHanh>
+            <ThangPhatHanh>6</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
+            <ID>B002</ID>
+            <TenAnPham>Kỷ Nguyên Vươn Mình</TenAnPham>
+            <SoLuong>1</SoLuong>
+            <NamXuatBan>2025</NamXuatBan>
+            <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <NgayPhatHanh>2025-05-01T18:41:22.014+07:00</NgayPhatHanh>
+            <BienTapVien>Trần Văn Hưng</BienTapVien>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
+            <ID>TC004</ID>
+            <TenAnPham>Văn Học Thời Chiến</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Nhân Dân</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <SoPhatHanh>2</SoPhatHanh>
+            <ThangPhatHanh>6</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
+        </AnPham>
+    </DanhSachAnPham>
 </AnPhamXML>
