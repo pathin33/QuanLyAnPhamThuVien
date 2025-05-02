@@ -2,14 +2,14 @@
 <BaoXML>
     <DanhSachBao>
         <Bao>
-            <ID>B001</ID>
-            <TenAnPham>Báo Công Nghệ</TenAnPham>
-            <SoLuong>100</SoLuong>
-            <NamXuatBan>2023</NamXuatBan>
-            <NhaXuatBan>NXB Công Nghệ</NhaXuatBan>
+            <ID>B002</ID>
+            <TenAnPham>Kỷ Nguyên Vươn Mình</TenAnPham>
+            <SoLuong>1</SoLuong>
+            <NamXuatBan>2025</NamXuatBan>
+            <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
             <GiaTien>15000.0</GiaTien>
-            <NgayPhatHanh/>
-            <BienTapVien>Nguyễn Văn A</BienTapVien>
+            <NgayPhatHanh>2025-05-01T18:41:22.014+07:00</NgayPhatHanh>
+            <BienTapVien>Trần Văn Hưng</BienTapVien>
         </Bao>
     </DanhSachBao>
 </BaoXML>
