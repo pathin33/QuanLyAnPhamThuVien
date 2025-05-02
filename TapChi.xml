@@ -3,36 +3,36 @@
     <DanhSachTapChi>
         <TapChi>
             <ID>TC001</ID>
-            <TenAnPham>Tạp chí Tin học</TenAnPham>
-            <SoLuong>100</SoLuong>
+            <TenAnPham>Văn Học Hiện Đại</TenAnPham>
+            <SoLuong>1</SoLuong>
             <NamXuatBan>2023</NamXuatBan>
-            <NhaXuatBan>NXB Khoa học</NhaXuatBan>
-            <GiaTien>45000.0</GiaTien>
-            <SoPhatHanh>15</SoPhatHanh>
-            <ThangPhatHanh>6</ThangPhatHanh>
-            <ChuyenDe>Công nghệ thông tin</ChuyenDe>
+            <NhaXuatBan>NXB Tuổi Trẻ</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <SoPhatHanh>2</SoPhatHanh>
+            <ThangPhatHanh>4</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
         </TapChi>
         <TapChi>
-            <ID>TC002</ID>
-            <TenAnPham>Tạp chí Y học hiện đại</TenAnPham>
-            <SoLuong>75</SoLuong>
+            <ID>TC004</ID>
+            <TenAnPham>Văn Học Thời Chiến</TenAnPham>
+            <SoLuong>3</SoLuong>
             <NamXuatBan>2024</NamXuatBan>
-            <NhaXuatBan>NXB Y Dược</NhaXuatBan>
-            <GiaTien>55000.0</GiaTien>
-            <SoPhatHanh>8</SoPhatHanh>
-            <ThangPhatHanh>3</ThangPhatHanh>
-            <ChuyenDe>Nghiên cứu y khoa</ChuyenDe>
+            <NhaXuatBan>NXB Nhân Dân</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <SoPhatHanh>2</SoPhatHanh>
+            <ThangPhatHanh>6</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
         </TapChi>
         <TapChi>
             <ID>TC003</ID>
-            <TenAnPham>Tạp chí Kinh tế số</TenAnPham>
-            <SoLuong>120</SoLuong>
-            <NamXuatBan>2023</NamXuatBan>
-            <NhaXuatBan>NXB Tài chính</NhaXuatBan>
-            <GiaTien>38000.0</GiaTien>
-            <SoPhatHanh>22</SoPhatHanh>
-            <ThangPhatHanh>9</ThangPhatHanh>
-            <ChuyenDe>Phân tích kinh tế</ChuyenDe>
+            <TenAnPham>Thống Nhất Hai Miền Nam Bắc</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2025</NamXuatBan>
+            <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
+            <GiaTien>20.0</GiaTien>
+            <SoPhatHanh>3</SoPhatHanh>
+            <ThangPhatHanh>6</ThangPhatHanh>
+            <ChuyenDe>Văn học</ChuyenDe>
         </TapChi>
     </DanhSachTapChi>
 </TapChiXMl>
