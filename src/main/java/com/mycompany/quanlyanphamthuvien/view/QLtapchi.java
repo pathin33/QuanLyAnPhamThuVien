@@ -32,6 +32,7 @@ public class QLtapchi extends javax.swing.JFrame {
         tvc.bangTapChi();
         setLuaChonTheLoai();
         qlTapChi = new QuanLyTapChi();
+        arrTapChi = qlTapChi.docDanhSachTapChi();
     }
 
     @SuppressWarnings("unchecked")
@@ -404,10 +405,11 @@ public class QLtapchi extends javax.swing.JFrame {
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        timkiemsach tk = new timkiemsach();
+        timKiemTapChi tk = new timKiemTapChi();
         tk.setVisible(true);
         tk.pack();
         tk.setLocationRelativeTo(null);
+        dispose();
     }                                        
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -467,12 +469,14 @@ public class QLtapchi extends javax.swing.JFrame {
         jTextField3.setText("");
         jTextField4.setText("");
         jButton1.setEnabled(true);
+        khoiTaoBangTapChi(arrTapChi);
+        
 
 
     }                                        
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+
     }                                        
 
     private void setLuaChonTheLoai() {
@@ -494,7 +498,6 @@ public class QLtapchi extends javax.swing.JFrame {
 
     private void initTable() {
         DefaultTableModel model = new DefaultTableModel();
-        //cái defaultTbleModel này là thư viện để làm việc với bảng trong javaSwing với chức năng thêm xoá sửa
         model.addColumn("ID");
         model.addColumn("Magazine Title");
         model.addColumn("Quantity");
