@@ -54,6 +54,7 @@ public class QLsach extends javax.swing.JFrame {
         FieldID1.setEditable(true);
         FieldID1.setVisible(true);
         FieldID.setEditable(true);
+        FieldID.setEnabled(true);
         FieldID.setVisible(true);
         initTable();
         SachController sc = new SachController(this);
