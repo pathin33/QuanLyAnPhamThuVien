@@ -45,14 +45,16 @@ public class QLsach extends javax.swing.JFrame {
      * Creates new form QLsach
      */
     private ArrayList<Sach> arrSach;
-    private QuanLySach qlsach ; 
+    private QuanLySach qlsach;
+
     public QLsach() {
         initComponents();
-        FieldID1.setEnabled(true);
-        FieldID.setEnabled(true);
-        FieldID.setVisible(true);
-        FieldID1.setVisible(true);
         setResizable(false);
+        FieldID1.setEnabled(true);
+        FieldID1.setEditable(true);
+        FieldID1.setVisible(true);
+        FieldID.setEditable(true);
+        FieldID.setVisible(true);
         initTable();
         SachController sc = new SachController(this);
         sc.bangSach();
@@ -60,6 +62,7 @@ public class QLsach extends javax.swing.JFrame {
         arrSach = qlsach.docDanhSachSach();
         setTheLoaiSach();
     }
+
     private void setTheLoaiSach() {
         String[] theLoai = {"Khoa học",
             "Tiểu thuyết",
@@ -75,6 +78,7 @@ public class QLsach extends javax.swing.JFrame {
         dropGenre.setSelectedIndex(2);
         dropGenre.setSelectedIndex(3);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -499,24 +503,26 @@ public class QLsach extends javax.swing.JFrame {
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
-    public void showListBook(ArrayList<Sach> list) {
-    int size = list.size();
-    Object[][] data = new Object[size][9]; // 9 cột như trong bảng
 
-    for (int i = 0; i < size; i++) {
-        Sach s = list.get(i);
-        data[i][0] = s.getID();
-        data[i][1] = s.getTenAnPham(); // Book title
-        data[i][2] = s.getTheLoai(); // Book genre
-        data[i][3] = s.getTacGia(); // Author
-        data[i][4] = s.getNhaXuatBan(); // Publisher
-        data[i][5] = s.getNamXuatBan(); // Publication year
-        data[i][6] = s.getGiaTien(); // Price
-        data[i][7] = s.getSoLuong(); // Quantity
-        data[i][8] = s.tinhTrang(); // Status (checkbox)
+    public void showListBook(ArrayList<Sach> list) {
+        int size = list.size();
+        Object[][] data = new Object[size][9]; // 9 cột như trong bảng
+
+        for (int i = 0; i < size; i++) {
+            Sach s = list.get(i);
+            data[i][0] = s.getID();
+            data[i][1] = s.getTenAnPham(); // Book title
+            data[i][2] = s.getTheLoai(); // Book genre
+            data[i][3] = s.getTacGia(); // Author
+            data[i][4] = s.getNhaXuatBan(); // Publisher
+            data[i][5] = s.getNamXuatBan(); // Publication year
+            data[i][6] = s.getGiaTien(); // Price
+            data[i][7] = s.getSoLuong(); // Quantity
+            data[i][8] = s.tinhTrang(); // Status (checkbox)
+        }
+
     }
-    
-    }
+
     private boolean valuedateID() {
         try {
             String textID = FieldID1.getText().trim();
@@ -538,7 +544,6 @@ public class QLsach extends javax.swing.JFrame {
         }
         return true;
     }
-
 
     private boolean valuedateten() {
         String name = jTextField1.getText();
@@ -571,7 +576,7 @@ public class QLsach extends javax.swing.JFrame {
 
     private boolean valuedateyear() {
         int year = jYearChooser1.getYear();
-        if(year > 2025){
+        if (year > 2025) {
             showMessage("Năm không hợp lệ");
             return false;
         }
@@ -591,7 +596,7 @@ public class QLsach extends javax.swing.JFrame {
     private boolean valuedatePulisher() {
         try {
             String text = jTextField4.getText().trim();
-            if (text.isEmpty() || "".equals(text.trim()) ) {
+            if (text.isEmpty() || "".equals(text.trim())) {
                 showMessage("Nam không hợp lệ");
                 return false;
             }
@@ -642,27 +647,29 @@ public class QLsach extends javax.swing.JFrame {
     }
 
     public Sach getSachInfo() {
-        if (!valuedateID() || !valuedateten() || !valuedateauthor()|| !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
+        if (!valuedateID() || !valuedateten() || !valuedateauthor() || !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
             return null;
         }
         try {
             Sach sach = new Sach();
+            sach.setID(FieldID1.getText().trim());
             sach.setTenAnPham(capitalizeWords(jTextField1.getText().trim()));
-            sach.setNhaXuatBan(capitalizeWords(jTextField4.getText().trim()));
-            sach.setSoLuong(Integer.parseInt(FieldID.getText()));
-            sach.setTacGia(capitalizeWords(jTextField2.getText().trim()));
-            sach.setGiaTien(Double.parseDouble(jTextField3.getText()));
-            sach.setNamXuatBan(jYearChooser1.getYear());
-            sach.setTheLoai((String) dropGenre.getSelectedItem());
-            sach.tinhTrang();
+            sach.setTheLoai((String) dropGenre.getSelectedItem()); // Book genre
+            sach.setTacGia(capitalizeWords(jTextField2.getText().trim())); // Author
+            sach.setNhaXuatBan(capitalizeWords(jTextField4.getText().trim())); // Publisher
+            sach.setNamXuatBan(jYearChooser1.getYear()); // Publication year
+            sach.setGiaTien(Double.parseDouble(jTextField3.getText())); // Price
+            sach.setSoLuong(Integer.parseInt(FieldID.getText())); // Quantity
+            sach.tinhTrang(); // Status
             return sach;
         } catch (NumberFormatException e) {
             showMessage(e.getMessage());
         }
         return null;
     }
+
     public Sach getSachInfo2() {
-        if ( !valuedateten() || !valuedateauthor()|| !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
+        if (!valuedateten() || !valuedateauthor() || !valuedatePulisher() || !valuedateyear() || !valuedateNumber() || !valuedateGia()) {
             return null;
         }
         try {
@@ -684,6 +691,7 @@ public class QLsach extends javax.swing.JFrame {
         }
         return null;
     }
+
     private void initTable() {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
@@ -695,7 +703,6 @@ public class QLsach extends javax.swing.JFrame {
         model.addColumn("Issue Number");
         model.addColumn("Publication Month");
         model.addColumn("Status");
-
         jTable1.setModel(model);
         jTable1.setDefaultEditor(QLtapchi.class, null);
     }
@@ -714,35 +721,36 @@ public class QLsach extends javax.swing.JFrame {
             Object[] row = new Object[]{
                 s.getID(),
                 s.getTenAnPham(),
-                s.getSoLuong(),
-                s.getNamXuatBan(),
-                s.getNhaXuatBan(),
-                formatter.format(s.getGiaTien()),
-                s.getTacGia(),
                 s.getTheLoai(),
+                s.getTacGia(),
+                s.getNhaXuatBan(),
+                s.getNamXuatBan(),
+                formatter.format(s.getGiaTien()),
+                s.getSoLuong(),
                 s.tinhTrang()
             };
             model.addRow(row);
         }
-        String[] columnNames = { "ID", "Book title", "Book genre", "Author", "Publisher",
-                             "Publication year", "Price", "Quantity", "Status" };
+        String[] columnNames = {"ID", "Book title", "Book genre", "Author", "Publisher",
+            "Publication year", "Price", "Quantity", "Status"};
     }
 
     public void laychiso() throws ParseException {
-         int row = jTable1.getSelectedRow();
-         if(row >= 0){
+        int row = jTable1.getSelectedRow();
+        if (row >= 0) {
             FieldID1.setText(jTable1.getModel().getValueAt(row, 0).toString());
             FieldID1.setEnabled(false);
-            jTextField1.setText(jTable1.getModel().getValueAt(row, 1).toString());            
-            dropGenre.setSelectedItem(jTable1.getModel().getValueAt(row, 2).toString());           
-            jTextField2.setText(jTable1.getModel().getValueAt(row, 3).toString());
-            jYearChooser1.setYear((Integer) jTable1.getModel().getValueAt(row, 4));
-            jTextField4.setText(jTable1.getModel().getValueAt(row, 5).toString());
-            jTextField3.setText(jTable1.getModel().getValueAt(row, 6).toString());           
-            FieldID.setText((String) jTable1.getModel().getValueAt(row, 7));
+            jTextField1.setText(jTable1.getModel().getValueAt(row, 1).toString());
+            dropGenre.setSelectedItem(jTable1.getModel().getValueAt(row, 2).toString());
+            jTextField2.setText(jTable1.getModel().getValueAt(row, 3).toString()); // Author
+            jTextField4.setText(jTable1.getModel().getValueAt(row, 4).toString()); // Publisher
+            jYearChooser1.setYear((Integer) jTable1.getModel().getValueAt(row, 5)); // Publication year
+            jTextField3.setText(jTable1.getModel().getValueAt(row, 6).toString()); // Price
+            FieldID.setText(jTable1.getModel().getValueAt(row, 7).toString()); // Quantity
             jButton1.setEnabled(false);
-         }
+        }
     }
+
     private Sach findBookByID(ArrayList<Sach> list, String id) {
         for (Sach sach : list) {
             if (sach.getID().equals(id)) {
@@ -845,7 +853,7 @@ public class QLsach extends javax.swing.JFrame {
             return;
         }
         String id = (String) jTable1.getValueAt(hangXoa, 0);
-        if (qlsach.xoaSach(id)) {
+        if (qlsach.xoaSach(id)) { 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.removeRow(hangXoa);
             showMessage("Xóa sách thành công!");
