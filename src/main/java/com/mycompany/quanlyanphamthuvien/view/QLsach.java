@@ -544,7 +544,7 @@ public class QLsach extends javax.swing.JFrame {
         String name = jTextField1.getText();
         if (name == null || "".equals(name.trim())) {
             jTextField1.requestFocus();
-            showMessage("Magazine title cannot be empty!");
+            showMessage("Book title cannot be empty!");
             return false;
         }
         return true;
