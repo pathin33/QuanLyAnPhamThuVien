@@ -63,12 +63,12 @@ public class SachController {
         }
     }
     class AddBookListener implements ActionListener { 
+        @Override
         public void actionPerformed(ActionEvent e) {
             Sach newsach = qlsachview.getSachInfo();
             if (newsach != null) {
                 quanlySach.themDtVaoDsSach(newsach);
-                ArrayList<Sach> dssach = new ArrayList<>();
-                dssach = quanlySach.docDanhSachSach();
+                ArrayList<Sach> dssach = quanlySach.docDanhSachSach();
                 qlsachview.khoiTaoBangSach(dssach); 
                 qlsachview.showMessage("Thêm sách thành công!");
             } else {
@@ -164,12 +164,11 @@ public class SachController {
             qlsachview.khoiTaoBangSach(quanlySach.getListSach());
         }
     }
-
     class timKiem implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             
         }
     }
-
+    
 }
