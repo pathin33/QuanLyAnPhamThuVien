@@ -16,7 +16,10 @@ public class ThongKeChartPanel extends JTabbedPane {
     public ThongKeChartPanel() {
         ThongKeAnPham thongKe = new ThongKeAnPham();
         setBackground(Color.WHITE);
-        setFont(new Font("Segoe UI", Font.BOLD, 14)); // Made tab labels bold
+        setFont(new Font("Segoe UI", Font.BOLD, 14));
+        
+        // Remove border around the tabbed pane
+        setBorder(BorderFactory.createEmptyBorder());
         
         // Tab 1: Publication types
         addTab("Publication Types", createChartPanel(
@@ -73,7 +76,8 @@ public class ThongKeChartPanel extends JTabbedPane {
         
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setBackground(Color.WHITE);
-        chartPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 102), 1));
+        // Remove the border from chart panel
+        chartPanel.setBorder(BorderFactory.createEmptyBorder());
         
         return chartPanel;
     }
