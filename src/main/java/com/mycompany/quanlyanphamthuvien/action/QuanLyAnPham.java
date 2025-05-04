@@ -46,41 +46,44 @@ public class QuanLyAnPham {
     }
 
     public void themDtVaoDsAnPham(AnPham anPhammoi) {
-        // Đọc danh sách hiện có từ file
+
         ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
 
-        // Thêm đối tượng mới vào danh sách
         danhSachHienCo.add(anPhammoi);
 
-        // Ghi lại toàn bộ danh sách
         ghiDanhSachAnPham(danhSachHienCo);
 
-        // Cập nhật danh sách trong memory
         this.qlAnPham = danhSachHienCo;
     }
 
-    public boolean xoaDtVaoDsAnPham(AnPham anPhamxoa) {
+    public boolean xoaDtVaoDsAnPham(AnPham anPhamXoa) {
+        if (anPhamXoa == null) {
+            return false;
+        }
+
         ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
-        boolean result = false;
+        boolean daXoa = false;
 
         for (int i = 0; i < danhSachHienCo.size(); i++) {
-            if (danhSachHienCo.get(i).getID().equals(anPhamxoa.getID())) {
+            if (danhSachHienCo.get(i).getID().equals(anPhamXoa.getID())) {
                 danhSachHienCo.remove(i);
-                result = true;
+                daXoa = true;
                 break;
             }
         }
 
-        if (result) {
+        if (daXoa) {
+
             ghiDanhSachAnPham(danhSachHienCo);
+
             this.qlAnPham = danhSachHienCo;
         }
 
-        return result;
+        return daXoa;
     }
 
     public void suaDtDsAnPham(AnPham anPhamsua) {
-        // Đọc danh sách hiện có từ file
+
         ArrayList<AnPham> danhSachHienCo = docDanhSachAnPham();
         boolean daSua = false;
 
@@ -88,14 +91,13 @@ public class QuanLyAnPham {
             AnPham anPhamHienTai = danhSachHienCo.get(i);
 
             if (anPhamHienTai.getID().equals(anPhamsua.getID())) {
-                // Cập nhật thông tin chung từ lớp AnPham
+
                 anPhamHienTai.setTenAnPham(anPhamsua.getTenAnPham());
                 anPhamHienTai.setSoLuong(anPhamsua.getSoLuong());
                 anPhamHienTai.setNamXuatBan(anPhamsua.getNamXuatBan());
                 anPhamHienTai.setNhaXuatBan(anPhamsua.getNhaXuatBan());
                 anPhamHienTai.setGiaTien(anPhamsua.getGiaTien());
 
-                // Xử lý riêng cho từng loại ấn phẩm
                 if (anPhamsua instanceof Sach && anPhamHienTai instanceof Sach) {
                     Sach sachSua = (Sach) anPhamsua;
                     Sach sachHienTai = (Sach) anPhamHienTai;
@@ -120,19 +122,14 @@ public class QuanLyAnPham {
         }
 
         if (daSua) {
-            // Ghi lại toàn bộ danh sách đã cập nhật
+    
             ghiDanhSachAnPham(danhSachHienCo);
-            // Cập nhật danh sách trong memory
+  
             this.qlAnPham = danhSachHienCo;
         }
     }
 
-    /**
-     * Tìm kiếm ấn phẩm theo tên (tìm gần đúng, không phân biệt hoa thường)
-     *
-     * @param ten Tên hoặc một phần tên cần tìm
-     * @return Danh sách ấn phẩm có tên chứa chuỗi tìm kiếm
-     */
+   
     public ArrayList<AnPham> timKiemTheoTen(String ten) {
         ArrayList<AnPham> ketQua = new ArrayList<>();
 
@@ -144,13 +141,7 @@ public class QuanLyAnPham {
         return ketQua;
     }
 
-    /**
-     * Tìm kiếm ấn phẩm theo khoảng giá tiền
-     *
-     * @param giaMin Giá tối thiểu (null nếu không giới hạn)
-     * @param giaMax Giá tối đa (null nếu không giới hạn)
-     * @return Danh sách ấn phẩm có giá trong khoảng chỉ định
-     */
+ 
     public ArrayList<AnPham> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
         ArrayList<AnPham> ketQua = new ArrayList<>();
 
@@ -172,12 +163,7 @@ public class QuanLyAnPham {
         return ketQua;
     }
 
-    /**
-     * Tìm kiếm ấn phẩm theo ID (tìm chính xác)
-     *
-     * @param id ID cần tìm
-     * @return Danh sách ấn phẩm có ID trùng khớp
-     */
+ 
     public ArrayList<AnPham> timKiemTheoID(String id) {
         ArrayList<AnPham> ketQua = new ArrayList<>();
 
@@ -217,5 +203,5 @@ public class QuanLyAnPham {
             }
         });
     }
-    
+
 }
