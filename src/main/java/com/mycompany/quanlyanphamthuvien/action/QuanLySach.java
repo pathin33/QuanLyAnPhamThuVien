@@ -9,18 +9,35 @@ import java.util.Optional;
 
 public class QuanLySach {
 
-    private ArrayList<Sach> qlSach;
+    private static QuanLySach instance;
     private QuanLyAnPham qlAnPham;
+    private ArrayList<Sach> qlSach;
 
     public QuanLySach() {
+        this.qlAnPham = new QuanLyAnPham();
         this.qlSach = docDanhSachSach();
-        this.qlAnPham = qlAnPham;
         if (qlSach == null) {
             qlSach = new ArrayList<>();
         }
     }
+
+    public static QuanLySach getInstance() {
+        if (instance == null) {
+            instance = new QuanLySach();
+        }
+        return instance;
+    }
+
     public ArrayList<Sach> getQlSach() {
         return qlSach;
+    }
+
+    public QuanLyAnPham getQlAnPham() {
+        return qlAnPham;
+    }
+
+    public void setQlAnPham(QuanLyAnPham qlAnPham) {
+        this.qlAnPham = qlAnPham;
     }
 
     public void setQlSach(ArrayList<Sach> qlSach) {
@@ -28,14 +45,9 @@ public class QuanLySach {
     }
 
     public void ghiDanhSachSach(ArrayList<Sach> qlSach) {
-        try {
-            SachXML sachXML = new SachXML();
-            sachXML.setXmlSach(qlSach);
-            FileUtils.writeXMLtoFile("Sach.xml", sachXML);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Lỗi khi ghi file XML!");
-        }
+        SachXML sachXML = new SachXML();
+        sachXML.setXmlSach(qlSach);
+        FileUtils.writeXMLtoFile("Sach.xml", sachXML);
     }
 
     public ArrayList<Sach> docDanhSachSach() {
@@ -48,67 +60,65 @@ public class QuanLySach {
     }
 
     public void themDtVaoDsSach(Sach sachMoi) {
-        qlSach = docDanhSachSach();
-        if (!kiemTraTrungID(sachMoi)) {
-            qlSach.add(sachMoi);
-            qlAnPham.themDtVaoDsAnPham(sachMoi);
-            ghiDanhSachSach(qlSach);
-        } else {
-            throw new IllegalArgumentException("ID đã tồn tại!");
-        }
+        qlSach.add(sachMoi);
+        qlAnPham.themDtVaoDsAnPham(sachMoi);
+        ghiDanhSachSach(qlSach);
     }
 
-    public boolean xoaDtVaoDsSach(Sach sachXoa) {
-        if (sachXoa == null) {
-            return false;
-        }
-        if (sachXoa == null) {
-            return false;
-        }
-        for (int i = 0; i < qlSach.size(); i++) {
-            if (qlSach.get(i).getID().equals(sachXoa.getID())) { // Sửa thành equals()
-                qlSach.remove(i);
-                qlAnPham.xoaDtVaoDsAnPham(sachXoa);
-                ghiDanhSachSach(qlSach);
-                return true;
+    public boolean xoaSach(String id) {
+        qlSach = docDanhSachSach(); 
+        Optional<Sach> sachCanXoa = qlSach.stream()
+                .filter(s -> s.getID().equals(id))
+                .findFirst();
+
+        if (sachCanXoa.isPresent()) {
+            qlSach.remove(sachCanXoa.get());
+            ghiDanhSachSach(qlSach);
+
+            if (qlAnPham != null) {
+                qlAnPham.xoaDtVaoDsAnPham(sachCanXoa.get());
             }
+
+            return true;
         }
         return false;
     }
 
     public void suaDtDsSach(Sach sachSua) {
         for (int i = 0; i < qlSach.size(); i++) {
-            if (qlSach.get(i).getID() == sachSua.getID()) {
-                Sach sachCanSua = qlSach.get(i);
-                sachCanSua.setTenAnPham(sachSua.getTenAnPham());
-                sachCanSua.setSoLuong(sachSua.getSoLuong());
-                sachCanSua.setNamXuatBan(sachSua.getNamXuatBan());
-                sachCanSua.setNhaXuatBan(sachSua.getNhaXuatBan());
-                sachCanSua.setGiaTien(sachSua.getGiaTien());
-                sachCanSua.setTacGia(sachSua.getTacGia());
-                sachCanSua.setTheLoai(sachSua.getTheLoai());
-                qlAnPham.suaDtDsAnPham(sachCanSua);
+            if (qlSach.get(i).getID().equals(sachSua.getID())) {
+                qlSach.get(i).setTenAnPham(sachSua.getTenAnPham());
+                qlSach.get(i).setSoLuong(sachSua.getSoLuong());
+                qlSach.get(i).setNamXuatBan(sachSua.getNamXuatBan());
+                qlSach.get(i).setNhaXuatBan(sachSua.getNhaXuatBan());
+                qlSach.get(i).setGiaTien(sachSua.getGiaTien());
+                qlSach.get(i).setTacGia(sachSua.getTacGia());
+                qlSach.get(i).setTheLoai(sachSua.getTheLoai());
+                qlAnPham.suaDtDsAnPham(sachSua);
                 ghiDanhSachSach(qlSach);
-
                 break;
             }
         }
     }
 
     public void sapxepNamsach() {
+        qlSach = docDanhSachSach();
         Collections.sort(qlSach, (Sach o1, Sach o2) -> Integer.compareUnsigned(o1.getNamXuatBan(), o2.getNamXuatBan()));
     }
 
+    public void sapXepSoLuongSach() {
+        qlSach = docDanhSachSach();
+        Collections.sort(qlSach, (Sach o1, Sach o2) -> Integer.compare(o1.getSoLuong(), o2.getSoLuong()));
+    }
+
     public void sapxepGiasach() {
+        qlSach = docDanhSachSach();
         Collections.sort(qlSach, (Sach o1, Sach o2) -> Double.compare(o1.getGiaTien(), o2.getGiaTien()));
     }
 
     public void sapXepTenSach() {
-        Collections.sort(qlSach, (s1, s2) -> s1.getTenAnPham().compareToIgnoreCase(s2.getTenAnPham()));
-    }
-
-    public void sapxepSoLuong() {
-        Collections.sort(qlSach, (Sach o1, Sach o2) -> Integer.compareUnsigned(o1.getSoLuong(), o2.getSoLuong()));
+        qlSach = docDanhSachSach();
+        Collections.sort(qlSach, (Sach s1, Sach s2) -> s1.getTenAnPham().compareToIgnoreCase(s2.getTenAnPham()));
     }
 
     public ArrayList<Sach> timKiemIDSach(String timKiem) {
@@ -131,37 +141,14 @@ public class QuanLySach {
         return temp;
     }
 
-    /**
-     * Tìm kiếm sách theo khoảng giá tiền
-     *
-     * @param giaMin Giá tối thiểu (nếu null thì không giới hạn)
-     * @param giaMax Giá tối đa (nếu null thì không giới hạn)
-     * @return Danh sách sách thỏa mãn điều kiện
-     */
-    public ArrayList<Sach> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
-        ArrayList<Sach> ketQua = new ArrayList<>();
-
+    public ArrayList<Sach> timKiemTacGiaSach(String timKiem) {
+        ArrayList<Sach> temp = new ArrayList<>();
         for (Sach sach : qlSach) {
-            double gia = sach.getGiaTien();
-
-            boolean thoaDieuKien = true;
-
-            // Kiểm tra giá tối thiểu
-            if (giaMin != null && gia < giaMin) {
-                thoaDieuKien = false;
-            }
-
-            // Kiểm tra giá tối đa
-            if (giaMax != null && gia > giaMax) {
-                thoaDieuKien = false;
-            }
-
-            if (thoaDieuKien) {
-                ketQua.add(sach);
+            if (sach.getTacGia().toLowerCase().contains(timKiem.toLowerCase())) {
+                temp.add(sach);
             }
         }
-
-        return ketQua;
+        return temp;
     }
 
     public ArrayList<Sach> timKiemTheLoaiSach(String timKiem) {
@@ -174,6 +161,24 @@ public class QuanLySach {
         return temp;
     }
 
+    public ArrayList<Sach> timKiemTheoGiaTien(Double giaMin, Double giaMax) {
+        ArrayList<Sach> ketQua = new ArrayList<>();
+        for (Sach sach : qlSach) {
+            double gia = sach.getGiaTien();
+            boolean thoaDieuKien = true;
+            if (giaMin != null && gia < giaMin) {
+                thoaDieuKien = false;
+            }
+            if (giaMax != null && gia > giaMax) {
+                thoaDieuKien = false;
+            }
+            if (thoaDieuKien) {
+                ketQua.add(sach);
+            }
+        }
+        return ketQua;
+    }
+
     public boolean kiemTraTrungID(Sach sach) {
         String id = sach.getID();
         for (Sach sachHienCo : qlSach) {
@@ -182,35 +187,5 @@ public class QuanLySach {
             }
         }
         return true;
-    }
-
-    public Sach getBookAt(int index) {
-        ArrayList<Sach> temp = new ArrayList<>();
-        if (index >= 0 && index < temp.size()) {
-            return temp.get(index);
-        }
-        return null;
-    }
-
-    public ArrayList<Sach> getListSach() {
-        return this.qlSach;
-    }
-
-    public boolean xoaSach(String id) {
-        qlSach = docDanhSachSach(); // Reload to ensure the list is up-to-date
-        Optional<Sach> SachCanXoa = qlSach.stream()
-                .filter(s -> s.getID().equals(id))
-                .findFirst();
-
-        if (SachCanXoa.isPresent()) {
-            qlSach.remove(SachCanXoa.get());
-            ghiDanhSachSach(qlSach);
-            if (qlAnPham != null) {
-                qlAnPham.xoaDtVaoDsAnPham(SachCanXoa.get());
-            }
-
-            return true;
-        }
-        return false;
     }
 }
