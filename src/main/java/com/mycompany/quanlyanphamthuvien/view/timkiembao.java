@@ -3,20 +3,52 @@ package com.mycompany.quanlyanphamthuvien.view;
 import com.mycompany.quanlyanphamthuvien.action.QuanLyBao;
 import com.mycompany.quanlyanphamthuvien.entity.Bao;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class timkiembao extends javax.swing.JFrame {
 
     private QLbao baoView;
     private QuanLyBao qlBao;
+    private Double giaMin = null;
+    private Double giaMax = null;
 
     public timkiembao() {
         initComponents();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
         setResizable(false);
         qlBao = new QuanLyBao();
+
+        // Thêm sự kiện cho checkbox Price
         checkbox4.addItemListener(e -> {
             boolean isSelected = checkbox4.getState();
             jTextField1.setVisible(!isSelected);
+
+            if (isSelected) {
+                // Hiển thị dialog nhập giá khi checkbox Price được chọn
+                try {
+                    String inputMin = JOptionPane.showInputDialog(this, "Nhập giá tối thiểu:");
+                    String inputMax = JOptionPane.showInputDialog(this, "Nhập giá tối đa:");
+
+                    if (inputMin != null && !inputMin.trim().isEmpty()) {
+                        giaMin = Double.valueOf(inputMin.trim());
+                    }
+                    if (inputMax != null && !inputMax.trim().isEmpty()) {
+                        giaMax = Double.valueOf(inputMax.trim());
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(this, "Giá trị nhập không hợp lệ. Vui lòng nhập số.");
+                    checkbox4.setState(false); // Bỏ chọn checkbox nếu nhập sai
+                    jTextField1.setVisible(true);
+                    giaMin = null;
+                    giaMax = null;
+                }
+            } else {
+                // Reset giá trị khi bỏ chọn
+                giaMin = null;
+                giaMax = null;
+            }
         });
     }
 
@@ -92,35 +124,19 @@ public class timkiembao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {
         baoView = new QLbao();
         baoView.setLocationRelativeTo(null);
         baoView.setVisible(true);
         dispose();
-    }                                       
+    }
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<Bao> result = new ArrayList<>();
 
         if (checkbox4.getState()) {
-            try {
-                String inputMin = JOptionPane.showInputDialog(this, "Nhập giá tối thiểu:");
-                String inputMax = JOptionPane.showInputDialog(this, "Nhập giá tối đa:");
-
-                Double giaMin = null, giaMax = null;
-
-                if (inputMin != null && !inputMin.trim().isEmpty()) {
-                    giaMin = Double.valueOf(inputMin.trim());
-                }
-                if (inputMax != null && !inputMax.trim().isEmpty()) {
-                    giaMax = Double.valueOf(inputMax.trim());
-                }
-
-                result = qlBao.timKiemTheoGiaTien(giaMin, giaMax);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Giá trị nhập không hợp lệ. Vui lòng nhập số.");
-                return;
-            }
+            // Sử dụng giá trị đã nhập từ dialog
+            result = qlBao.timKiemTheoGiaTien(giaMin, giaMax);
         } else if (ID.getState()) {
             String keyword = jTextField1.getText().trim();
             if (keyword.isEmpty()) {
@@ -156,8 +172,7 @@ public class timkiembao extends javax.swing.JFrame {
             baoView.setVisible(true);
         }
 
-        dispose();
-    }                                       
+    }
 
     // Variables declaration - do not modify                     
     private java.awt.Checkbox Editor;
