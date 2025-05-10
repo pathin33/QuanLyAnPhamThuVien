@@ -1,25 +1,58 @@
+
 package com.mycompany.quanlyanphamthuvien.view;
 
 import com.mycompany.quanlyanphamthuvien.action.QuanLyTapChi;
 import com.mycompany.quanlyanphamthuvien.entity.TapChi;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 
 public class timKiemTapChi extends javax.swing.JFrame {
 
     private QLtapchi tapChiView;
+    private Double giaMin = null;
+    private Double giaMax = null;
 
     public timKiemTapChi() {
         initComponents();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
+        setResizable(false);
+
+        // Thêm sự kiện cho checkbox4
         checkbox4.addItemListener(e -> {
             boolean isSelected = checkbox4.getState();
             jTextField1.setVisible(!isSelected);
+
+            if (isSelected) {
+                // Hiển thị dialog nhập giá khi checkbox4 được chọn
+                try {
+                    String inputMin = JOptionPane.showInputDialog(this, "Nhập giá tối thiểu:");
+                    String inputMax = JOptionPane.showInputDialog(this, "Nhập giá tối đa:");
+
+                    if (inputMin != null && !inputMin.trim().isEmpty()) {
+                        giaMin = Double.valueOf(inputMin.trim());
+                    }
+                    if (inputMax != null && !inputMax.trim().isEmpty()) {
+                        giaMax = Double.valueOf(inputMax.trim());
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(this, "Giá trị nhập không hợp lệ. Vui lòng nhập số.");
+                    checkbox4.setState(false); // Bỏ chọn checkbox nếu nhập sai
+                    jTextField1.setVisible(true);
+                }
+            } else {
+                // Reset giá trị khi bỏ chọn
+                giaMin = null;
+                giaMax = null;
+            }
         });
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
@@ -91,41 +124,24 @@ public class timKiemTapChi extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 420));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 public void buttonTimKiem(ActionListener listener) {
         button2.addActionListener(listener);
     }
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         tapChiView = new QLtapchi();
         tapChiView.setLocationRelativeTo(null);
         this.dispose();
-        
-    }//GEN-LAST:event_button1ActionPerformed
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    }                                       
 
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         QuanLyTapChi qltc = new QuanLyTapChi();
         ArrayList<TapChi> result = new ArrayList<>();
 
         if (checkbox4.getState()) {
-            try {
-                String inputMin = JOptionPane.showInputDialog(this, "Nhập giá tối thiểu:");
-                String inputMax = JOptionPane.showInputDialog(this, "Nhập giá tối đa:");
-
-                Double giaMin = null, giaMax = null;
-
-                if (inputMin != null && !inputMin.trim().isEmpty()) {
-                    giaMin = Double.valueOf(inputMin.trim());
-                }
-                if (inputMax != null && !inputMax.trim().isEmpty()) {
-                    giaMax = Double.valueOf(inputMax.trim());
-                }
-
-                result = qltc.timKiemTheoGiaTien(giaMin, giaMax);
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Giá trị nhập không hợp lệ. Vui lòng nhập số.");
-                return;
-            }
+            // Sử dụng giá trị đã nhập từ dialog
+            result = qltc.timKiemTheoGiaTien(giaMin, giaMax);
         } else if (ID.getState()) {
             String keyword = jTextField1.getText().trim();
             if (keyword.isEmpty()) {
@@ -157,16 +173,12 @@ public void buttonTimKiem(ActionListener listener) {
         } else {
             tapChiView = new QLtapchi();
             tapChiView.setLocationRelativeTo(null);
-            
             tapChiView.khoiTaoBangTapChi(result);
         }
 
-        dispose();
+    }                                       
 
-
-    }//GEN-LAST:event_button2ActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private java.awt.Checkbox ID;
     private com.mycompany.quanlyanphamthuvien.view.Button button1;
     private com.mycompany.quanlyanphamthuvien.view.Button button2;
@@ -177,5 +189,5 @@ public void buttonTimKiem(ActionListener listener) {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private java.awt.Checkbox title;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
