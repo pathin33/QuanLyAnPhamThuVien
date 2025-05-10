@@ -17,7 +17,7 @@ public class KiemTraDangNhapNguoiDung {
 
     public ArrayList<NguoiDung> docDsNguoiDung() {
         ArrayList<NguoiDung> listNguoiDung = new ArrayList<>();
-        NguoiDungXML nguoiDungXML = (NguoiDungXML) FileUtils.readXMLFile("Sach.xml", NguoiDungXML.class);
+        NguoiDungXML nguoiDungXML = (NguoiDungXML) FileUtils.readXMLFile("NguoiDung.xml", NguoiDungXML.class);
         if (nguoiDungXML != null) {
             listNguoiDung = new ArrayList<>(nguoiDungXML.getXmlNguoiDung());
         }
