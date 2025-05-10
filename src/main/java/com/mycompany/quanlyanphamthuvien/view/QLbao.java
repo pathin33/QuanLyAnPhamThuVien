@@ -10,31 +10,36 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class QLbao extends javax.swing.JFrame {
-
+    
     private ArrayList<Bao> arrBao;
     private QuanLyBao qlBao;
-
+    
     public QLbao() {
         initComponents();
         setResizable(false);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
+        setTitle("Newspaper Management");
         FieldID1.setEnabled(true);
         FieldID1.setEditable(true);
         FieldID.setVisible(true);
         FieldID.setEditable(true);
         initTable();
-
+        
         BaoController bc = new BaoController(this);
         bc.bangBao();
         qlBao = QuanLyBao.getInstance();
     }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -67,16 +72,16 @@ public class QLbao extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jYearChooser1 = new com.toedter.calendar.JYearChooser();
         jLabel2 = new javax.swing.JLabel();
-
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 600));
-
+        
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-
+        
         jButton1.setBackground(new java.awt.Color(0, 0, 102));
         jButton1.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +92,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
+        
         jButton2.setBackground(new java.awt.Color(0, 0, 102));
         jButton2.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,7 +103,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
+        
         jButton3.setBackground(new java.awt.Color(0, 0, 102));
         jButton3.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +114,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
+        
         jButton4.setBackground(new java.awt.Color(0, 0, 102));
         jButton4.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +125,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-
+        
         jButton5.setBackground(new java.awt.Color(0, 0, 102));
         jButton5.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +136,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-
+        
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/return.png"))); // NOI18N
         jButton6.setText("Back");
@@ -140,7 +145,7 @@ public class QLbao extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-
+        
         jButton7.setBackground(new java.awt.Color(0, 0, 102));
         jButton7.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,56 +156,56 @@ public class QLbao extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-
+        
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(54, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(69, 69, 69))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61))))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jButton6)
-                .addContainerGap(136, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addComponent(jButton6)
+                                .addContainerGap(136, Short.MAX_VALUE))
         );
-
+        
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
-
+        
         jLabel3.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 100, 42));
         jLabel3.setText("ID:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 80, -1));
-
+        
         FieldID.setEditable(false);
         FieldID.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         FieldID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -213,12 +218,12 @@ public class QLbao extends javax.swing.JFrame {
         getContentPane().add(FieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 80, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
-
+        
         jLabel4.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 100, 42));
         jLabel4.setText("The number of newspapers: ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, 240, 30));
-
+        
         FieldID.setEditable(false);
         FieldID1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         FieldID1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -231,30 +236,30 @@ public class QLbao extends javax.swing.JFrame {
         getContentPane().add(FieldID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 90, -1));
         FieldID.setOpaque(false);
         FieldID.setVisible(false);
-
+        
         jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 100, 42));
         jLabel5.setText("Newspaper title:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 150, 30));
-
+        
         jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 100, 42));
         jLabel7.setText("Publisher:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 90, 30));
-
+        
         jLabel8.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 100, 42));
         jLabel8.setText("Publication date:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, 30));
-
+        
         jButton8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton8.setText("Sort by title");
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 140, 50));
-
+        
         jButton9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton9.setText("Sort by quantity");
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 150, 50));
-
+        
         jButton10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton10.setText("Sort by year");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -263,24 +268,24 @@ public class QLbao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 330, 150, 50));
-
+        
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Newspaper title", "Editor", "Publisher", "Publication date", "Publication year", "Price", "Quantity", "Status"
-            }
+                new Object[][]{
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null}
+                },
+                new String[]{
+                    "ID", "Newspaper title", "Editor", "Publisher", "Publication date", "Publication year", "Price", "Quantity", "Status"
+                }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
             };
-
+            
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -289,9 +294,9 @@ public class QLbao extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(7).setMaxWidth(70);
             jTable1.getColumnModel().getColumn(8).setMaxWidth(70);
         }
-
+        
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 880, 320));
-
+        
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,10 +304,10 @@ public class QLbao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 190, 30));
-
+        
         jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 120, 30));
-
+        
         jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +315,7 @@ public class QLbao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 190, 30));
-
+        
         jButton12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton12.setText("Sort by price");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -319,118 +324,120 @@ public class QLbao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 150, 50));
-
+        
         jLabel10.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 100, 42));
         jLabel10.setText("Newspaper price:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 150, 30));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 140, 120, 30));
-
+        
         jLabel9.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 100, 42));
         jLabel9.setText("Editor:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 60, 30));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 190, 30));
-
+        
         jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 100, 42));
         jLabel6.setText("Publication year:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, -1, -1));
         getContentPane().add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 190, 80, 30));
-
+        
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/fontsach.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 740));
-
+        
         pack();
     }// </editor-fold>                        
+
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
-
+    
     public void buttonAddBao(ActionListener listener) {
         jButton1.addActionListener(listener);
     }
-
+    
     public void bangDsBao(ListSelectionListener listener) {
         jTable1.getSelectionModel().addListSelectionListener(listener);
     }
-
+    
     public void xoaDt(ActionListener listener) {
         jButton3.addActionListener(listener);
     }
-
+    
     public void suaDt(ActionListener listener) {
         jButton7.addActionListener(listener);
     }
-
+    
     public void sapXepTheoTen(ActionListener listener) {
         jButton8.addActionListener(listener);
     }
-
+    
     public void sapXepTheoGiaTien(ActionListener listener) {
         jButton12.addActionListener(listener);
     }
-
+    
     public void sapXepTheoSoLuong(ActionListener listener) {
         jButton9.addActionListener(listener);
     }
-
+    
     public void sapXepTheoNam(ActionListener listener) {
         jButton10.addActionListener(listener);
     }
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }    
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {        
         timkiembao tkBao = new timkiembao();
         tkBao.setLocationRelativeTo(null);
         tkBao.setVisible(true);
-        dispose();
-    }                                        
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    }    
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {        
         QuanLyMain QL = new QuanLyMain();
         QL.setVisible(true);
         QL.pack();
         QL.setLocationRelativeTo(null);
         this.dispose();
-    }                                        
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }    
+    
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
-
-    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    }    
+    
+    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                       
-
-    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }    
+    
+    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    }    
+    
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                         
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    }    
+    
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    }    
+    
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    }    
+    
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                         
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }    
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {        
         FieldID1.setEnabled(true);
         FieldID.setText("");
         FieldID1.setText("");
@@ -440,15 +447,15 @@ public class QLbao extends javax.swing.JFrame {
         jTextField4.setText("");
         jDateChooser1.setDate(null);
         jButton1.setEnabled(true);        // TODO add your handling code here:
-    }                                        
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    }    
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {        
         qlBao = new QuanLyBao();
         arrBao = qlBao.docDanhSachBao();
         khoiTaoBangBao(arrBao);
+        
+    }    
 
-
-    }                                        
     private void initTable() {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
@@ -463,18 +470,18 @@ public class QLbao extends javax.swing.JFrame {
         jTable1.setModel(model);
         jTable1.setDefaultEditor(Object.class, null);
     }
-
+    
     public void khoiTaoBangBao(ArrayList<Bao> bangBao) {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-
+        
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         symbols.setGroupingSeparator('.');
         symbols.setDecimalSeparator(',');
-
+        
         DecimalFormat formatter = new DecimalFormat("#,###", symbols);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
+        
         for (Bao bao : bangBao) {
             Object[] row = new Object[]{
                 bao.getID(),
@@ -490,10 +497,10 @@ public class QLbao extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-
+    
     private boolean checkID() {
         String textID = FieldID1.getText().trim();
-
+        
         if (textID.isEmpty()) {
             showMessage("ID cannot be blank!");
             FieldID1.requestFocus();
@@ -506,7 +513,7 @@ public class QLbao extends javax.swing.JFrame {
             FieldID1.requestFocus();
             return false;
         }
-
+        
         try {
             arrBao = qlBao.docDanhSachBao();
             for (Bao bao : arrBao) {
@@ -521,10 +528,10 @@ public class QLbao extends javax.swing.JFrame {
             FieldID1.requestFocus();
             return false;
         }
-
+        
         return true;
     }
-
+    
     private boolean checkTenBao() {
         String name = jTextField1.getText();
         if (name == null || "".equals(name.trim())) {
@@ -534,7 +541,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private boolean checkSoLuong() {
         String soLuong = FieldID.getText();
         if ("".equals(soLuong.trim())) {
@@ -554,7 +561,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private boolean checkGia() {
         String giaText = jTextField3.getText().trim();
         if (giaText.isEmpty()) {
@@ -575,7 +582,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private boolean checkNhaXuatBan() {
         String name = jTextField4.getText();
         if (name == null || "".equals(name.trim())) {
@@ -585,7 +592,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private boolean checkBienTapVien() {
         String name = jTextField2.getText();
         if (name == null || "".equals(name.trim())) {
@@ -595,17 +602,17 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private boolean checkNamXuatBan() {
         int nam = jYearChooser1.getYear();
         if (nam > 2025) {
             showMessage("Invalid publication year!");
             return false;
-
+            
         }
         return true;
     }
-
+    
     private boolean checkNgayPhatHanh() {
         Date date = jDateChooser1.getDate();
         if (date == null) {
@@ -618,7 +625,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     public static String capitalizeWords(String input) {
         if (input == null || input.isEmpty()) {
             return input;
@@ -634,7 +641,7 @@ public class QLbao extends javax.swing.JFrame {
         }
         return capitalized.toString().trim();
     }
-
+    
     public Bao checkDuLieuHopLe() {
         if (!checkID() || !checkTenBao() || !checkSoLuong() || !checkGia() || !checkNhaXuatBan() || !checkBienTapVien() || !checkNgayPhatHanh()) {
             return null;
@@ -655,7 +662,7 @@ public class QLbao extends javax.swing.JFrame {
             return null;
         }
     }
-
+    
     public Bao checkDuLieuTruID() {
         if (!checkTenBao() || !checkSoLuong() || !checkGia() || !checkNhaXuatBan() || !checkNamXuatBan() || !checkBienTapVien() || !checkNgayPhatHanh()) {
             return null;
@@ -676,7 +683,7 @@ public class QLbao extends javax.swing.JFrame {
             return null;
         }
     }
-
+    
     public void layChiSo() throws ParseException {
         int row = jTable1.getSelectedRow();
         if (row >= 0) {
@@ -688,7 +695,7 @@ public class QLbao extends javax.swing.JFrame {
 
             String yearStr = jTable1.getModel().getValueAt(row, 4).toString();
             jYearChooser1.setYear(Integer.parseInt(yearStr));
-
+            
             String dateStr = jTable1.getModel().getValueAt(row, 5).toString();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             if (!dateStr.isEmpty()) {
@@ -696,14 +703,14 @@ public class QLbao extends javax.swing.JFrame {
             } else {
                 jDateChooser1.setDate(null);
             }
-
+            
             jTextField3.setText(jTable1.getModel().getValueAt(row, 6).toString());
             FieldID.setText(jTable1.getModel().getValueAt(row, 7).toString());     // Số lượng
 
             jButton1.setEnabled(false);
         }
     }
-
+    
     public String xoaDt() {
         int hangXoa = jTable1.getSelectedRow();
         if (hangXoa == -1) {
@@ -712,7 +719,6 @@ public class QLbao extends javax.swing.JFrame {
         }
         return (String) jTable1.getValueAt(hangXoa, 0);
     }
-
 
     // Variables declaration - do not modify                     
     private javax.swing.JTextField FieldID;
