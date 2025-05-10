@@ -3,12 +3,17 @@ package com.mycompany.quanlyanphamthuvien.view;
 import com.mycompany.quanlyanphamthuvien.action.KiemTraDangNhapNguoiDung;
 import com.mycompany.quanlyanphamthuvien.entity.NguoiDung;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 public class User extends javax.swing.JFrame {
 
     public User() {
         initComponents();
+    
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
