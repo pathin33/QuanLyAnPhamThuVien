@@ -13,7 +13,8 @@ public class ThongKeUI extends JFrame {
 
         getContentPane().setBackground(Color.WHITE);
         setResizable(false);
-        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
     
         ThongKeTextPanel textPanel = new ThongKeTextPanel();
         ThongKeChartPanel chartPanel = new ThongKeChartPanel();
