@@ -2,6 +2,7 @@ package com.mycompany.quanlyanphamthuvien.view;
 
 import com.mycompany.quanlyanphamthuvien.action.KiemTraDangNhapAdmin;
 import com.mycompany.quanlyanphamthuvien.entity.Admin;
+import javax.swing.ImageIcon;
 
 public class Login extends javax.swing.JFrame {
 
@@ -10,6 +11,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         loginAdmin = new KiemTraDangNhapAdmin();
+         ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+         setIconImage(icon.getImage());
 
     }
 
@@ -223,7 +226,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>                   
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
 
