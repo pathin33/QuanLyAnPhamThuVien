@@ -9,6 +9,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,8 @@ public class QLsach extends javax.swing.JFrame {
     public QLsach() {
         initComponents();
         setResizable(false);
+         ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+         setIconImage(icon.getImage());
         FieldID.setEnabled(true);
         FieldID.setEditable(true);
         FieldID.setVisible(true);
@@ -400,6 +403,7 @@ public class QLsach extends javax.swing.JFrame {
         tks.setVisible(true);
         tks.pack();
         tks.setLocationRelativeTo(null);
+        this.dispose();
     }                                        
 
     private void dropGenreActionPerformed(java.awt.event.ActionEvent evt) {                                          
