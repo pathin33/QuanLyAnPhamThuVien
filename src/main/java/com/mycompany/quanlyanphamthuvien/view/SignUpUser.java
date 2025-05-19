@@ -319,10 +319,11 @@ public class SignUpUser extends javax.swing.JFrame {
             if (nguoiDung.getTenDangNhap().equals(username)
                     && nguoiDung.getMatKhau().equals(password)) {
                 // Đăng nhập thành công
-                QuanLyMain QL = new QuanLyMain();
-                QL.setVisible(true);
-                QL.pack();
-                QL.setLocationRelativeTo(null);
+                SwingUtilities.invokeLater(() -> {
+                    NguoiDungView nd = new NguoiDungView();
+                    nd.setLocationRelativeTo(null);
+                    nd.setVisible(true);
+                    });
                 this.dispose();
                 loginSuccess = true;
                 break;
