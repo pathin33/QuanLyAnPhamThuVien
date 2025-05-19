@@ -253,10 +253,11 @@ public class User extends javax.swing.JFrame {
             if (nguoiDung.getTenDangNhap().equals(inputUsername)
                     && nguoiDung.getMatKhau().equals(inputPassword)) {
                 // Đăng nhập thành công
-                QuanLyMain QL = new QuanLyMain();
-                QL.setVisible(true);
-                QL.pack();
-                QL.setLocationRelativeTo(null);
+                SwingUtilities.invokeLater(() -> {
+                    NguoiDungView nd = new NguoiDungView();
+                    nd.setLocationRelativeTo(null);
+                    nd.setVisible(true);
+                });
                 this.dispose();
                 isLoggedIn = true;
                 break; // Thoát vòng lặp nếu đúng
