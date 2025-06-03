@@ -22,8 +22,8 @@ public class QLsach extends javax.swing.JFrame {
     public QLsach() {
         initComponents();
         setResizable(false);
-         ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
-         setIconImage(icon.getImage());
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/mycompany/quanlyanphamthuvien/Icon/logo2.png"));
+        setIconImage(icon.getImage());
         FieldID.setEnabled(true);
         FieldID.setEditable(true);
         FieldID.setVisible(true);
@@ -35,6 +35,7 @@ public class QLsach extends javax.swing.JFrame {
         qlSach = QuanLySach.getInstance();
         arrSach = qlSach.docDanhSachSach();
     }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
@@ -155,43 +156,43 @@ public class QLsach extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(58, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(69, 69, 69))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(57, 57, 57))))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(jButton6)
-                .addContainerGap(118, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(jButton6)
+                                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
@@ -270,22 +271,22 @@ public class QLsach extends javax.swing.JFrame {
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 330, 150, 50));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Book title", "Book genre", "Author", "Publisher", "Publication year", "Price", "Quantity", "Status"
-            }
+                new Object[][]{
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null, null, null}
+                },
+                new String[]{
+                    "ID", "Book title", "Book genre", "Author", "Publisher", "Publication year", "Price", "Quantity", "Status"
+                }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -330,7 +331,7 @@ public class QLsach extends javax.swing.JFrame {
         jLabel10.setText("Book price:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 100, 30));
 
-        dropGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lua chon 1", "Item 2", "Item 3", "Item 4" }));
+        dropGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"lua chon 1", "Item 2", "Item 3", "Item 4"}));
         dropGenre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropGenreActionPerformed(evt);
@@ -358,65 +359,65 @@ public class QLsach extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
+    }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
+    }
 
-    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                       
+    }
 
-    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void FieldID1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
+    }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                         
+    }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         QuanLyMain QL = new QuanLyMain();
         QL.setVisible(true);
         QL.pack();
         QL.setLocationRelativeTo(null);
         this.dispose();
-    }                                        
+    }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
+    }
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                         
+    }
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
+    }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         timkiemsach tks = new timkiemsach();
         tks.setVisible(true);
         tks.pack();
         tks.setLocationRelativeTo(null);
         this.dispose();
-    }                                        
+    }
 
-    private void dropGenreActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void dropGenreActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                         
+    }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                           
+    }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         FieldID1.setEnabled(true);
-        
+
         FieldID.setText("");
         FieldID1.setText("");
         jTextField1.setText("");
@@ -425,12 +426,13 @@ public class QLsach extends javax.swing.JFrame {
         jTextField4.setText("");
         jButton1.setEnabled(true);
 
-    }                                        
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<Sach> dsSach = qlSach.docDanhSachSach();
         khoiTaoBangSach(dsSach);
-    }                                        
+    }
+
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
@@ -473,8 +475,9 @@ public class QLsach extends javax.swing.JFrame {
 
     private void setLuaChonTheLoai() {
         String[] items = {
-            "Văn học", "Khoa học", "Lịch sử",
-            "Kinh tế", "Công nghệ", "Nghệ thuật"
+            "Literature", "Science", "History",
+            "Economics", "Technology", "Art"
+
         };
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(items);
         dropGenre.setModel(model);
@@ -724,7 +727,6 @@ public class QLsach extends javax.swing.JFrame {
             }
         }
     }
-
 
     // Variables declaration - do not modify                     
     private javax.swing.JTextField FieldID;

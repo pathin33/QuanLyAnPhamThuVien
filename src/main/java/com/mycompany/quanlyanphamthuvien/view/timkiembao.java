@@ -20,16 +20,14 @@ public class timkiembao extends javax.swing.JFrame {
         setResizable(false);
         qlBao = new QuanLyBao();
 
-        // Thêm sự kiện cho checkbox Price
         checkbox4.addItemListener(e -> {
             boolean isSelected = checkbox4.getState();
             jTextField1.setVisible(!isSelected);
 
             if (isSelected) {
-                // Hiển thị dialog nhập giá khi checkbox Price được chọn
                 try {
-                    String inputMin = JOptionPane.showInputDialog(this, "Nhập giá tối thiểu:");
-                    String inputMax = JOptionPane.showInputDialog(this, "Nhập giá tối đa:");
+                    String inputMin = JOptionPane.showInputDialog(this, "Enter minimum price:");
+                    String inputMax = JOptionPane.showInputDialog(this, "Enter maximum price:");
 
                     if (inputMin != null && !inputMin.trim().isEmpty()) {
                         giaMin = Double.valueOf(inputMin.trim());
@@ -38,14 +36,13 @@ public class timkiembao extends javax.swing.JFrame {
                         giaMax = Double.valueOf(inputMax.trim());
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(this, "Giá trị nhập không hợp lệ. Vui lòng nhập số.");
-                    checkbox4.setState(false); // Bỏ chọn checkbox nếu nhập sai
+                    JOptionPane.showMessageDialog(this, "Invalid input. Please enter a number!");
+                    checkbox4.setState(false); 
                     jTextField1.setVisible(true);
                     giaMin = null;
                     giaMax = null;
                 }
             } else {
-                // Reset giá trị khi bỏ chọn
                 giaMin = null;
                 giaMax = null;
             }
@@ -140,31 +137,31 @@ public class timkiembao extends javax.swing.JFrame {
         } else if (ID.getState()) {
             String keyword = jTextField1.getText().trim();
             if (keyword.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập từ khóa tìm kiếm.");
+                JOptionPane.showMessageDialog(this, "Please enter a search keyword!");
                 return;
             }
             result = qlBao.timKiemIDBao(keyword);
         } else if (title.getState()) {
             String keyword = jTextField1.getText().trim();
             if (keyword.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập từ khóa tìm kiếm.");
+                JOptionPane.showMessageDialog(this, "Please enter a search keyword!");
                 return;
             }
             result = qlBao.timKiemTenBao(keyword);
         } else if (Editor.getState()) {
             String keyword = jTextField1.getText().trim();
             if (keyword.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập từ khóa tìm kiếm.");
+                JOptionPane.showMessageDialog(this, "Please enter a search keyword!");
                 return;
             }
             result = qlBao.timKiemBienTapVien(keyword);
         } else {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn một tiêu chí tìm kiếm.");
+            JOptionPane.showMessageDialog(this, "Please enter a search keyword!");
             return;
         }
 
         if (result.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Không tìm thấy kết quả.");
+            JOptionPane.showMessageDialog(this, "No results found!");
         } else {
             baoView = new QLbao();
             baoView.setLocationRelativeTo(null);

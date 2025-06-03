@@ -32,8 +32,6 @@ public class ThongKeAnPham {
                 .mapToInt(AnPham::getSoLuong)
                 .sum();
     }
-
-    // Các phương thức thống kê khác có thể thêm vào đây
     public int soLuongBao() {
         return (int) arrAnPham.stream()
                 .filter(ap -> ap instanceof Bao)
@@ -72,7 +70,6 @@ public class ThongKeAnPham {
         long soLuongBao = arrAnPham.stream().filter(ap -> ap instanceof Bao).count();
         long soLuongTapChi = arrAnPham.stream().filter(ap -> ap instanceof TapChi).count();
 
-        // So sánh
         if (soLuongSach >= soLuongBao && soLuongSach >= soLuongTapChi) {
             return "Book";
         } else if (soLuongBao >= soLuongSach && soLuongBao >= soLuongTapChi) {
@@ -83,12 +80,10 @@ public class ThongKeAnPham {
     }
 
     public String timLoaiAnPhamItNhat() {
-        // Đếm số lượng đối tượng mỗi loại
         long soSach = arrAnPham.stream().filter(ap -> ap instanceof Sach).count();
         long soBao = arrAnPham.stream().filter(ap -> ap instanceof Bao).count();
         long soTapChi = arrAnPham.stream().filter(ap -> ap instanceof TapChi).count();
 
-        // So sánh tìm loại ít nhất
         if (soSach <= soBao && soSach <= soTapChi) {
             return "Book";
         } else if (soBao <= soSach && soBao <= soTapChi) {

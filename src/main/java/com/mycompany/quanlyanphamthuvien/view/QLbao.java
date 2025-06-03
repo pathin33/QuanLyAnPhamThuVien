@@ -506,8 +506,6 @@ public class QLbao extends javax.swing.JFrame {
             FieldID1.requestFocus();
             return false;
         }
-
-        // Kiểm tra định dạng: B hoặc b + các chữ số
         if (!textID.matches("(?i)^B\\d+$")) {
             showMessage("Invalid ID: must start with 'B' followed by digits!");
             FieldID1.requestFocus();
@@ -714,7 +712,7 @@ public class QLbao extends javax.swing.JFrame {
     public String xoaDt() {
         int hangXoa = jTable1.getSelectedRow();
         if (hangXoa == -1) {
-            showMessage("Vui lòng chọn một hàng để xóa!");
+            showMessage("Please select a row to delete!");
             return null;
         }
         return (String) jTable1.getValueAt(hangXoa, 0);

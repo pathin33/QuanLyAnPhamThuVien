@@ -4,6 +4,7 @@ import com.mycompany.quanlyanphamthuvien.action.KiemTraDangNhapNguoiDung;
 import com.mycompany.quanlyanphamthuvien.entity.NguoiDung;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 
 public class User extends javax.swing.JFrame {
 
@@ -238,16 +239,15 @@ public class User extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
     }                                           
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         KiemTraDangNhapNguoiDung checkUser = new KiemTraDangNhapNguoiDung();
-        ArrayList<NguoiDung> userList = checkUser.docDsNguoiDung(); // Đọc danh sách từ XML
+        ArrayList<NguoiDung> userList = checkUser.docDsNguoiDung(); 
         String inputUsername = jTextField2.getText().trim();
         String inputPassword = jPasswordField1.getText().trim();
 
-        boolean isLoggedIn = false; // Biến cờ kiểm tra đăng nhập thành công
+        boolean isLoggedIn = false;
 
         for (NguoiDung nguoiDung : userList) {
             if (nguoiDung.getTenDangNhap().equals(inputUsername)
@@ -260,14 +260,12 @@ public class User extends javax.swing.JFrame {
                 });
                 this.dispose();
                 isLoggedIn = true;
-                break; // Thoát vòng lặp nếu đúng
+                break; 
             }
         }
-
-// Nếu duyệt hết danh sách mà không khớp
         if (!isLoggedIn) {
             MessageUtils mess = new MessageUtils();
-            mess.showMessage(null, "Tên đăng nhập hoặc mật khẩu không đúng.");
+            mess.showMessage(null, "The username or password is incorrect!");
         }
     }                                       
 
@@ -281,7 +279,6 @@ public class User extends javax.swing.JFrame {
     }                                       
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        // TODO add your handling code here:
         Login LoginFrame = new Login();
         LoginFrame.setVisible(true);
         LoginFrame.pack();
@@ -290,12 +287,9 @@ public class User extends javax.swing.JFrame {
     }                                       
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
     }                                               
 
-    /**
-     * @param args the command line arguments
-     */
+
 
     // Variables declaration - do not modify                     
     private com.mycompany.quanlyanphamthuvien.view.Button button1;

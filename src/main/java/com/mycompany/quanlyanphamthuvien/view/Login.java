@@ -243,7 +243,7 @@ public class Login extends javax.swing.JFrame {
 
         }else{
             MessageUtils mess = new MessageUtils();
-            mess.showMessage(null, "Tên đăng nhập hoặc mật khẩu không đúng.");
+            mess.showMessage(null, "The username or password is incorrect!");
         }
 
     }                                       
