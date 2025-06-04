@@ -6,10 +6,10 @@
             <TenAnPham>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</TenAnPham>
             <SoLuong>50</SoLuong>
             <NamXuatBan>2010</NamXuatBan>
-            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
-            <GiaTien>75000.0</GiaTien>
+            <NhaXuatBan>NXB Kim Dong</NhaXuatBan>
+            <GiaTien>75.0</GiaTien>
             <TacGia>Nguyễn Nhật Ánh</TacGia>
-            <TheLoai>Tiểu thuyết</TheLoai>
+            <TheLoai>Literature</TheLoai>
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
             <ID>TC001</ID>
@@ -53,6 +53,16 @@
             <SoPhatHanh>2</SoPhatHanh>
             <ThangPhatHanh>6</ThangPhatHanh>
             <ChuyenDe>Văn học</ChuyenDe>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S002</ID>
+            <TenAnPham>Chuyen Nha Ma</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Tre</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <TacGia>Nguyen Van Ha</TacGia>
+            <TheLoai>Literature</TheLoai>
         </AnPham>
     </DanhSachAnPham>
 </AnPhamXML>

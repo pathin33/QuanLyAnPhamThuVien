@@ -167,6 +167,7 @@ public class timkiembao extends javax.swing.JFrame {
             baoView.setLocationRelativeTo(null);
             baoView.khoiTaoBangBao(result);
             baoView.setVisible(true);
+            dispose();
         }
 
     }

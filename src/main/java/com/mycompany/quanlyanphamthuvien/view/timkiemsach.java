@@ -158,6 +158,7 @@ public class timkiemsach extends javax.swing.JFrame {
             sachView = new QLsach();
             sachView.setLocationRelativeTo(null);
             sachView.khoiTaoBangSach(result);
+            dispose();
         }
     }
 

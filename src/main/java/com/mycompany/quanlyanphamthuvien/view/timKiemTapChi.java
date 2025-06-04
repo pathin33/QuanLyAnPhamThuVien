@@ -171,6 +171,8 @@ public void buttonTimKiem(ActionListener listener) {
             tapChiView = new QLtapchi();
             tapChiView.setLocationRelativeTo(null);
             tapChiView.khoiTaoBangTapChi(result);
+            dispose();
+            
         }
 
     }                                       
