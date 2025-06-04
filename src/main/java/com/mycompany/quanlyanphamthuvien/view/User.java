@@ -252,7 +252,6 @@ public class User extends javax.swing.JFrame {
         for (NguoiDung nguoiDung : userList) {
             if (nguoiDung.getTenDangNhap().equals(inputUsername)
                     && nguoiDung.getMatKhau().equals(inputPassword)) {
-                // Đăng nhập thành công
                 SwingUtilities.invokeLater(() -> {
                     NguoiDungView nd = new NguoiDungView();
                     nd.setLocationRelativeTo(null);
