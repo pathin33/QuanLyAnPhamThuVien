@@ -7,7 +7,7 @@
             <SoLuong>50</SoLuong>
             <NamXuatBan>2010</NamXuatBan>
             <NhaXuatBan>NXB Kim Dong</NhaXuatBan>
-            <GiaTien>75.0</GiaTien>
+            <GiaTien>75000.0</GiaTien>
             <TacGia>Nguyễn Nhật Ánh</TacGia>
             <TheLoai>Literature</TheLoai>
         </AnPham>
@@ -28,10 +28,10 @@
             <SoLuong>3</SoLuong>
             <NamXuatBan>2025</NamXuatBan>
             <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
-            <GiaTien>20.0</GiaTien>
+            <GiaTien>20000.0</GiaTien>
             <SoPhatHanh>3</SoPhatHanh>
             <ThangPhatHanh>6</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
             <ID>B002</ID>
@@ -62,6 +62,16 @@
             <NhaXuatBan>NXB Tre</NhaXuatBan>
             <GiaTien>15000.0</GiaTien>
             <TacGia>Nguyen Van Ha</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S003</ID>
+            <TenAnPham>Chuyện Ma</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <TacGia>Nguyễn Bá Thiện</TacGia>
             <TheLoai>Literature</TheLoai>
         </AnPham>
     </DanhSachAnPham>

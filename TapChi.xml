@@ -29,10 +29,10 @@
             <SoLuong>3</SoLuong>
             <NamXuatBan>2025</NamXuatBan>
             <NhaXuatBan>NXB Hà Nội</NhaXuatBan>
-            <GiaTien>20.0</GiaTien>
+            <GiaTien>20000.0</GiaTien>
             <SoPhatHanh>3</SoPhatHanh>
             <ThangPhatHanh>6</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </TapChi>
     </DanhSachTapChi>
 </TapChiXMl>

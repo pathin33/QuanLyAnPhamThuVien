@@ -45,35 +45,35 @@ public class NguoiDungView extends JFrame {
             // Kiểm tra MSSV
             String mssv = MSSVUser.getText().trim();
             if (mssv.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập MSSV!");
+                JOptionPane.showMessageDialog(this, "Please enter Student ID!");
                 return;
             }
 
             // Kiểm tra MSSV phải là số
             if (!mssv.matches("\\d+")) {
-                JOptionPane.showMessageDialog(this, "MSSV phải là số!");
+                JOptionPane.showMessageDialog(this, "Student ID must be a number!");
                 return;
             }
 
             if (UserA.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên người dùng!");
+                JOptionPane.showMessageDialog(this, "Please enter user name!");
                 return;
             }
 
             if (jDateChooser1.getDate() == null) {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày mượn!");
+                JOptionPane.showMessageDialog(this, "Please select borrow date!");
                 return;
             }
 
             int selectedRow = jTable1.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn một mục để mượn!");
+                JOptionPane.showMessageDialog(this, "Please select an item to borrow!");
                 return;
             }
 
             int quantity = (int) jTable1.getValueAt(selectedRow, 5);
             if (quantity <= 1) {
-                JOptionPane.showMessageDialog(this, "Không thể mượn! Số lượng ấn phẩm đã ở mức tối thiểu.");
+                JOptionPane.showMessageDialog(this, "Cannot borrow! Publication quantity is at minimum.");
                 return;
             }
 
@@ -96,18 +96,18 @@ public class NguoiDungView extends JFrame {
         Returnbutton.addActionListener(e -> {
             String mssv = MSSVUser.getText().trim();
             if (mssv.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập MSSV!");
+                JOptionPane.showMessageDialog(this, "Please enter Student ID!");
                 return;
             }
 
             if (!mssv.matches("\\d+")) {
-                JOptionPane.showMessageDialog(this, "MSSV phải là số!");
+                JOptionPane.showMessageDialog(this, "Student ID must be a number!");
                 return;
             }
 
             int selectedRow = jTable1.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn một mục để trả!");
+                JOptionPane.showMessageDialog(this, "Please select an item to return!");
                 return;
             }
 
@@ -123,12 +123,12 @@ public class NguoiDungView extends JFrame {
         ListButton.addActionListener(e -> {
             String mssv = MSSVUser.getText().trim();
             if (mssv.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập MSSV!");
+                JOptionPane.showMessageDialog(this, "Please enter Student ID!");
                 return;
             }
 
             if (!mssv.matches("\\d+")) {
-                JOptionPane.showMessageDialog(this, "MSSV phải là số!");
+                JOptionPane.showMessageDialog(this, "Student ID must be a number!");
                 return;
             }
 
@@ -202,20 +202,22 @@ public class NguoiDungView extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ListButton))
-                        .addGap(47, 47, 47))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Returnbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(borrowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Returnbutton, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(borrowButton, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(33, 33, 33))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(ListButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,11 +228,11 @@ public class NguoiDungView extends JFrame {
                 .addComponent(borrowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(Returnbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(73, 73, 73)
                 .addComponent(ListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 590));
@@ -397,14 +399,14 @@ public class NguoiDungView extends JFrame {
                 -> {
             // Kiểm tra ngày mượn
             if (jDateChooser1.getDate() == null) {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày mượn!");
+                JOptionPane.showMessageDialog(this, "Please select borrow date!");
                 return;
             }
 
             // Kiểm tra hàng được chọn
             int selectedRow = jTable1.getSelectedRow();
             if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn một mục để mượn!");
+                JOptionPane.showMessageDialog(this, "Please select an item to borrow!");
                 return;
             }
 
@@ -416,7 +418,7 @@ public class NguoiDungView extends JFrame {
 
             // Kiểm tra số lượng và trạng thái
             if (quantity <= 0 || !status) {
-                JOptionPane.showMessageDialog(this, "Mục này không thể mượn!");
+                JOptionPane.showMessageDialog(this, "This item cannot be borrowed!");
                 return;
             }
 
@@ -437,7 +439,7 @@ public class NguoiDungView extends JFrame {
             );
             controller.capNhatSoLuong(id, quantity);
             // Cập nhật dữ liệu gốc (ví dụ: trong danh sách Sach/Bao/TapChi)
-            JOptionPane.showMessageDialog(this, "Mượn thành công!");
+            JOptionPane.showMessageDialog(this, "Borrow successful!");
         }
         );
     }

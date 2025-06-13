@@ -7,7 +7,7 @@
             <SoLuong>50</SoLuong>
             <NamXuatBan>2010</NamXuatBan>
             <NhaXuatBan>NXB Kim Dong</NhaXuatBan>
-            <GiaTien>75.0</GiaTien>
+            <GiaTien>75000.0</GiaTien>
             <TacGia>Nguyễn Nhật Ánh</TacGia>
             <TheLoai>Literature</TheLoai>
         </Sach>
@@ -19,6 +19,16 @@
             <NhaXuatBan>NXB Tre</NhaXuatBan>
             <GiaTien>15000.0</GiaTien>
             <TacGia>Nguyen Van Ha</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S003</ID>
+            <TenAnPham>Chuyện Ma</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <TacGia>Nguyễn Bá Thiện</TacGia>
             <TheLoai>Literature</TheLoai>
         </Sach>
     </DanhSachSach>
