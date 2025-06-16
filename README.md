@@ -1,64 +1,169 @@
-📚 **DỰ ÁN QUẢN LÝ ẤN PHẨM THƯ VIỆN - OOP JAVA**  
-**Java | OOP | XML**  
+# 📚 Hệ Thống Quản Lý Ấn Phẩm Thư Viện
 
-📖 **TỎA SÁNG VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN HIỆN ĐẠI**  
-Chào mừng bạn đến với **ứng dụng quản lý ấn phẩm thư viện** đỉnh cao, được xây dựng bằng **Java** dựa trên nền tảng **OOP** vững chắc! Hệ thống này giúp quản lý sách, tạp chí, báo một cách thông minh, với khả năng theo dõi trạng thái mượn/trả và lưu trữ dữ liệu siêu mượt bằng **XML**. Hãy cùng khám phá dự án này để biến việc quản lý thư viện trở nên dễ dàng và thú vị hơn bao giờ hết!  
+[![Java Version](https://img.shields.io/badge/Java-17%2B-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]
 
-🌟 **TÍNH NĂNG NỔI BẬT - ĐIỂM NHẤN CỦA DỰ ÁN**  
-### 1. **Quản Lý Ấn Phẩm Đỉnh Cao**  
-- **Thêm/Xóa/Sửa**: Quản lý thông tin ấn phẩm (sách, tạp chí, báo) chỉ với vài cú nhấp chuột.  
-- **Phân Loại Thể Loại**: Sắp xếp gọn gàng theo thể loại, từ tiểu thuyết đến khoa học, từ thời sự đến giải trí.  
-- **Theo Dõi Trạng Thái**: Biết ngay ấn phẩm nào đang "phiêu lưu" (được mượn) hay sẵn sàng trên kệ.  
+## 🎯 Tổng Quan
+Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java được phát triển dựa trên các nguyên tắc OOP, giúp quản lý hiệu quả các loại ấn phẩm trong thư viện như sách, tạp chí và báo. Hệ thống sử dụng XML làm cơ sở dữ liệu, đảm bảo tính linh hoạt và dễ dàng trong việc lưu trữ thông tin.
 
-### 2. **Tìm Kiếm & Sắp Xếp Siêu Tốc**  
-- **Tìm Kiếm Chính Xác**: Săn lùng ấn phẩm theo:  
-  - Tên ấn phẩm  
-  - Tác giả/Nhà xuất bản  
-  - Năm phát hành  
-  - Thể loại yêu thích  
-- **Sắp Xếp Thông Minh**: Sắp xếp danh sách ấn phẩm theo:  
-  - Tên (A-Z, vì ai mà không thích thứ tự chứ?)  
-  - Năm xuất bản (mới nhất lên đầu!)  
-  - Tình trạng mượn/trả (biết ngay cái nào "hot").  
+### Mục Tiêu
+- Quản lý thông tin ấn phẩm (sách, tạp chí, báo)
+- Theo dõi trạng thái mượn/trả
+- Lưu trữ dữ liệu bằng XML
+- Giao diện người dùng thân thiện
 
-### 3. **Quản Lý Mượn/Trả Mượt Mà**  
-- **Đánh Dấu Mượn**: Chỉ cần một thao tác để ghi nhận ấn phẩm đang "du lịch" cùng người mượn.  
-- **Ghi Nhận Trả**: Cập nhật trạng thái trả nhanh như chớp.  
-- **Kiểm Tra Sẵn Có**: Xem ngay ấn phẩm nào đang "rảnh rỗi" để phục vụ độc giả.  
+## ✨ Tính Năng Chính
 
-### 4. **Lưu Trữ Dữ Liệu Chuẩn Chỉnh**  
-- **XML Database**: Toàn bộ dữ liệu ấn phẩm và trạng thái mượn/trả được lưu trữ an toàn trong file XML.  
-- **Import/Export Dễ Dàng**: Xuất dữ liệu ra file XML hoặc nhập dữ liệu từ file chỉ trong tích tắc.  
+### 1. Quản Lý Ấn Phẩm
+- Thêm, xóa, cập nhật thông tin ấn phẩm
+- Phân loại theo loại ấn phẩm:
+  - Sách
+  - Tạp chí
+  - Báo
+- Quản lý thông tin chi tiết:
+  - Tên ấn phẩm
+  - Tác giả/Nhà xuất bản
+  - Năm phát hành
+  - Thể loại
 
-🛠 **CÔNG NGHỆ ĐẰNG SAU SỰ KỲ DIỆU**  
-- **Ngôn Ngữ**: **Java 17+** – mạnh mẽ, hiện đại, đáng tin cậy.  
-- **OOP Toàn Diện**: Áp dụng **Kế thừa**, **Đa hình**, **Đóng gói**, **Trừu tượng** để tạo nên một hệ thống linh hoạt và dễ bảo trì.  
-- **Xử Lý XML**: Sử dụng **DOM Parser** hoặc **JAXB** để thao tác với dữ liệu mượt mà.  
-- **Design Pattern**:  
-  - **Factory Method**: Tạo ấn phẩm một cách thông minh.  
-  - **Singleton**: Đảm bảo hệ thống chỉ có một "bộ não" quản lý duy nhất.  
-- **Unit Test**: **JUnit** giúp kiểm tra mọi ngóc ngách, đảm bảo chất lượng code tuyệt đối.  
+### 2. Tìm Kiếm và Lọc
+- Tìm kiếm theo:
+  - Tên ấn phẩm
+  - Tác giả/Nhà xuất bản
+  - Năm phát hành
+  - Thể loại
+- Sắp xếp theo:
+  - Tên (A-Z)
+  - Năm xuất bản
+  - Trạng thái mượn/trả
 
-📝 **HƯỚNG DẪN SỬ DỤNG - DỄ NHƯ ĂN KẸO**  
-1. **Thêm Ấn Phẩm Mới**:  
-   - Chọn loại ấn phẩm: Sách, Tạp chí hay Báo?  
-   - Nhập thông tin chi tiết (tên, tác giả, năm xuất bản, thể loại...).  
-   - Nhấn lưu, thế là xong! Ấn phẩm đã gia nhập "gia đình" thư viện.  
+### 3. Quản Lý Mượn/Trả
+- Đánh dấu trạng thái mượn/trả
+- Tự động cập nhật XML
+- Theo dõi lịch sử mượn/trả
 
-2. **Tìm Kiếm Ấn Phẩm**:  
-   - Gõ từ khóa hoặc chọn tiêu chí (tên, tác giả, thể loại...).  
-   - Kết quả hiện ra ngay, kèm thông tin chi tiết để bạn tha hồ khám phá.  
+### 4. Quản Lý Dữ Liệu
+- Lưu trữ dữ liệu dưới dạng XML:
+  - AnPham.xml
+  - Sach.xml
+  - TapChi.xml
+  - Bao.xml
+  - QuanLyAnPhamThuVien.xml
+  - NguoiDung.xml
+- Danh sách mượn/trả (danhsachmuontra.txt)
 
-3. **Quản Lý Mượn/Trả**:  
-   - Chọn ấn phẩm từ danh sách.  
-   - Đánh dấu "mượn" hoặc "trả" chỉ với một cú nhấp.  
-   - Kiểm tra trạng thái sẵn có để phục vụ người dùng nhanh chóng.  
+## 🛠 Cài Đặt
 
-🚀 **HÃY KHỞI ĐỘNG DỰ ÁN NGAY HÔM NAY!**  
-Dự án này không chỉ là một hệ thống quản lý thư viện, mà còn là sân chơi để bạn thể hiện kỹ năng **Java**, **OOP**, và sáng tạo với **XML**. Hãy bắt tay vào xây dựng, thử nghiệm, và đưa thư viện của bạn lên một tầm cao mới! Nếu cần hỗ trợ code mẫu, giải thích chi tiết, hay bất kỳ ý tưởng nào để "tăng nhiệt" dự án, cứ nói với mình nhé! 💡
+### Yêu Cầu Hệ Thống
+- Java Runtime Environment (JRE)
+- IDE hỗ trợ Java (NetBeans)
+- Thư viện jcalendar-1.4.jar
 
--Đánh dấu "Đã mượn" hoặc "Đã trả"
+### Cài Đặt
+1. Clone repository:
+   ```bash
+   git clone [repository-url]
+   cd QuanLyAnPhamThuVien
+   ```
 
--Hệ thống tự động cập nhật XML
+2. Mở project trong NetBeans IDE
+
+3. Build và chạy project:
+   - Clean and Build project
+   - Run project
+
+## 💻 Sử Dụng
+
+### Quản Lý Ấn Phẩm
+1. Thêm ấn phẩm mới:
+   - Chọn loại ấn phẩm (Sách/Tạp chí/Báo)
+   - Nhập thông tin chi tiết
+   - Lưu thông tin
+
+2. Cập nhật thông tin:
+   - Tìm kiếm ấn phẩm
+   - Chỉnh sửa thông tin
+   - Lưu thay đổi
+
+3. Xóa ấn phẩm:
+   - Tìm kiếm ấn phẩm
+   - Xác nhận xóa
+
+### Quản Lý Mượn/Trả
+1. Mượn ấn phẩm:
+   - Chọn ấn phẩm
+   - Đánh dấu "Đã mượn"
+   - Hệ thống tự động cập nhật XML
+
+2. Trả ấn phẩm:
+   - Chọn ấn phẩm
+   - Đánh dấu "Đã trả"
+   - Hệ thống tự động cập nhật XML
+
+## 📁 Cấu Trúc Project
+
+### Thư Mục Chính
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── mycompany/
+│   │           └── quanlyanphamthuvien/
+│   │               ├── action/
+│   │               ├── controller/
+│   │               ├── entity/
+│   │               ├── main/
+│   │               ├── utils/
+│   │               └── view/
+│   └── resources/
+└── test/
+```
+
+### File XML
+- `AnPham.xml`: Thông tin chung về ấn phẩm
+- `Sach.xml`: Thông tin sách
+- `TapChi.xml`: Thông tin tạp chí
+- `Bao.xml`: Thông tin báo
+- `QuanLyAnPhamThuVien.xml`: Cấu hình hệ thống
+- `NguoiDung.xml`: Thông tin người dùng
+
+## 🤝 Đóng Góp
+Mọi đóng góp đều được hoan nghênh. Vui lòng:
+
+1. Fork dự án
+2. Tạo branch mới
+3. Commit thay đổi
+4. Push lên branch
+5. Tạo Pull Request
+
+## 📞 Liên Hệ
+- **Tác Giả**: [BaThien,AnhTuan,ManhChi]
+- **GitHub**: [github.com/pathin33,github.com/NguyenDuyAnhTuan,github.com/ChiNguyenxK5]
+
+## ❓ FAQ
+
+### Câu Hỏi Thường Gặp
+1. **Làm thế nào để thêm ấn phẩm mới?**
+   - Sử dụng form thêm ấn phẩm trong giao diện
+   - Hoặc import từ file Excel/CSV
+
+2. **Cách xử lý khi ấn phẩm bị mất?**
+   - Đánh dấu trạng thái "Mất"
+   - Ghi nhận thông tin bồi thường
+   - Cập nhật kho
+
+3. **Làm sao để sao lưu dữ liệu?**
+   - Sử dụng tính năng Export
+   - Hoặc sao chép file XML
+
+4. **Cách cập nhật phiên bản mới?**
+   - Tải phiên bản mới
+   - Sao lưu dữ liệu
+   - Cập nhật theo hướng dẫn
+
+## 🙏 Cảm Ơn
+Cảm ơn bạn đã quan tâm đến dự án này.
 
 

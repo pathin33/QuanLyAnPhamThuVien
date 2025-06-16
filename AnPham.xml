@@ -20,7 +20,7 @@
             <GiaTien>20000.0</GiaTien>
             <SoPhatHanh>2</SoPhatHanh>
             <ThangPhatHanh>4</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tapChi">
             <ID>TC003</ID>
@@ -52,7 +52,7 @@
             <GiaTien>15000.0</GiaTien>
             <SoPhatHanh>2</SoPhatHanh>
             <ThangPhatHanh>6</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
             <ID>S002</ID>
@@ -73,6 +73,86 @@
             <GiaTien>20000.0</GiaTien>
             <TacGia>Nguyễn Bá Thiện</TacGia>
             <TheLoai>Literature</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
+            <ID>B003</ID>
+            <TenAnPham>Thời Đại Mới</TenAnPham>
+            <SoLuong>2</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>25000.0</GiaTien>
+            <NgayPhatHanh>2024-06-15T10:00:00+07:00</NgayPhatHanh>
+            <BienTapVien>Lê Minh Tuấn</BienTapVien>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S004</ID>
+            <TenAnPham>Đắc Nhân Tâm</TenAnPham>
+            <SoLuong>10</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Tổng Hợp TP.HCM</NhaXuatBan>
+            <GiaTien>12000.0</GiaTien>
+            <TacGia>Dale Carnegie</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S005</ID>
+            <TenAnPham>Nhà Giả Kim</TenAnPham>
+            <SoLuong>15</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Văn Học</NhaXuatBan>
+            <GiaTien>85000.0</GiaTien>
+            <TacGia>Paulo Coelho</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S006</ID>
+            <TenAnPham>Lập Trình Python Cơ Bản</TenAnPham>
+            <SoLuong>20</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Khoa Học Kỹ Thuật</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <TacGia>Nguyễn Văn Minh</TacGia>
+            <TheLoai>Technology</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
+            <ID>S007</ID>
+            <TenAnPham>Nghệ Thuật Sống</TenAnPham>
+            <SoLuong>8</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>9500.0</GiaTien>
+            <TacGia>Trần Đình Hoành</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
+            <ID>B004</ID>
+            <TenAnPham>Thời Báo Kinh Tế</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Kinh Tế</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <NgayPhatHanh>2024-08-15T08:00:00+07:00</NgayPhatHanh>
+            <BienTapVien>Nguyễn Văn An</BienTapVien>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
+            <ID>B005</ID>
+            <TenAnPham>Báo Văn Nghệ</TenAnPham>
+            <SoLuong>2</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Văn Hóa</NhaXuatBan>
+            <GiaTien>18000.0</GiaTien>
+            <NgayPhatHanh>2024-09-01T07:30:00+07:00</NgayPhatHanh>
+            <BienTapVien>Trần Thị Hương</BienTapVien>
+        </AnPham>
+        <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="bao">
+            <ID>B006</ID>
+            <TenAnPham>Báo Khoa Học</TenAnPham>
+            <SoLuong>4</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Khoa Học</NhaXuatBan>
+            <GiaTien>22000.0</GiaTien>
+            <NgayPhatHanh>2024-10-01T09:00:00+07:00</NgayPhatHanh>
+            <BienTapVien>Lê Văn Minh</BienTapVien>
         </AnPham>
     </DanhSachAnPham>
 </AnPhamXML>

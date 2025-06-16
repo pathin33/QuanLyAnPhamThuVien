@@ -10,7 +10,7 @@
             <GiaTien>20000.0</GiaTien>
             <SoPhatHanh>2</SoPhatHanh>
             <ThangPhatHanh>4</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </TapChi>
         <TapChi>
             <ID>TC004</ID>
@@ -21,7 +21,7 @@
             <GiaTien>15000.0</GiaTien>
             <SoPhatHanh>2</SoPhatHanh>
             <ThangPhatHanh>6</ThangPhatHanh>
-            <ChuyenDe>Văn học</ChuyenDe>
+            <ChuyenDe>Literature</ChuyenDe>
         </TapChi>
         <TapChi>
             <ID>TC003</ID>

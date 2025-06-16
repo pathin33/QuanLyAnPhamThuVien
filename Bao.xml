@@ -11,5 +11,45 @@
             <NgayPhatHanh>2025-05-01T18:41:22.014+07:00</NgayPhatHanh>
             <BienTapVien>Trần Văn Hưng</BienTapVien>
         </Bao>
+        <Bao>
+            <ID>B003</ID>
+            <TenAnPham>Thời Đại Mới</TenAnPham>
+            <SoLuong>2</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>25000.0</GiaTien>
+            <NgayPhatHanh>2024-06-15T10:00:00.000+07:00</NgayPhatHanh>
+            <BienTapVien>Lê Minh Tuấn</BienTapVien>
+        </Bao>
+        <Bao>
+            <ID>B004</ID>
+            <TenAnPham>Thời Báo Kinh Tế</TenAnPham>
+            <SoLuong>3</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Kinh Tế</NhaXuatBan>
+            <GiaTien>20000.0</GiaTien>
+            <NgayPhatHanh>2024-08-15T08:00:00.000+07:00</NgayPhatHanh>
+            <BienTapVien>Nguyễn Văn An</BienTapVien>
+        </Bao>
+        <Bao>
+            <ID>B005</ID>
+            <TenAnPham>Báo Văn Nghệ</TenAnPham>
+            <SoLuong>2</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Văn Hóa</NhaXuatBan>
+            <GiaTien>18000.0</GiaTien>
+            <NgayPhatHanh>2024-09-01T07:30:00.000+07:00</NgayPhatHanh>
+            <BienTapVien>Trần Thị Hương</BienTapVien>
+        </Bao>
+        <Bao>
+            <ID>B006</ID>
+            <TenAnPham>Báo Khoa Học</TenAnPham>
+            <SoLuong>4</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Khoa Học</NhaXuatBan>
+            <GiaTien>22000.0</GiaTien>
+            <NgayPhatHanh>2024-10-01T09:00:00.000+07:00</NgayPhatHanh>
+            <BienTapVien>Lê Văn Minh</BienTapVien>
+        </Bao>
     </DanhSachBao>
 </BaoXML>

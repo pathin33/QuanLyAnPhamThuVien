@@ -31,5 +31,45 @@
             <TacGia>Nguyễn Bá Thiện</TacGia>
             <TheLoai>Literature</TheLoai>
         </Sach>
+        <Sach>
+            <ID>S004</ID>
+            <TenAnPham>Đắc Nhân Tâm</TenAnPham>
+            <SoLuong>10</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Tổng Hợp TP.HCM</NhaXuatBan>
+            <GiaTien>12000.0</GiaTien>
+            <TacGia>Dale Carnegie</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S005</ID>
+            <TenAnPham>Nhà Giả Kim</TenAnPham>
+            <SoLuong>15</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Văn Học</NhaXuatBan>
+            <GiaTien>85000.0</GiaTien>
+            <TacGia>Paulo Coelho</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S006</ID>
+            <TenAnPham>Lập Trình Python Cơ Bản</TenAnPham>
+            <SoLuong>20</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Khoa Học Kỹ Thuật</NhaXuatBan>
+            <GiaTien>15000.0</GiaTien>
+            <TacGia>Nguyễn Văn Minh</TacGia>
+            <TheLoai>Technology</TheLoai>
+        </Sach>
+        <Sach>
+            <ID>S007</ID>
+            <TenAnPham>Nghệ Thuật Sống</TenAnPham>
+            <SoLuong>8</SoLuong>
+            <NamXuatBan>2024</NamXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+            <GiaTien>9500.0</GiaTien>
+            <TacGia>Trần Đình Hoành</TacGia>
+            <TheLoai>Literature</TheLoai>
+        </Sach>
     </DanhSachSach>
 </SachXML>
