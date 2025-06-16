@@ -3,6 +3,7 @@
 [![Java Version](https://img.shields.io/badge/Java-17%2B-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)]
 
 ## 🎯 Tổng Quan
 Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java được phát triển dựa trên các nguyên tắc OOP, giúp quản lý hiệu quả các loại ấn phẩm trong thư viện như sách, tạp chí và báo. Hệ thống sử dụng XML làm cơ sở dữ liệu, đảm bảo tính linh hoạt và dễ dàng trong việc lưu trữ thông tin.
@@ -52,6 +53,14 @@ Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java đư
   - QuanLyAnPhamThuVien.xml
   - NguoiDung.xml
 - Danh sách mượn/trả (danhsachmuontra.txt)
+
+## 🛠 Công Nghệ Sử Dụng
+- Java 17+
+- XML (JAXB) cho lưu trữ dữ liệu
+- Swing cho giao diện người dùng
+- JCalendar cho quản lý ngày tháng
+- JUnit cho kiểm thử
+- Maven cho quản lý dự án
 
 ## 🛠 Cài Đặt
 
@@ -163,7 +172,47 @@ Mọi đóng góp đều được hoan nghênh. Vui lòng:
    - Sao lưu dữ liệu
    - Cập nhật theo hướng dẫn
 
-## 🙏 Cảm Ơn
-Cảm ơn bạn đã quan tâm đến dự án này.
+
+
+## 🔧 Xử Lý Lỗi Thường Gặp
+
+### Lỗi Khi Chạy Ứng Dụng
+1. **Lỗi Java Version**
+   - Kiểm tra phiên bản Java: `java -version`
+   - Cài đặt Java 17 nếu chưa có
+
+2. **Lỗi XML**
+   - Kiểm tra quyền truy cập file XML
+   - Đảm bảo cấu trúc XML hợp lệ
+   - Sao lưu file XML trước khi sửa
+
+3. **Lỗi Giao Diện**
+   - Kiểm tra thư viện jcalendar-1.4.jar
+   - Xóa cache của IDE
+   - Clean và Build lại project
+
+## 🚀 Quy Trình Phát Triển
+
+### Quy Trình Làm Việc
+1. Tạo branch mới cho tính năng
+2. Phát triển và kiểm thử
+3. Code review
+4. Merge vào main branch
+
+### Kiểm Thử
+- Unit test cho các thành phần
+- Integration test cho luồng dữ liệu
+- UI test cho giao diện
+- Performance test cho hiệu suất
+
+## 📄 Giấy Phép
+
+Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+
+### Điều Khoản Sử Dụng
+- Được phép sử dụng cho mục đích thương mại
+- Được phép sửa đổi và phân phối
+- Được phép sử dụng riêng tư
+- Giữ nguyên thông báo bản quyền
 
 
