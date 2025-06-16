@@ -172,8 +172,6 @@ Mọi đóng góp đều được hoan nghênh. Vui lòng:
    - Sao lưu dữ liệu
    - Cập nhật theo hướng dẫn
 
-
-
 ## 🔧 Xử Lý Lỗi Thường Gặp
 
 ### Lỗi Khi Chạy Ứng Dụng
@@ -214,5 +212,28 @@ Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LI
 - Được phép sửa đổi và phân phối
 - Được phép sử dụng riêng tư
 - Giữ nguyên thông báo bản quyền
+
+## 🔑 Thông Tin Đăng Nhập
+
+### Tài Khoản Mặc Định
+1. **Tài khoản Admin**
+   - Username: `admin`
+   - Password: `admin123`
+   - Quyền: Quản trị viên (Full quyền)
+
+2. **Tài khoản Thủ thư**
+   - Username: `librarian`
+   - Password: `lib123`
+   - Quyền: Quản lý ấn phẩm và mượn/trả
+
+3. **Tài khoản Người dùng**
+   - Username: `user`
+   - Password: `user123`
+   - Quyền: Xem và mượn ấn phẩm
+
+### Lưu Ý Bảo Mật
+- Đổi mật khẩu mặc định sau lần đăng nhập đầu tiên
+- Không chia sẻ thông tin đăng nhập
+- Đăng xuất sau khi sử dụng xong
 
 
