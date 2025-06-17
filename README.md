@@ -1,6 +1,6 @@
 # 📚 Hệ Thống Quản Lý Ấn Phẩm Thư Viện
 
-[![Java Version](https://img.shields.io/badge/Java-17%2B-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+[![Java Version](https://img.shields.io/badge/Java-23%2B-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)]
@@ -55,12 +55,13 @@ Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java đư
 - Danh sách mượn/trả (danhsachmuontra.txt)
 
 ## 🛠 Công Nghệ Sử Dụng
-- Java 17+
+- Java 23
 - XML (JAXB) cho lưu trữ dữ liệu
 - Swing cho giao diện người dùng
 - JCalendar cho quản lý ngày tháng
 - JUnit cho kiểm thử
 - Maven cho quản lý dự án
+- JFreeChart cho vẽ biểu đồ
 
 ## 🛠 Cài Đặt
 
@@ -69,7 +70,7 @@ Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java đư
 - IDE hỗ trợ Java (NetBeans)
 - Thư viện jcalendar-1.4.jar
 
-### Cài Đặt
+### Chạy project trên NetBeans IDE
 1. Clone repository:
    ```bash
    git clone [repository-url]
@@ -81,6 +82,15 @@ Hệ thống Quản lý Ấn phẩm Thư viện là một ứng dụng Java đư
 3. Build và chạy project:
    - Clean and Build project
    - Run project
+
+### Chạy project trên file đã đóng gói
+1. Clone repository:
+   ```bash
+   git clone [repository-url]
+   cd QuanLyAnPhamThuVien
+   ```
+
+2. Mở project và chạy file QuanLyAnPham.exe
 
 ## 💻 Sử Dụng
 
@@ -138,46 +148,12 @@ src/
 - `QuanLyAnPhamThuVien.xml`: Cấu hình hệ thống
 - `NguoiDung.xml`: Thông tin người dùng
 
-## 🤝 Đóng Góp
-Mọi đóng góp đều được hoan nghênh. Vui lòng:
-
-1. Fork dự án
-2. Tạo branch mới
-3. Commit thay đổi
-4. Push lên branch
-5. Tạo Pull Request
-
-## 📞 Liên Hệ
-- **Tác Giả**: [BaThien,AnhTuan,ManhChi]
-- **GitHub**: [github.com/pathin33,github.com/NguyenDuyAnhTuan,github.com/ChiNguyenxK5]
-
-## ❓ FAQ
-
-### Câu Hỏi Thường Gặp
-1. **Làm thế nào để thêm ấn phẩm mới?**
-   - Sử dụng form thêm ấn phẩm trong giao diện
-   - Hoặc import từ file Excel/CSV
-
-2. **Cách xử lý khi ấn phẩm bị mất?**
-   - Đánh dấu trạng thái "Mất"
-   - Ghi nhận thông tin bồi thường
-   - Cập nhật kho
-
-3. **Làm sao để sao lưu dữ liệu?**
-   - Sử dụng tính năng Export
-   - Hoặc sao chép file XML
-
-4. **Cách cập nhật phiên bản mới?**
-   - Tải phiên bản mới
-   - Sao lưu dữ liệu
-   - Cập nhật theo hướng dẫn
-
 ## 🔧 Xử Lý Lỗi Thường Gặp
 
 ### Lỗi Khi Chạy Ứng Dụng
 1. **Lỗi Java Version**
-   - Kiểm tra phiên bản Java: `java -version`
-   - Cài đặt Java 17 nếu chưa có
+   - Kiểm tra phiên bản JDK
+   - Cài đặt JDK 23 nếu chưa có
 
 2. **Lỗi XML**
    - Kiểm tra quyền truy cập file XML
@@ -203,16 +179,6 @@ Mọi đóng góp đều được hoan nghênh. Vui lòng:
 - UI test cho giao diện
 - Performance test cho hiệu suất
 
-## 📄 Giấy Phép
-
-Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
-
-### Điều Khoản Sử Dụng
-- Được phép sử dụng cho mục đích thương mại
-- Được phép sửa đổi và phân phối
-- Được phép sử dụng riêng tư
-- Giữ nguyên thông báo bản quyền
-
 ## 🔑 Thông Tin Đăng Nhập
 
 ### Tài Khoản Mặc Định
@@ -220,7 +186,7 @@ Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LI
    - Username: `admin`
    - Password: `admin`
    - Quyền: Quản trị viên (Full quyền)
-3. **Tài khoản Người dùng**
+2. **Tài khoản Người dùng**
    - Username: `BaThien`
    - Password: `123`
    - Quyền: Xem và mượn ấn phẩm
@@ -229,4 +195,42 @@ Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LI
 - Không chia sẻ thông tin đăng nhập
 - Đăng xuất sau khi sử dụng xong
 
+### Điều Khoản Sử Dụng
+- Được phép sử dụng cho mục đích thương mại
+- Được phép sửa đổi và phân phối
+- Được phép sử dụng riêng tư
+- Giữ nguyên thông báo bản quyền
 
+## 🤝 Đóng Góp
+Mọi đóng góp đều được hoan nghênh. Vui lòng:
+
+1. Fork dự án
+2. Tạo branch mới
+3. Commit thay đổi
+4. Push lên branch
+5. Tạo Pull Request
+
+## ❓ FAQ
+
+### Câu Hỏi Thường Gặp
+1. **Làm thế nào để thêm ấn phẩm mới?**
+   - Sử dụng form thêm ấn phẩm trong giao diện
+   - Hoặc import từ file Excel/CSV
+
+2. **Cách xử lý khi ấn phẩm bị mất?**
+   - Đánh dấu trạng thái "Mất"
+   - Ghi nhận thông tin bồi thường
+   - Cập nhật kho
+
+3. **Làm sao để sao lưu dữ liệu?**
+   - Sử dụng tính năng Export
+   - Hoặc sao chép file XML
+
+4. **Cách cập nhật phiên bản mới?**
+   - Tải phiên bản mới
+   - Sao lưu dữ liệu
+   - Cập nhật theo hướng dẫn
+
+## 📞 Liên Hệ
+- **Tác Giả**: [BaThien,AnhTuan,ManhChi]
+- **GitHub**: [github.com/pathin33,github.com/NguyenDuyAnhTuan,github.com/ChiNguyenxK5]

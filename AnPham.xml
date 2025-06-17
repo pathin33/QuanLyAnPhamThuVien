@@ -56,12 +56,12 @@
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
             <ID>S002</ID>
-            <TenAnPham>Chuyen Nha Ma</TenAnPham>
+            <TenAnPham>Chuyện Nhà Ma</TenAnPham>
             <SoLuong>3</SoLuong>
             <NamXuatBan>2024</NamXuatBan>
-            <NhaXuatBan>NXB Tre</NhaXuatBan>
+            <NhaXuatBan>NXB Trẻ</NhaXuatBan>
             <GiaTien>15000.0</GiaTien>
-            <TacGia>Nguyen Van Ha</TacGia>
+            <TacGia>Nguyễn Văn Hà</TacGia>
             <TheLoai>Literature</TheLoai>
         </AnPham>
         <AnPham xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="sach">
